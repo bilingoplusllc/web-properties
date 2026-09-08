@@ -72,10 +72,31 @@ GA4 = {
     "gspaytables": "551647466",
 }
 
+# Карты сайтов — единственный список того, что мы вообще опубликовали. Он же
+# знаменатель доли индексации: до сих пор знаменатель (353 и 165) был вбит
+# руками в ЧЕТЫРЁХ местах сразу и ни одна пара не сверялась.
+SITEMAP = {
+    "mileagecurve": "https://mileagecurve.com/sitemap.xml",
+    "gspaytables": "https://gspaytables.com/sitemap.xml",
+}
+
+# Сколько адресов опрашиваем за прогон НА РЕСУРС. Квота Google — 2000 в сутки
+# и 600 в минуту на ресурс; наши корпуса (353 и 165) влезают целиком, и предел
+# стоит запасом на рост. Если адресов окажется больше, обход идёт ПО КРУГУ —
+# первыми те, кого проверяли раньше всех, — и остаток НАЗЫВАЕТСЯ в выводе:
+# молча урезанный охват читается как «посмотрели всё».
+INSPECT_PER_SITE = 900
+
 
 class Missing(Exception):
     """Не настроено. Это не сбой сети и не ноль — это отсутствие доступа, и
     молча превращать его в пустые данные нельзя."""
+
+
+class Quota(Exception):
+    """Квота источника исчерпана. Это НЕ отказ и не ноль: часть данных снята,
+    остальное снимется следующим прогоном. Обрывать по этой причине весь
+    прогон нельзя, а молчать о недоборе — тем более."""
 
 
 def _creds():
@@ -139,12 +160,12 @@ def _same_sites(props):
     напечатает две таблицы про РАЗНЫЕ множества, и никто этого не заметит:
     отсутствующая строка не выглядит ошибкой. Пусть лучше упадёт здесь.
     """
-    a, b = set(GSC), set(props)
-    if a != b:
+    a, b, c = set(GSC), set(props), set(SITEMAP)
+    if not (a == b == c):
         raise RuntimeError(
-            "списки сайтов разошлись: только в Search Console %s, только в "
-            "GA4 %s. Пока они не совпадут, доска сравнивала бы разное."
-            % (sorted(a - b) or "-", sorted(b - a) or "-"))
+            "списки сайтов разошлись: Search Console %s, GA4 %s, карты сайтов "
+            "%s. Пока они не совпадут, доска сравнивала бы разное."
+            % (sorted(a), sorted(b), sorted(c)))
 
 
 def _secs(total):
@@ -314,6 +335,148 @@ def search_daily(s, since, until):
     return rows
 
 
+def _csv_safe(v):
+    """Запятая в значении разорвала бы строку: файл пишется склейкой через ",".
+
+    Это не теоретическая опасность. coverageState приходит человекочитаемой
+    строкой, и среди настоящих её значений есть «Duplicate, Google chose
+    different canonical than user» — запятая внутри поля.
+    """
+    return str(v or "").replace(",", " ·").replace("\n", " ").strip()
+
+
+def _sitemap_urls(url, depth=0):
+    """Адреса из карты сайта. Индекс карт разворачивается рекурсивно."""
+    import xml.etree.ElementTree as ET                 # noqa: E402
+    import requests                                    # noqa: E402
+    if depth > 3:
+        raise RuntimeError("карты сайтов вложены глубже трёх уровней: %s" % url)
+    r = requests.get(url, timeout=60,
+                     headers={"User-Agent": "bilingoplus-board/1.0"})
+    r.raise_for_status()
+    root = ET.fromstring(r.content)
+    ns = "{http://www.sitemaps.org/schemas/sitemap/0.9}"
+    if root.tag == ns + "sitemapindex":
+        out = []
+        for loc in root.findall(ns + "sitemap/" + ns + "loc"):
+            out += _sitemap_urls((loc.text or "").strip(), depth + 1)
+        return out
+    locs = [(e.text or "").strip()
+            for e in root.findall(ns + "url/" + ns + "loc") if (e.text or "").strip()]
+    if not locs:
+        # Пустая карта — это отказ сервера или сломанная сборка, а не сайт из
+        # нуля страниц. Принять её за ноль значит объявить сайт исчезнувшим.
+        raise RuntimeError("карта %s не дала ни одного адреса" % url)
+    return locs
+
+
+def inspect_url(s, prop, url):
+    """Состояние ОДНОГО адреса в индексе Google.
+
+    Сводки «сколько страниц в индексе» Search Console не отдаёт ни одним
+    методом — только поадресно, этим. Считаем по полю `verdict`: оно ЕДИНСТВЕННОЕ
+    здесь настоящий enum (PASS / FAIL / NEUTRAL / PARTIAL / UNSPECIFIED).
+    Соседнее `coverageState` — человекочитаемая строка без объявленного набора
+    значений, вдобавок переводимая параметром languageCode; строить на ней
+    арифметику значит считать по тексту, который Google вправе переписать.
+    Мы её сохраняем, но только чтобы человек мог прочитать причину.
+    """
+    r = s.post("https://searchconsole.googleapis.com/v1/urlInspection/index:inspect",
+               json={"inspectionUrl": url, "siteUrl": prop,
+                     "languageCode": "en-US"},
+               timeout=90)
+    if r.status_code == 403:
+        raise Missing(
+            "URL Inspection отказала по %s (403). Служебному аккаунту нужен "
+            "уровень доступа Full — Restricted для этого метода не годится."
+            % prop)
+    if r.status_code == 429:
+        raise Quota("квота URL Inspection исчерпана на %s" % prop)
+    r.raise_for_status()
+    return (r.json().get("inspectionResult") or {}).get("indexStatusResult") or {}
+
+
+def index_census(s, today):
+    """Перепись индексации: по строке на КАЖДЫЙ опубликованный адрес.
+
+    Три величины, ради которых она существует, выводятся из ДОКУМЕНТИРОВАННЫХ
+    полей, а не из перевода строки причины:
+
+      в индексе          verdict == PASS
+      обошёл и не взял   verdict != PASS, при этом lastCrawlTime ЕСТЬ
+      нашёл и не обошёл  verdict != PASS, lastCrawlTime отсутствует
+
+    Присутствие lastCrawlTime документировано: «Absent if the URL was never
+    crawled successfully». Разница между этими двумя — разница между приговором
+    содержанию и очередью обхода, и чинятся они противоположным.
+
+    Адрес, которого в карте больше нет, из переписи ВЫПАДАЕТ: иначе удалённые
+    страницы вечно раздували бы знаменатель.
+    """
+    prev = _prev_index_rows()
+    rows, notes = [], []
+    for key, prop in sorted(GSC.items()):
+        urls = _sitemap_urls(SITEMAP[key])
+        # По кругу: первыми те, кого проверяли раньше всех. Пустая дата
+        # сортируется первой — это «ни разу не смотрели».
+        order = sorted(urls, key=lambda u: prev.get((key, u), ("",) * 8)[7])
+        take = order[:INSPECT_PER_SITE]
+        if len(take) < len(order):
+            notes.append("%s: адресов %d, за прогон опрошено %d — остальные "
+                         "в следующие прогоны" % (key, len(order), len(take)))
+        fresh, stopped = {}, None
+        for u in take:
+            try:
+                st = inspect_url(s, prop, u)
+            except Quota as e:
+                stopped = str(e)
+                break
+            fresh[u] = (
+                key, u,
+                _csv_safe(st.get("verdict") or "VERDICT_UNSPECIFIED"),
+                _csv_safe(st.get("coverageState")),
+                _csv_safe(st.get("pageFetchState")),
+                _csv_safe(st.get("robotsTxtState")),
+                _csv_safe((st.get("lastCrawlTime") or "")[:10]),
+                today.isoformat(),
+            )
+        if stopped:
+            notes.append("%s: %s; опрошено %d из %d"
+                         % (key, stopped, len(fresh), len(take)))
+        gone = sum(1 for (k, u) in prev if k == key and u not in set(urls))
+        if gone:
+            notes.append("%s: %d адресов ушли из карты и выпали из переписи"
+                         % (key, gone))
+        for u in urls:
+            if u in fresh:
+                rows.append(fresh[u])
+            elif (key, u) in prev:
+                rows.append(prev[(key, u)])
+            else:
+                # НИ РАЗУ не опрошен. Это не «нет в индексе» — это «не смотрели»,
+                # и пустая дата проверки отличает одно от другого.
+                rows.append((key, u, "", "", "", "", "", ""))
+    for n in notes:
+        print("  перепись:", n)
+    return rows
+
+
+def _prev_index_rows():
+    path = os.path.join(DATA, "index_state.csv")
+    if not os.path.exists(path):
+        return {}
+    out = {}
+    with io.open(path, encoding="utf-8") as f:
+        body = [l.rstrip("\n") for l in f if not l.startswith("#")]
+    for line in body[1:]:
+        if not line:
+            continue
+        p = line.split(",")
+        if len(p) == 8:
+            out[(p[0], p[1])] = tuple(p)
+    return out
+
+
 def search_total(s, since, until):
     """Итог окна ОДНИМ запросом, без разбивки по дням.
 
@@ -452,6 +615,20 @@ def main():
            "GA4 итог за 28 суток (порог рекламной сети месячный), окно "
            + win28 + ". Колонка pages_built НЕ из GA4: перенесена из "
            "прежнего снимка, её обновляет сборка сайта")
+    # Перепись индексации идёт ПОСЛЕДНЕЙ и своим отказом не роняет уже снятое:
+    # поисковый ряд и GA4 к этому месту записаны. Отказ печатается словами, а
+    # доска покажет прежнюю перепись с её прежней датой — как и всё остальное.
+    try:
+        _write("index_state.csv",
+               ["site", "url", "verdict", "coverage", "fetch_state", "robots",
+                "last_crawl", "checked"],
+               index_census(s, until + timedelta(days=1)),
+               "Перепись индексации по адресам карты сайта. Считать по "
+               "verdict (enum), НЕ по coverage: coverage — человекочитаемая "
+               "строка без объявленного набора значений")
+    except (Missing, RuntimeError) as e:
+        print("ПЕРЕПИСЬ ИНДЕКСАЦИИ НЕ СНЯТА:", e)
+
     print("готово")
     return 0
 

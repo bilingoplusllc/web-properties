@@ -60,6 +60,61 @@ def _ga_window():
         "нечем, а подпись из генератора уже один раз пережила свои данные.")
 
 
+def _index_census():
+    """Перепись индексации по адресам. ОТСУТСТВИЕ — это «не снято», а не ноль.
+
+    Три величины выводятся из ДОКУМЕНТИРОВАННЫХ полей ответа Google, а не из
+    перевода строки-причины:
+
+      в индексе          verdict == PASS
+      обошёл и не взял   verdict != PASS, при этом lastCrawlTime ЕСТЬ
+      нашёл и не обошёл  verdict != PASS, lastCrawlTime отсутствует
+
+    Разница между двумя последними — это разница между приговором содержанию
+    и очередью обхода, и чинятся они противоположным. Строку `coverage` мы
+    храним и показываем, но НЕ считаем по ней: у неё нет объявленного набора
+    значений, и Google переводит её по параметру языка.
+
+    Адрес без даты проверки в счёт не идёт вовсе: «не смотрели» — это третье
+    состояние, и подменять его нулём значит объявить страницу невзятой.
+    """
+    path = os.path.join(DIR, "index_state.csv")
+    if not os.path.exists(path):
+        return None
+    rows = _rows("index_state.csv")
+    if not rows:
+        return None
+    out = {}
+    for r in rows:
+        a = out.setdefault(r["site"], {
+            "total": 0, "seen": 0, "indexed": 0, "crawled_not": 0,
+            "queued": 0, "dates": [], "reasons": {}})
+        a["total"] += 1
+        if not r.get("checked"):
+            continue
+        a["seen"] += 1
+        a["dates"].append(r["checked"])
+        if r.get("verdict") == "PASS":
+            a["indexed"] += 1
+            continue
+        why = r.get("coverage") or "причина не названа"
+        a["reasons"][why] = a["reasons"].get(why, 0) + 1
+        if r.get("last_crawl"):
+            a["crawled_not"] += 1
+        else:
+            a["queued"] += 1
+    for k, a in out.items():
+        if a["indexed"] + a["crawled_not"] + a["queued"] != a["seen"]:
+            raise RuntimeError(
+                "%s: перепись не сходится — %d + %d + %d против %d опрошенных"
+                % (k, a["indexed"], a["crawled_not"], a["queued"], a["seen"]))
+        a["from"] = _d(min(a["dates"])) if a["dates"] else None
+        a["to"] = _d(max(a["dates"])) if a["dates"] else None
+        a["reasons"] = sorted(a["reasons"].items(), key=lambda x: (-x[1], x[0]))
+        del a["dates"]
+    return out
+
+
 def _sc_check():
     """Эталон СО СТОРОНЫ: итог окна, посчитанный самим Search Console.
 
@@ -190,6 +245,8 @@ DAILY = _load_search()
 # Считается здесь, а не рядом с CAPTURED: разбор дат живёт ниже.
 SC_CHECK = _sc_check()
 GA_WINDOW = _ga_window()
+# None означает «перепись не снята» — это состояние, а не ноль.
+INDEX = _index_census()
 
 # Правый край ряда — последний день, за который Search Console вообще что-то
 # отдал. У обоих сайтов он один и тот же, но считаем по каждому отдельно:

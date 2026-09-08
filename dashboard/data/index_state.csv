@@ -1,0 +1,3 @@
+# Перепись индексации по адресам карты сайта. Затравка: строк пока нет,
+# первый прогон бота их запишет. Считать по verdict (enum), НЕ по coverage.
+site,url,verdict,coverage,fetch_state,robots,last_crawl,checked
