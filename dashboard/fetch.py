@@ -442,6 +442,29 @@ def inspect_url(sessions, prop, url):
     return (r.json().get("inspectionResult") or {}).get("indexStatusResult") or {}
 
 
+def inspect_once(sessions, prop, url):
+    """Один адрес с одной ПОВТОРНОЙ попыткой на временный сбой.
+
+    500 от Google по одному адресу из 518 уронил весь прогон целиком — вместе
+    с уже снятыми поисковым рядом и GA4. Единичный отказ источника это не
+    «данных нет», а «сегодня не спросили»: адрес остаётся с прежней датой
+    проверки и попадёт в следующий круг.
+    """
+    for attempt in (1, 2):
+        try:
+            return inspect_url(sessions, prop, url)
+        except Quota:
+            raise
+        except Exception as e:                        # noqa: BLE001
+            code = getattr(getattr(e, "response", None), "status_code", None)
+            if attempt == 2 or (code is not None and 400 <= code < 500
+                                and code not in (408, 429)):
+                # Постоянный отказ (404, 400) повторять бессмысленно.
+                raise
+            time.sleep(2)
+    return {}
+
+
 def index_census(creds, today):
     """Перепись индексации: по строке на КАЖДЫЙ опубликованный адрес.
 
@@ -474,11 +497,11 @@ def index_census(creds, today):
         if len(take) < len(order):
             notes.append("%s: адресов %d, за прогон берём %d — остальные "
                          "в следующие прогоны" % (key, len(order), len(take)))
-        fresh, stopped = {}, None
+        fresh, stopped, failed = {}, None, []
         started = time.monotonic()
         done = 0
         with cf.ThreadPoolExecutor(max_workers=INSPECT_THREADS) as pool:
-            futures = {pool.submit(inspect_url, sessions, prop, u): u
+            futures = {pool.submit(inspect_once, sessions, prop, u): u
                        for u in take}
             for fut in cf.as_completed(futures):
                 u = futures[fut]
@@ -487,6 +510,12 @@ def index_census(creds, today):
                     st = fut.result()
                 except Quota as e:
                     stopped = stopped or str(e)
+                    continue
+                except Exception as e:                # noqa: BLE001
+                    # Адрес не опрошен — и только он. Прежняя строка остаётся
+                    # со своей прежней датой, и это видно: доска печатает
+                    # диапазон дат переписи.
+                    failed.append("%s: %s" % (u, str(e)[:60]))
                     continue
                 fresh[u] = (
                     key, u,
@@ -511,6 +540,16 @@ def index_census(creds, today):
         if stopped:
             notes.append("%s: %s; опрошено %d из %d"
                          % (key, stopped, len(fresh), len(take)))
+        if failed:
+            notes.append("%s: %d адресов не ответили, оставлены с прежней "
+                         "датой (первый: %s)" % (key, len(failed), failed[0]))
+            # Единичный сбой — норма сети. Массовый — это отказ источника, и
+            # молча принять его за «данных нет» нельзя.
+            if len(failed) > max(5, len(take) // 5):
+                raise RuntimeError(
+                    "%s: не ответили %d адресов из %d — это похоже на отказ "
+                    "источника, а не на сетевую икоту. Перепись не переписана."
+                    % (key, len(failed), len(take)))
         gone = sum(1 for (k, u) in prev if k == key and u not in set(urls))
         if gone:
             notes.append("%s: %d адресов ушли из карты и выпали из переписи"
