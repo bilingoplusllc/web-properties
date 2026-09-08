@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Справочники · инфохаб</title>
+<style>
+  :root{
+    --ground:#F7F7FB; --surface:#FFFFFF; --sunken:#F1F1F7;
+    --ink:#14142B; --ink2:#3D3D5C; --muted:#6E6E8F;
+    --line:#E3E3EF; --line-soft:#EDEDF5;
+    --brand:#4143E5; --brand-soft:#EDEDFD; --brand-ink:#2B2DB8;
+    --coral:#FE7468; --coral-soft:#FFEDEB; --coral-ink:#B03A2E;
+    --ok:#0E7A5F; --ok-bg:#E3F4EE;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ground);color:var(--ink);
+    font:16px/1.6 ui-sans-serif,system-ui,"Segoe UI",Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:940px;margin:0 auto;padding:24px 20px 80px}
+  .top{display:flex;align-items:center;justify-content:space-between;
+    gap:16px;margin:0 0 14px;flex-wrap:wrap}
+  .top img{height:30px;width:auto;display:block}
+  .back{background:var(--surface);border:1px solid var(--line);
+    border-radius:99px;padding:7px 15px;font-size:13.5px;color:var(--brand-ink);
+    text-decoration:none;white-space:nowrap;font-weight:600}
+  .back:hover{background:var(--brand-soft)}
+  h1{font-size:32px;line-height:1.12;margin:0 0 8px;letter-spacing:-.018em}
+  .sub{color:var(--ink2);font-size:16px;margin:0 0 4px;max-width:62ch}
+  .stamp{color:var(--muted);font-size:12.5px;margin:10px 0 0}
+
+  .toc{display:grid;gap:6px;margin:26px 0 0;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+  .toc a{display:flex;gap:10px;align-items:baseline;background:var(--surface);
+    border:1px solid var(--line);border-radius:9px;padding:10px 12px;
+    text-decoration:none;color:var(--ink);font-size:14px}
+  .toc a:hover{border-color:var(--brand);background:var(--brand-soft)}
+  .toc i{font-style:normal;color:var(--muted);font-size:12px;
+    font-variant-numeric:tabular-nums;flex:none}
+
+  .ch{background:var(--surface);border:1px solid var(--line);
+    border-radius:14px;padding:22px 24px;margin:14px 0 0;scroll-margin-top:14px}
+  .ch-h{display:flex;align-items:baseline;gap:12px;margin:0 0 10px}
+  .ch-n{font-size:12px;font-weight:700;color:var(--brand-ink);
+    background:var(--brand-soft);border-radius:6px;padding:3px 8px;
+    font-variant-numeric:tabular-nums;flex:none}
+  .ch h2{font-size:21px;line-height:1.25;margin:0;letter-spacing:-.012em}
+  .ch-lead{font-size:17px;line-height:1.55;color:var(--ink);margin:0 0 14px;
+    padding-left:14px;border-left:3px solid var(--brand)}
+  .ch-b p{margin:0 0 11px;color:var(--ink2);font-size:15px}
+  .ch-b p:last-child{margin-bottom:0}
+  .ch-b b{color:var(--ink)}
+  .ch-src{margin:16px 0 0;padding-top:11px;border-top:1px solid var(--line-soft);
+    font-size:12.5px;color:var(--muted)}
+
+  h3.sec{font-size:13px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--muted);margin:36px 0 12px;font-weight:700}
+  .les{background:var(--surface);border:1px solid var(--line);
+    border-left:3px solid var(--coral);border-radius:12px;padding:16px 18px;
+    margin:0 0 10px}
+  .les b{display:block;font-size:16px;margin-bottom:7px}
+  .les-w{margin:0 0 11px;font-size:14.5px;color:var(--ink2);line-height:1.6}
+  .les-r{margin:0;font-size:14.5px;color:var(--ink);background:var(--ok-bg);
+    border-radius:8px;padding:10px 12px;line-height:1.55}
+  .les-r span{display:block;font-size:11px;letter-spacing:.11em;
+    text-transform:uppercase;color:var(--ok);font-weight:700;margin-bottom:3px}
+
+  table{border-collapse:collapse;width:100%;font-size:14.5px;
+    background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    overflow:hidden}
+  th,td{text-align:left;padding:10px 14px;border-top:1px solid var(--line-soft);
+    vertical-align:top}
+  tr:first-child th,tr:first-child td{border-top:0}
+  th{font-weight:600;white-space:nowrap;width:1%}
+  td{color:var(--ink2)}
+  code{font:12.5px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;
+    background:var(--sunken);color:var(--ink2);padding:2px 7px;border-radius:5px}
+  footer{margin:40px 0 0;color:var(--ink2);font-size:12.5px;line-height:1.7}
+  @media (max-width:640px){
+    .wrap{padding:18px 14px 56px}
+    h1{font-size:25px}
+    .ch{padding:18px 16px}
+    .ch-lead{font-size:16px}
+    th{white-space:normal;width:auto}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="top">
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbDpzcGFjZT0icHJlc2VydmUiIHZlcnNpb249IjEuMSIgc3R5bGU9InNoYXBlLXJlbmRlcmluZzpnZW9tZXRyaWNQcmVjaXNpb247IHRleHQtcmVuZGVyaW5nOmdlb21ldHJpY1ByZWNpc2lvbjsgaW1hZ2UtcmVuZGVyaW5nOm9wdGltaXplUXVhbGl0eTsgZmlsbC1ydWxlOmV2ZW5vZGQ7IGNsaXAtcnVsZTpldmVub2RkIiB2aWV3Qm94PSIwIDAgMjEwMDAgNTYyMCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPiA8ZGVmcz4gPHN0eWxlIHR5cGU9InRleHQvY3NzIj4gPCFbQ0RBVEFbIC5maWwwIHtmaWxsOiM0MTQzRTV9IC5maWwxIHtmaWxsOiNGRTc0Njh9IF1dPiA8L3N0eWxlPiA8L2RlZnM+IDxnIGlkPSLQodC70L7QuV94MDAyMF8xIj4gPG1ldGFkYXRhIGlkPSJDb3JlbENvcnBJRF8wQ29yZWwtTGF5ZXIiLz4gPGcgaWQ9Il8yMTY4MTYzMDM5NTg0Ij4gPHBhdGggY2xhc3M9ImZpbDAiIGQ9Ik04ODcuMzYgMzI5Ny43M2wwIC0yMzM4LjYyIDg3OS40MiAwYzE5MS4wNCwwIDM1NC42Niw2OC4wNiA0OTAuNzgsMjA0LjIxIDEzNi4xNSwxMzYuMTYgMjA0LjIxLDI5OS43NCAyMDQuMjEsNDkwLjc4IDAsMTU4LjEyIC01NC44OCwyOTIuMDUgLTE2NC42NSw0MDEuODYgMTAwLjk3LDU0Ljg5IDE4MS4xMywxMjkuNTUgMjQwLjQzLDIyMy45NiA1OS4zLDk0LjQ0IDg4LjkyLDIwMi4wMiA4OC45MiwzMjIuODEgMCwxOTMuMjMgLTY4LjYyLDM1Ny4zNyAtMjA1Ljg1LDQ5Mi40MSAtMTM3LjIzLDEzNS4wNSAtMzA0LjY3LDIwMi41OSAtNTAyLjMyLDIwMi41OWwtMTAzMC45NCAwem0tMTY5Ljg1IC0zMjkyLjcxbDk4OTYuMDQgMCA2MTEuODMgMTcxNy43Yy0xMjEuMzEsLTY1LjUgLTI1Ni40MywtOTguMjcgLTQwNS40NiwtOTguMjcgLTIzNy4xNywwIC00MzkuMiw4Mi45IC02MDYuMDgsMjQ4LjcxIC0xNjYuODgsMTY1Ljc3IC0yNTAuMzQsMzY2LjE2IC0yNTAuMzQsNjAxLjEgMCwyMzQuOTggODMuNDYsNDM1LjMzIDI1MC4zNCw2MDEuMTQgMTY2Ljg4LDE2NS43NyAzNjguOTEsMjQ4LjY3IDYwNi4wOCwyNDguNjcgMjM3LjEzLDAgNDM5LjE1LC04Mi45IDYwNi4wNCwtMjQ4LjY3IDgxLjksLTgxLjM4IDE0My42OSwtMTcxLjA3IDE4NS40LC0yNjkuMTJsNjE5Ljg0IDE3NDAuMTUgLTExNTEzLjY5IDBjLTM5OC4xOSwwIC03MjQuNjUsLTMyNi4wNSAtNzI0LjY1LC03MjQuNmwwIC0zMDkyLjE3YzAsLTM5OC41NiAzMjYuMDksLTcyNC42NCA3MjQuNjUsLTcyNC42NHptNjk2Ljg0IDE4OTkuNDJsMjkzLjE3IDBjNzAuMjUsMCAxMjguNDQsLTIxLjk3IDE3NC41NiwtNjUuODcgNDYuMTMsLTQzLjk0IDY5LjE4LC05OC44MiA2OS4xOCwtMTY0LjY5IDAsLTY1Ljg3IC0yMy4wNSwtMTIxLjMxIC02OS4xOCwtMTY2LjM2IC00Ni4xMiwtNDUuMDIgLTEwNC4zMSwtNjcuNTEgLTE3NC41NiwtNjcuNTFsLTI5My4xNyAwIDAgNDY0LjQzem0wIDkwOS4wOGw0NTQuNTYgMGM3MC4yNSwwIDEyOC40NCwtMjEuOTMgMTc0LjU2LC02NS44NyA0Ni4xMywtNDMuOSA2OS4xOCwtOTguODMgNjkuMTgsLTE2NC42OSAwLC02NS44NyAtMjMuMDUsLTEyMS4zMiAtNjkuMTgsLTE2Ni4zMyAtNDYuMTIsLTQ1LjAxIC0xMDQuMzEsLTY3LjU0IC0xNzQuNTYsLTY3LjU0bC00NTQuNTYgMCAwIDQ2NC40M3ptMTQ2Ny4xMyAtMTM5Ni41NWMtNDMuOSwtNTAuNTEgLTY1Ljg3LC0xMTMuMTEgLTY1Ljg3LC0xODcuNzggMCwtODMuNDIgMjguNTQsLTE1My43MSA4NS42NSwtMjEwLjc4IDU3LjA4LC01Ny4xMSAxMjcuMzYsLTg1LjY1IDIxMC43OSwtODUuNjUgODMuNDYsMCAxNTMuNzEsMjguNTQgMjEwLjgyLDg1LjY1IDU3LjA3LDU3LjA3IDg1LjY1LDEyNy4zNiA4NS42NSwyMTAuNzggMCw3NC42NyAtMjEuOTcsMTM3LjI3IC02NS45MSwxODcuNzhsLTQ2MS4xMyAwem0tMTkuNzQgMTg4MC43NmwwIC0xNjQ2LjkzIDQ5Ny4zNSAwIDAgMTY0Ni45MyAtNDk3LjM1IDB6bTg5MC43MSAwbDAgLTIzMzguNjIgNTI2Ljk5IDAgMCAxODE0Ljg5IDkwOS4xMiAwIDAgNTIzLjczIC0xNDM2LjExIDB6bTE2NjguMDQgLTE4ODAuNzZjLTQzLjksLTUwLjUxIC02NS44NywtMTEzLjExIC02NS44NywtMTg3Ljc4IDAsLTgzLjQyIDI4LjU0LC0xNTMuNzEgODUuNjUsLTIxMC43OCA1Ny4wOCwtNTcuMTEgMTI3LjM2LC04NS42NSAyMTAuNzksLTg1LjY1IDgzLjQ2LDAgMTUzLjcsMjguNTQgMjEwLjgyLDg1LjY1IDU3LjA3LDU3LjA3IDg1LjY1LDEyNy4zNiA4NS42NSwyMTAuNzggMCw3NC42NyAtMjEuOTcsMTM3LjI3IC02NS45MSwxODcuNzhsLTQ2MS4xMyAwem0tMTkuNzQgMTg4MC43NmwwIC0xNjQ2LjkzIDQ5Ny4zNCAwIDAgMTY0Ni45MyAtNDk3LjM0IDB6bTgzOC4wMSAwbDAgLTE2NDYuOTMgNDk3LjM1IDAgMCAxMDIuMTJjMTAzLjIsLTg1LjY1IDIyOS40OCwtMTI4LjQ3IDM3OC43NywtMTI4LjQ3IDIyOC4zOCwwIDQwNS4xNyw2OC42NSA1MzAuMzQsMjA1Ljg4IDEyNS4xMywxMzcuMjMgMTg3Ljc0LDMyMC4wNCAxODcuNzQsNTQ4LjQxbDAgOTE4Ljk5IC00OTcuMzggMCAwIC04MzAuMDRjMCwtMTE4LjYgLTI0LjY4LC0yMTMuMDEgLTc0LjExLC0yODMuMjkgLTQ5LjM5LC03MC4yNSAtMTI1LjY5LC0xMDUuMzkgLTIyOC45MywtMTA1LjM5IC0xMTQuMTksMCAtMjEyLjk3LDQ3LjIgLTI5Ni40MywxNDEuNjRsMCAxMDc3LjA4IC00OTcuMzUgMHptMjY3Mi42NCA2MzguOTljLTMwNS4yMiwwIC01NTIuMjYsLTYxLjQ5IC03NDEuMTIsLTE4NC40NGwyMjQgLTQzOC4wOGMxNDQuOTEsMTEyIDMwNi4zNCwxNjggNDg0LjIxLDE2OCAxMDkuNzcsMCAxOTkuOCwtMjAuOSAyNzAuMDgsLTYyLjYxIDcwLjI1LC00MS43MSAxMDUuMzksLTEwOC42OSAxMDUuMzksLTIwMC45MSAwLC01Mi42OSAtMTQuMjgsLTk4LjgyIC00Mi44MiwtMTM4LjM0IC0xMDEuMDEsODMuNDIgLTIyMi44OCwxMjUuMTcgLTM2NS42MSwxMjUuMTcgLTIzNy4xNiwwIC00MjYuMDIsLTc4LjUzIC01NjYuNTUsLTIzNS41NCAtMTQwLjU0LC0xNTYuOTcgLTIxMC43OCwtMzQyIC0yMTAuNzgsLTU1NC45NyAwLC0yMTMuMDEgNzAuMjQsLTM5OC4wMSAyMTAuNzgsLTU1NS4wMiAxNDAuNTMsLTE1Ny4wMSAzMjkuMzksLTIzNS41MyA1NjYuNTUsLTIzNS41MyAxNDAuNTQsMCAyNjEuMjksNDEuNzUgMzYyLjMxLDEyNS4xN2wwIC05OC44MiA0OTcuMzggMCAwIDEzMjcuNDFjNDYuMTIsMTA3LjYyIDY5LjE3LDIxNS4yIDY5LjE3LDMyMi44MiAwLDE0Ny4xIC00My4zOCwyNzAuMDggLTEzMC4xMSwzNjguOTEgLTg2LjcyLDk4LjgyIC0xOTIuMTUsMTY3Ljk1IC0zMTYuMjEsMjA3LjUxIC0xMjQuMDYsMzkuNTIgLTI2Mi45Niw1OS4yNyAtNDE2LjY3LDU5LjI3em0wIC0xMTg1Ljc3YzEyMi45OCwwIDIyMS44MSwtNDYuMTMgMjk2LjQ0LC0xMzguMzRsMCAtMzk1LjI2Yy03NC42MywtOTIuMjIgLTE3My40NiwtMTM4LjM0IC0yOTYuNDQsLTEzOC4zNCAtMTA1LjM5LDAgLTE4OC44NSwzMy41MSAtMjUwLjM0LDEwMC40NSAtNjEuNDUsNjYuOTggLTkyLjIyLDE0NS41MSAtOTIuMjIsMjM1LjU0IDAsOTAuMDIgMzAuNzcsMTY4LjUxIDkyLjIyLDIzNS40OSA2MS40OSw2Ni45OSAxNDQuOTUsMTAwLjQ2IDI1MC4zNCwxMDAuNDZ6bTE2NTMuMjQgMGM2Ni45OCw3Mi40OCAxNTIuMDgsMTA4LjcgMjU1LjI4LDEwOC43IDEwMy4yLDAgMTg4LjI5LC0zNi4yMiAyNTUuMjQsLTEwOC43IDY2Ljk4LC03Mi40NyAxMDAuNDksLTE2NC42OSAxMDAuNDksLTI3Ni42OSAwLC0xMTIgLTMzLjUxLC0yMDQuMjEgLTEwMC40OSwtMjc2LjY5IC02Ni45NSwtNzIuNDQgLTE1Mi4wNCwtMTA4LjY5IC0yNTUuMjQsLTEwOC42OSAtMTAzLjIsMCAtMTg4LjMsMzYuMjUgLTI1NS4yOCwxMDguNjkgLTY2Ljk4LDcyLjQ4IC0xMDAuNDYsMTY0LjY5IC0xMDAuNDYsMjc2LjY5IDAsMTEyIDMzLjQ4LDIwNC4yMiAxMDAuNDYsMjc2LjY5eiIvPiA8cGF0aCBjbGFzcz0iZmlsMSIgZD0iTTEyMjMxLjIzIDQ1NDYuNDZsLTgyOS42MiAxMDcwLjM5IC0wLjYyIC0xLjYyIC0zODAuNjggLTEwNjguNzcgMTIxMC45MiAwem0yNDk1Ljc0IC0xODAwLjc3bC0yNTkuMjIgMCAwIDI1OS4xNyAtMTAzNy4zMSAwIDAgMTAzNi43MyAtNTE4LjM1IDAgMCAtMjMzMi42OCAxNTU1LjY2IDAgMCAyNTkuMTcgMjU5LjIyIDAgMCA3NzcuNjF6bS01MTguMzggMGwwIC03NzcuNjEgLTc3OC4xNSAwIDAgNzc3LjYxIDc3OC4xNSAwem0xOTU1LjkzIDEyOTUuOWwtMTMwOS44OSAwIDAgLTI1OS4xNyAzOTUuNzggMCAwIC0xODE0LjM0IC0yODUuMjMgMCAwIC0yNTkuMTcgODAzLjU4IDAgMCAyMDczLjUxIDM5NS43NiAwIDAgMjU5LjE3em0xNzY4LjI5IDBsLTEyOTUuODggMCAwIC0yNTkuMTcgLTI1OS4xNiAwIDAgLTE1NTUuMDkgNTE4LjMzIDAgMCAxNTU1LjA5IDUxOC4zNiAwIDAgLTE1NTUuMDkgNTE4LjM1IDAgMCAxODE0LjI2em0xODQyLjQ1IC0yNTkuMTdsLTI1OS4xNiAwIDAgMjU5LjE3IC0xMjk1LjkgMCAwIC0yNTkuMTcgMTAzNi43MyAwIDAgLTUxOC4zNSAtNzc3LjU3IDAgMCAtMjU5LjIxIC0yNTkuMTYgMCAwIC01MTguMzYgMjU5LjE2IDAgMCAtMjU5LjE3IDEyOTUuOSAwIDAgMjU5LjE3IC0xMDM2LjczIDAgMCA1MTguMzYgNzc3LjU3IDAgMCAyNTkuMjEgMjU5LjE2IDAgMCA1MTguMzV6bS04MTc3LjA1IC0yOTQ0Ljg2bDg5MDEuNzQgMCAwIDQyODguNDkgLTgwMTIuNTUgMGMtMTI2Ljc1LDE2My42MSAtMjUzLjU3LDMyNy4xOSAtMzgwLjM0LDQ5MC44bDgzOTIuODkgMCAwIC0yNzAuMDMgMjIwLjc2IDAgMCAtMjIwLjc3IDI3Mi4xNiAwIDAgLTQyODguNDkgLTI3Mi4xNiAwIDAgLTIyMC43OSAtMjIwLjc2IDAgMCAtMjg0LjAxIC05MDk3LjM2IDBjNzIuMTQsMTc1LjEgMTMyLjQ4LDMyNy40IDE5NS42Miw1MDQuOHoiLz4gPC9nPiA8L2c+IDwvc3ZnPg==" alt="BiLingoPlus">
+  <a class="back" href="board.html">← К доске направления</a>
+</div>
+
+<h1>Справочники — как мы это делаем</h1>
+<p class="sub">Глубокая документация направления простым языком: зачем оно,
+как устроен продукт, как выбираем ниши, на чём зарабатываем, чего нельзя
+и чему научились на собственных ошибках.</p>
+<p class="stamp">Пересказ рабочих документов направления · обновлено 08.09.2026</p>
+
+<nav class="toc"><a href="#zachem"><i>01</i>Что мы делаем</a><a href="#stranica"><i>02</i>Как устроена страница — единственная рабочая формула</a><a href="#obem"><i>03</i>Сколько страниц и с какой скоростью</a><a href="#zaprosy"><i>04</i>В какие запросы целимся</a><a href="#lestnica"><i>05</i>Как мы зарабатываем</a><a href="#nishi"><i>06</i>Как выбираем нишу — правило, к которому пришли через две ошибки</a><a href="#skolko"><i>07</i>Почему сайтов будет три-пять, а не десять</a><a href="#proizvodstvo"><i>08</i>Как это производится</a><a href="#nelzya"><i>09</i>Чего нельзя</a><a href="#indeks"><i>10</i>Сводный индекс — как он считается и как дважды был неверен</a><a href="#dengi"><i>11</i>Деньги — расходы и чего ждём</a><a href="#riski"><i>12</i>Риски, за которыми следим</a><a href="#sroki"><i>13</i>На какие сроки смотреть</a><a href="#stop"><i>14</i>Почему мы остановили выпуск новых страниц</a><a href="#grafiki"><i>15</i>Как читать графики динамики</a><a href="#izmerenie"><i>16</i>Как и где мы смотрим цифры</a></nav>
+
+
+  <section class="ch" id="zachem">
+    <div class="ch-h"><span class="ch-n">01</span>
+      <h2>Что мы делаем</h2></div>
+    <p class="ch-lead">Строим справочные сайты для американской аудитории и зарабатываем на рекламе, которую на них показывают. Никаких подписок, продаж и клиентов — только показы.</p>
+    <div class="ch-b"><p>Продукт — это ответ на вопрос, который человек набирает в Google, и который нельзя закрыть одной строкой. «Сколько платят GS-12 в Денвере» или «сколько проходит Subaru Forester 2009». Мы отвечаем числом и объясняем, откуда оно взялось.</p><p>Почему справочники, а не блог: у справочника вопрос повторяется годами, а данные обновляются раз в год. Один раз построил — работает без нас. Блог требует новых текстов каждую неделю.</p><p>Оба сайта в собственных текстах называют себя <i>independent reference</i> — отсюда и название направления.</p></div>
+    <p class="ch-src">Источник: STRATEGY.md, раздел 1</p>
+  </section>
+  <section class="ch" id="stranica">
+    <div class="ch-h"><span class="ch-n">02</span>
+      <h2>Как устроена страница — единственная рабочая формула</h2></div>
+    <p class="ch-lead">Инструмент или данные плюс полторы-четыре тысячи слов разбора НА ТОЙ ЖЕ странице. Не блог отдельно, не таблица отдельно — вместе.</p>
+    <div class="ch-b"><p><b>Почему это не переусердствование.</b> Премиальная рекламная сеть требует длинных текстов на большинстве страниц и проверяет это постранично, по всему сайту. Сайт из двухсот хороших страниц проходит; сайт из двадцати статей и пяти тысяч тонких строк — нет.</p><p>Все известные сайты-«голые инструменты» застряли на $1,33–15 за тысячу просмотров. Для сравнения, премиальная ступень платит $18–50. Разница не в трафике, а в том, пускают тебя туда или нет.</p><p><b>Минимум три уникальных факта на страницу.</b> Проверено на корпусе из 512 страниц: 87% индексации против 41% при массовой заливке однотипного.</p><p>Ещё обязательны: нумерованные ссылки на первоисточники с номерами документов, дата снимка данных и ссылка на страницу методики.</p></div>
+    <p class="ch-src">Источник: PLAYBOOK.md, раздел 1</p>
+  </section>
+  <section class="ch" id="obem">
+    <div class="ch-h"><span class="ch-n">03</span>
+      <h2>Сколько страниц и с какой скоростью</h2></div>
+    <p class="ch-lead">От 150 до 400 содержательных страниц. Верхний предел — 500. Больше не лучше, а хуже.</p>
+    <div class="ch-b"><p>Двести пятьдесят страниц приносят $20–28 со страницы в месяц. Восемь тысяч страниц — 38 центов. Это не опечатка: разрежённый корпус проваливается на дешёвую ступень и попадает под понижение за избыточность.</p><p><b>Проверка на этапе замысла:</b> запланированные страницы × $10 должны превышать $1000 в месяц. Если ниша достижима только через три тысячи страниц — отказываемся сразу.</p><p><b>Публикуем порциями по 25–30 страниц в неделю.</b> Новый домен, вываливший пятьсот однотипных страниц за один обход робота, — это подпись, по которой приходят с проверкой. Корпус в 400–500 страниц выкладывается четыре-пять месяцев.</p></div>
+    <p class="ch-src">Источник: PLAYBOOK.md, раздел 2</p>
+  </section>
+  <section class="ch" id="zaprosy">
+    <div class="ch-h"><span class="ch-n">04</span>
+      <h2>В какие запросы целимся</h2></div>
+    <p class="ch-lead">В короткие и без вопросительной формы. «r-134a pt chart», а не «как рассчитать давление фреона».</p>
+    <div class="ch-b"><p>Причина простая и измеренная: на вопросительные запросы Google всё чаще отвечает сам, прямо в выдаче, не отдавая переход. Охват такого ответа — 64,7% вопросительных запросов против 8% коротких.</p><p><b>Отсюда практическое правило:</b> когда оцениваешь рынок ниши, вопросительную долю надо ВЫЧИТАТЬ, а не считать. Ниша на 250 000 запросов, где 80% вопросы, реально даёт 50 000.</p><p>Это ровно то, на чём сейчас стоит MileageCurve: его запросы — длинные вопросы вроде «how long does a 2007 chrysler town and country last?», и позиции по ним 25–85.</p></div>
+    <p class="ch-src">Источник: PLAYBOOK.md, раздел 3</p>
+  </section>
+  <section class="ch" id="lestnica">
+    <div class="ch-h"><span class="ch-n">05</span>
+      <h2>Как мы зарабатываем</h2></div>
+    <p class="ch-lead">Деньги решает не объём трафика, а ступень рекламной сети. Одна и та же тысяча просмотров стоит от пяти долларов до пятидесяти.</p>
+    <div class="ch-b"><p><b>Нижняя ступень — AdSense.</b> Пускает почти всех: свой домен и 25–30 страниц. Платит $3–8 за тысячу просмотров.</p><p><b>Средняя — Mediavine Journey.</b> Порог: тысяча премиальных сессий за 30 дней. Около $11.</p><p><b>Верхняя — Raptive.</b> Четыре условия сразу: 25 000 просмотров в месяц, не меньше половины аудитории из США, Британии, Канады, Австралии или Новой Зеландии, домен от шести месяцев и длинные тексты на большинстве страниц. Платит $18–50.</p><p><b>Разрыв тринадцатикратный на одном и том же трафике.</b> Поэтому география — не предпочтение, а жёсткий фильтр отбора ниш: без западной аудитории верхняя ступень недоступна, а без неё тысяча долларов недостижима ни при каком объёме.</p><p><b>Где мы сейчас.</b> География проходит с запасом — 81,9% и 92,8% при пороге 50%. Возраст доменов дойдёт до нужного в феврале 2027. А вот объём измерен впервые, и он меняет разговор: порог верхней ступени — 25 000 просмотров страниц в месяц, у нас за всю жизнь сайтов 87 и 186. Это в 134–287 раз меньше порога, а не «немного не хватает». <b>До рекламных денег отсюда не доходят улучшением страниц — только кратным ростом трафика.</b></p></div>
+    <p class="ch-src">Источник: STRATEGY.md, раздел 2</p>
+  </section>
+  <section class="ch" id="nishi">
+    <div class="ch-h"><span class="ch-n">06</span>
+      <h2>Как выбираем нишу — правило, к которому пришли через две ошибки</h2></div>
+    <p class="ch-lead">Брать 10–15% большого конкурентного рынка, а не 120% крошечного пустого.</p>
+    <div class="ch-b"><p><b>Ошибка первая:</b> искали «вакантный трон» — нишу, где никого нет. Но пусто там, где нет и спроса. Живой конкурент с миллионом просмотров — это доказательство рынка, а не запрет на вход.</p><p><b>Ошибка вторая, которая убила тринадцать кандидатов за два раунда:</b> размер рынка считали умножением — «3143 округа × 100 запросов». Спрос по объектам распределён неравномерно: верхние двадцать забирают почти всё, хвост на нуле. Проверять только по ИЗМЕРЕННОМУ трафику лидера ниши.</p><p><b>И третье, свежее:</b> «трудно собрать данные» больше не защита. Языковые модели умеют собирать что угодно. Защищает не сложность сбора, а то, чего у конкурента нет: у federalpay.org, лидера с 1,79 млн просмотров, нет страницы про прибавку 2027 года вовсе — и три дня спустя эта страница у нас забрала весь трафик сайта.</p></div>
+    <p class="ch-src">Источник: STRATEGY.md, раздел 3 · памятка «Tedium is no longer a moat»</p>
+  </section>
+  <section class="ch" id="skolko">
+    <div class="ch-h"><span class="ch-n">07</span>
+      <h2>Почему сайтов будет три-пять, а не десять</h2></div>
+    <p class="ch-lead">Десять сайтов дают не десять шансов на $1000, а десять сайтов, структурно неспособных выйти за $350.</p>
+    <div class="ch-b"><p>Арифметика часов: узкое место — участок от 25 до 50 тысяч просмотров. До 25 тысяч всё делает машина. Дальше нужны ссылки с чужих сайтов, а это живые письма в форумы и отраслевые блоги — единственная неавтоматизируемая часть работы.</p><p>При десяти сайтах на каждый приходится 6–12 минут в неделю. Это ниже проверенного минимума обслуживания, и из бюджета исчезает именно то, что нельзя поручить машине.</p><p><b>Расширяемся не вширь, а вглубь:</b> те же сайты по-английски на Британию, Канаду, Австралию и Новую Зеландию. Их трафик не разбавляет географию, а улучшает её. Ноль перевода, ноль новых сайтов в обслуживании.</p></div>
+    <p class="ch-src">Источник: STRATEGY.md, разделы 4 и 5</p>
+  </section>
+  <section class="ch" id="proizvodstvo">
+    <div class="ch-h"><span class="ch-n">08</span>
+      <h2>Как это производится</h2></div>
+    <p class="ch-lead">Детерминированный Python делает всё, где нужен расчёт. Модель вызывается только там, где нужно суждение.</p>
+    <div class="ch-b"><p>Забрать данные, разобрать, посчитать, подставить в шаблон — это код, и он стоит ноль. Модель нужна для трёх-пяти страниц живого текста в месяц и для проверки аномалий.</p><p><b>Нарушение этого правила поднимает расход в 5–10 раз</b> и делает портфель убыточным на собственных вычислениях.</p><p>Сборка сайта устроена как станок с приёмкой: у GS Pay Tables 28 проверок, и любая красная роняет сборку целиком. Проверяется всё — от битых вычислений и кириллицы в выдаче до пустых блоков и свежести данных.</p><p><b>Каждая починка повышается до проверки.</b> Найденный дефект чинится один раз, а проверка на него остаётся навсегда — и новая проверка обязательно доказывается поломкой: если нарочно вернуть дефект, сборка должна покраснеть.</p></div>
+    <p class="ch-src">Источник: STRATEGY.md, раздел 6 · практика обоих репозиториев</p>
+  </section>
+  <section class="ch" id="nelzya">
+    <div class="ch-h"><span class="ch-n">09</span>
+      <h2>Чего нельзя</h2></div>
+    <p class="ch-lead">Границы, за которые не заходим ни при каких обстоятельствах.</p>
+    <div class="ch-b"><p><b>Сайты направления не ссылаются друг на друга</b> и на bilingoplus.com. Ни общего подвала, ни страницы «другие проекты», ни общей карты сайта.</p><p><b>Отдельный счётчик на каждый сайт.</b> Не сводный, не общий.</p><p><b>В рекламный аккаунт добавляем по одному сайту</b> по мере готовности. Десять новых доменов за пару недель — читаемый паттерн для проверяющих.</p><p><b>Никаких медицинских, юридических и финансовых советов.</b> Данные и факты — можно, рекомендации — нет.</p><p><b>Никакой накрутки трафика.</b> Самая частая причина блокировки рекламного аккаунта, и блокировка выносится на весь аккаунт, а не на один сайт.</p><p><b>При ручных санкциях или потере больше половины трафика сайт закрывается.</b> Восстанавливаются около 22%; попытка спасти сжигает то, чего у нас меньше всего, — часы.</p></div>
+    <p class="ch-src">Источник: PLAYBOOK.md, раздел 9</p>
+  </section>
+  <section class="ch" id="indeks">
+    <div class="ch-h"><span class="ch-n">10</span>
+      <h2>Сводный индекс — как он считается и как дважды был неверен</h2></div>
+    <p class="ch-lead">Одна цифра справа от имени сайта. Три величины равного веса, и это шаги воронки: Google нас знает → Google нас показывает → люди остаются.</p>
+    <div class="ch-b"><p><b>1. Google нас знает</b> — какая доля наших страниц есть в базе Google. Страниц в индексе делить на страниц собрано. Самая безжалостная из трёх: страница вне индекса не заработает никогда, сколько её ни улучшай.</p><p><b>2. Google нас показывает</b> — на каком месте в выдаче мы в среднем. Переводится в баллы по кривой: первое место 100, третье 80, десятое 50, двадцатое 20, тридцатое и ниже 0; между узлами линейно. Не по прямой, потому что кликабельность падает по кривой.</p><p><b>3. Люди остаются</b> — какая доля визитов оказалась не мимолётной. Сто баллов соответствуют половине визитов. Это НАША планка, а не отраслевая норма, и на доске так и подписано.</p><p><b>Рядом с цифрой — две отметки, которые в среднее НЕ входят.</b> «По нам кликают» (наш CTR против ожидаемого на нашей же позиции) и «доля США» (порог премиальной сети). Первое — диагностика, второе — ворота. Ни то, ни другое не качество.</p><p><b>У отметок тоже есть шкала, но другой породы.</b> Дорожка штрихованная, а не сплошная, и на ней стоит МЕТКА ЭТАЛОНА: у отдачи это «сколько положено вашему месту» (сто процентов от ожидаемого), у географии — порог в половину аудитории. Слева от метки хуже, справа лучше. У трёх слагаемых такой метки нет: там эталон и есть сто баллов. Три признака сразу — подпись, штриховка и метка — нужны, чтобы отметку не прочли как четвёртое слагаемое.</p><p>Шкала отдачи идёт до 150% нарочно: обрезать её нельзя. Перевыполнение здесь и есть то, что надо увидеть — GS Pay Tables собирает 121% от того, что обычно даёт его место.</p><p><b>Формула была неверна дважды, и оба раза ошибку нашёл вопрос владельца, а не проверка.</b> Это стоит записать честно.</p><p><b>Ошибка первая: одно считалось дважды.</b> В первой версии CTR сравнивался с постоянным порогом в 5%. Но CTR почти целиком определяется позицией — значит одна и та же слабость входила в среднее двумя слагаемыми. MileageCurve получал 20 баллов за позицию и 4 за CTR, и итог проседал вдвое за один факт. Заодно пятым слагаемым стояла география, всегда равная сотне у обоих: она никого не различала и просто дарила каждому по двадцать баллов.</p><p><b>Ошибка вторая, хуже первой: индекс шёл в обратную сторону.</b> Исправляя первую, я стал сравнивать CTR с ожидаемым НА ЭТОЙ ЖЕ позиции. Это убрало дубль, но внесло позицию в формулу второй раз — теперь с противоположным знаком: чем ниже место, тем меньше от него ждут, тем легче его «перевыполнить».</p><p><b>Что это давало на числах.</b> У GS Pay Tables при неизменном CTR 7%: позиция 9,5 — индекс 83, позиция 7 — 86, позиция 3 — 81, первое место — 74. То есть выход на первое место, а это вчетверо больше переходов в реальности, РОНЯЛ оценку на девять баллов. У MileageCurve то же в хвосте: падение с тридцатого места на восемьдесят пятое ПОДНИМАЛО индекс с 16 до 18 — и это ровно тот диапазон, в котором сайт живёт сейчас.</p><p><b>Правило, которое из этого вышло.</b> Величина, зависящая от позиции, не может стоять в одном среднем с самой позицией. Отдача вынесена в отметку тем же приёмом и по той же причине, что и география: она не качество, а диагностика — улучшается, когда сайту хуже. Знание не потерялось, оно печатается словами рядом: «в 15 раз хуже своего места», «в 1,2 раза лучше».</p><p><b>Как это проверяется теперь.</b> Прогоном: индекс считается для всех позиций от первой до сороковой с шагом в десятую, и он обязан НЕ РАСТИ при ухудшении места. На третьей версии нарушений ноль; на второй их было множество.</p><p><b>Чего индекс по-прежнему не умеет.</b> Окна замера у сайтов разные — три дня против двадцати восьми, — поэтому сравнивать индексы между сайтами можно только с оговоркой. Он ничего не говорит о деньгах: сайт с индексом 74 и тысячей просмотров зарабатывает меньше сайта с индексом 40 и сотней тысяч. И у молодого сайта почти весь трафик даёт одна страница — значит индекс описывает скорее её, чем весь сайт.</p></div>
+    <p class="ch-src">Источник: формула выведена 29.08.2026, дважды исправлена в тот же день — после вопросов «а правильно ли посчитал» и «почему 100»</p>
+  </section>
+  <section class="ch" id="dengi">
+    <div class="ch-h"><span class="ch-n">11</span>
+      <h2>Деньги — расходы и чего ждём</h2></div>
+    <p class="ch-lead">Сайт стоит около десяти долларов в год за домен. Всё остальное — часы и вычисления.</p>
+    <div class="ch-b"><p><b>Расходы честно:</b> домен около $10,45 в год у регистратора Cloudflare по себестоимости, хостинг бесплатный, данные государственные и в общественном достоянии. Платить приходится за вычисления модели — ровно поэтому действует правило «код считает, модель судит».</p><p><b>Ожидание, а не обещание:</b> медиана к тридцать шестому месяцу около $300 в месяц, то есть примерно безубыточность. Девятый дециль — $2800–3600, верхний процент — около $6500.</p><p><b>Асимметрия настоящая.</b> Снизу мы ограничены примерно $1245 и сорока часами. Сверху — актив на $2000–5000 в месяц, который к тому же продаётся за 30–45 месячных прибылей.</p><p><b>Порог выплаты $100 считается на СЧЁТ, а не на сайт.</b> Практическое следствие: второй сайт приближает первую выплату первого.</p></div>
+    <p class="ch-src">Источник: STRATEGY.md, раздел 6</p>
+  </section>
+  <section class="ch" id="riski">
+    <div class="ch-h"><span class="ch-n">12</span>
+      <h2>Риски, за которыми следим</h2></div>
+    <p class="ch-lead">Четыре, и все внешние: ни один нельзя закрыть качеством работы.</p>
+    <div class="ch-b"><p><b>Обновление алгоритма Google.</b> Потеря больше половины трафика означает закрытие сайта: восстанавливаются около 22%, а попытка спасти сжигает часы, которых у нас меньше всего.</p><p><b>Блокировка рекламного аккаунта.</b> Выносится на весь аккаунт, а не на один сайт. Отсюда запрет на любую накрутку трафика и правило добавлять сайты по одному.</p><p><b>Робот-ответчик в выдаче.</b> Google всё чаще отвечает сам, не отдавая переход. Поэтому целимся в короткие запросы, а не в вопросительные — и именно это сейчас видно на MileageCurve, где все верхние запросы вопросительные.</p><p><b>Порог возраста домена.</b> Единственное условие премиальной сети, которое нельзя ускорить работой — только переждать. Для наших доменов он открывается в феврале 2027.</p></div>
+    <p class="ch-src">Источник: STRATEGY.md, раздел 7 · PLAYBOOK.md, раздел 9</p>
+  </section>
+  <section class="ch" id="sroki">
+    <div class="ch-h"><span class="ch-n">13</span>
+      <h2>На какие сроки смотреть</h2></div>
+    <p class="ch-lead">Короткий ответ: на последние семь дней, и сравнивать их с предыдущими семью. Всё остальное сегодня либо ещё не открылось, либо годится только для счёта.</p>
+    <div class="ch-b"><p>Вопрос звучит невинно, а стоит за ним вот что: <b>у молодого сайта итог «за всё время» — это среднее по тренду, а не состояние</b>. У MileageCurve средняя позиция за всю жизнь 25,8. В первой половине жизни она была 20,4, во второй — 40,1. Сайт не стоял на 25,8 ни одного дня, и решение, принятое по этому числу, было бы принято про несуществующее положение дел.</p><p>Различать надо не «месяц или неделя», а <b>накопления и средние</b>. Накопления — показы, переходы, просмотры страниц, возраст домена — за всё время складываются честно: их и надо смотреть накопительно, потому что пороги рекламных сетей устроены именно так. Средние — позиция, CTR, время на сайте — за всё время у сайта моложе трёх месяцев не значат ничего: они усредняют стартовую прибавку, которую Google даёт новым страницам, и то, что осталось после её затухания.</p><p><b>Последние 7 полных дней.</b> Что происходит сейчас. Сравнивается с предыдущими семью — одинокая неделя без базы ничего не говорит. Короче семи дней брать нельзя: выходные и заходы робота дают разброс, который прочтётся как событие. Длиннее — поломка неделю остаётся незамеченной.</p><p><b>Последние 28 полных дней.</b> Как идут дела в целом. Ровно четыре недели, поэтому выходные не перекашивают. Годится <b>только тогда, когда сайт прожил все 28 дней</b>: иначе окно подписано как месяц, а показывает огрызок. Именно так трёхдневный GS Pay Tables показывал «за 28 дней» 487 показов, тогда как за те же три дня их было 2466.</p><p><b>С запуска.</b> Только для накоплений и порогов. Никогда — для средних.</p><p><b>До и после изменения.</b> Равные отрезки по обе стороны от даты выкладки. Единственный способ узнать, сработало ли то, что мы сделали. Этого среза у нас пока нет: не заведён журнал выкладок, и отметить дату не по чему.</p><p><b>Правый край — никогда не сегодня.</b> Search Console отдаёт данные с задержкой в два-три дня. Окно, дотянутое до сегодняшнего числа, всегда покажет провал последних дней, которого нет. Все сроки на доске кончаются последним днём, за который данные вообще есть.</p><p><b>Сайты разного возраста сравниваются по возрасту, а не по календарю.</b> Одно и то же календарное окно у девятнадцатидневного и пятидневного сайта покрывает разный срок жизни, и сравнение превращается в сравнение возрастов. Честно — первые три дня одного против первых трёх дней другого: там видно, что MileageCurve за свои первые три дня собрал 308 показов и ноль переходов, а GS Pay Tables — 2466 и 71.</p><p>И то, без чего всё вышеперечисленное — разговор: <b>пока нет посуточного ряда, правильного окна не существует ни одного</b>. Окно — это функция от ряда. Раньше на доске лежали два готовых итога, набранных руками с экрана; их нельзя было ни пересечь, ни сдвинуть, и вопрос «а что было на прошлой неделе» не имел ответа в принципе. Теперь ряд лежит в <code>data/daily_search.csv</code>, любое окно считается из него, а сборка падает, если ряд разошёлся с итогами, которые показывает сам Search Console.</p></div>
+    <p class="ch-src">Источник: практика съёма 31.08.2026 · REGISTRY.md · <code>dashboard/wp_data.py</code></p>
+  </section>
+  <section class="ch" id="stop">
+    <div class="ch-h"><span class="ch-n">14</span>
+      <h2>Почему мы остановили выпуск новых страниц</h2></div>
+    <p class="ch-lead">Потому что Google обошёл две трети MileageCurve и решил не брать. Добавлять к непроиднексированному ещё непроиндексированное — значит копать в ту же сторону.</p>
+    <div class="ch-b"><p>Три числа, и все три показывают в одну сторону. <b>238 страниц из 353</b> висят в корзине «Google нашёл, но не взял в базу». <b>Просмотры за месяц получили 19 страниц из 353.</b> <b>Органических визитов за всю жизнь сайта — шесть.</b></p><p>Мы думали, что это про ссылки: перелинковку чинили 20 августа. Оказалось, не про них и не про скорость обхода. Google страницы <b>обошёл</b> и решил, что брать нечего. Бюджет обхода вообще становится важен от десяти тысяч страниц — у нас их сотни.</p><p>Отсюда правило, которое теперь стоит в плейбуке: <b>комбинация, под которой меньше тридцати наблюдений, не публикуется вовсе.</b> Не «данных недостаточно» на странице — страницы просто нет. Правило «минимум три вычисленных факта на страницу» у нас было и раньше, но проверки в сборке не стояло, и корпус вышел с тем, чего это правило не пропустило бы.</p><p>Что это значит по срокам: расширение MileageCurve с 353 страниц до «поколение × система» даст <b>400–900 настоящих страниц, а не три тысячи</b>. И до тех пор, пока доля индексации не перевалит за 60%, новых страниц не выпускаем совсем.</p><p><b>А GS Pay Tables в это время работает по-другому.</b> У него 164 страницы из 165 в индексе, и весь его трафик даёт одна страница про прибавку 2027 — 87 просмотров из 186. Там задача обратная: не остановиться, а успеть до декабря, когда выйдет исполнительный указ по таблицам 2027 и начнётся январский пик. Это и есть разница между «срочно» и «важно»: у одного сайта календарный дедлайн, у другого его нет.</p></div>
+    <p class="ch-src">Источник: DECISIONS.md D-010 и D-011 · внешнее исследование в <code>_research/14-seo-external-2026-08/</code></p>
+  </section>
+  <section class="ch" id="grafiki">
+    <div class="ch-h"><span class="ch-n">15</span>
+      <h2>Как читать графики динамики</h2></div>
+    <p class="ch-lead">Три элемента в блоке каждого сайта, и у каждого своя работа. Всё, что можно было соврать картинкой, закрыто правилом.</p>
+    <div class="ch-b"><p><b>Слово вердикта</b> — «Падаем», «Растём», «Без движения». Считается по двум измеренным признакам: переходам и месту в выдаче. <b>Показы в вердикт не входят никогда</b> — это объясняющая величина, а не цель: сайт, которому Google стал чаще показывать бесполезную страницу, успешнее не стал.</p><p><b>«Стало против было» по переходам, с полосой случайности.</b> Переходы — редкие счётные события, и их разброс примерно равен корню из числа. Столбик, кончающийся ВНУТРИ жёлтой полосы, означает «разницу считать нельзя». У MileageCurve «4 против 1» при разбросе ±4,5 — это шум, и процент там не печатается вовсе. У GS Pay Tables «8 против 34» при разбросе ±13,0 — падение настоящее. К показам эта полоса не применяется никогда: их разброс устроен иначе, и «±91» было бы ложной уверенностью.</p><p><b>Лента за 28 суток.</b> Ширина суток — константа, одна на всю доску, и потолки шкал общие для обоих сайтов. Поэтому две ленты можно сравнивать глазом: пятидневный сайт занимает три клетки из двадцати восьми, девятнадцатидневный — шестнадцать. Возраст нарисован, а не подписан. Шкала «от собственного максимума» врала бы дважды: делала картинки несравнимыми и перерисовывала себя при каждом обновлении данных.</p><p><b>Пустая клетка означает «данных нет».</b> Измеренный ноль — это чёрточка на нулевой линии, а не пустота: пустота читается как «здесь ничего не мерили», и путать их нельзя.</p><p><b>Место в выдаче: первое сверху.</b> Не перевернуть ось значило бы нарисовать падение с 23-го места на 40-е линией, идущей вверх. Шесть равных полос — шесть страниц выдачи, по десять ссылок на каждой. Полая точка на линии означает, что за этими сутками меньше тридцати показов: правило «меньше тридцати — не измерено» видно и на графике.</p></div>
+    <p class="ch-src">Источник: разбор графиков 31.08.2026 · <code>dashboard/charts.py</code></p>
+  </section>
+  <section class="ch" id="izmerenie">
+    <div class="ch-h"><span class="ch-n">16</span>
+      <h2>Как и где мы смотрим цифры</h2></div>
+    <p class="ch-lead">Двумя источниками, руками, и ни один из них не отдаёт данные сам.</p>
+    <div class="ch-b"><p><b>Google Search Console</b> — всё, что происходит ДО перехода: показы, переходы, CTR, позиции, по каким запросам нас находят и сколько страниц в индексе.</p><p><b>Google Analytics</b> — всё, что ПОСЛЕ: сколько людей, сколько не мимолётных визитов, сколько времени проводят, из каких стран. Отдельное свойство на каждый сайт.</p><p><b>Оба снимаются вручную</b> и вносятся в генератор доски. Автоматически они не приезжают, поэтому у каждого числа на доске стоит источник, дата съёма и окно, за которое оно снято.</p><p><b>Свой заход не считается.</b> Софийский адрес: для Европы хранение запрещено настройками согласия, и наши собственные заходы в счётчик не попадают. «Ноль» здесь чаще география, чем поломка. Позиции в выдаче смотреть только с признаком американской выдачи — иначе результат болгарский и к делу отношения не имеет.</p></div>
+    <p class="ch-src">Источник: PLAYBOOK.md, раздел 8 · практика съёма 29.08.2026</p>
+  </section>
+
+<h3 class="sec">Чему научились на своих ошибках</h3>
+<div class="les"><b>Картинка может выдумать вывод</b><p class="les-w">У MileageCurve столбцы гистограммы были разной ширины, а рисовались одинаковыми. Широкие корзины выглядели высокими — и график сфабриковал второй горб, которого в данных нет. Заголовочное утверждение сайта, стоявшее на 318 страницах, оказалось неверным. Каждое число было верным, неверным было изображение.</p><p class="les-r"><span>Правило</span>Утверждение, которое видно на картинке, пересчитывать БЕЗ картинки.</p></div><div class="les"><b>Проверка может сверяться сама с собой</b><p class="les-w">Проверка свежести данных сравнивала скачанный файл с ЗАПРОШЕННЫМ годом — то есть результат со своим же вводом. Она была вечнозелёной и не поймала бы ничего: сайт молча собрался бы на прошлогодних данных при всех остальных зелёных проверках.</p><p class="les-r"><span>Правило</span>У каждой проверки спрашивать: откуда взялся эталон, с которым она сверяет.</p></div><div class="les"><b>Собранное и увиденное — разные вещи</b><p class="les-w">321 страница вышла с русским текстом на английском сайте, и все структурные проверки были зелёными. Позже литеральный «\n» стоял перед каждым заголовком на пятнадцати живых страницах — 165 раз, и 26 проверок снова молчали: они читали разметку, а такая последовательность в разметке допустима.</p><p class="les-r"><span>Правило</span>Держать проверку, которая читает ВИДИМЫЙ текст, а не разметку.</p></div><div class="les"><b>Платформа переписывает то, что ты выложил</b><p class="les-w">Cloudflare по умолчанию подменил контактный адрес на «[email protected]» и дописал свой скрипт на все 164 страницы — уже после того, как 23 проверки прошли зелёными.</p><p class="les-r"><span>Правило</span>Сверять ОТДАННОЕ браузеру с собранным побайтово, а не доверять сборке.</p></div><div class="les"><b>Собранное работает только там, где собиралось</b><p class="les-w">Один из файлов данных никогда не скачивался скриптом — он просто лежал в каталоге, положенный рукой. Первый же запуск на чистой машине упал бы.</p><p class="les-r"><span>Правило</span>Удалить каталог данных и пересобрать с нуля ДО того, как писать выкладку.</p></div><div class="les"><b>Сгенерированная проза противоречит сама себе</b><p class="les-w">Текст называл падение с первого места на двадцать первое успехом — на 33 страницах, при всех зелёных структурных проверках.</p><p class="les-r"><span>Правило</span>Проверять два сгенерированных утверждения об одном факте ДРУГ ПРОТИВ ДРУГА, а не по отдельности.</p></div><div class="les"><b>Чужие данные приезжают внутри своих</b><p class="les-w">«Публичные и обезличенные» записи описывают запись, а не свободный текст внутри неё: в перепечатанных жалобах приехали адрес и телефон автосалона.</p><p class="les-r"><span>Правило</span>Искать чужие данные в ОТРИСОВАННОМ тексте и выбрасывать запись целиком, а не вычищать её.</p></div><div class="les"><b>Типографика — это ещё не дизайн</b><p class="les-w">Три раунда починки дефектов не ответили на «выглядит непрофессионально»: дефектов почти не осталось, а дизайна не было вовсе — была только типографика. Претензия стала конкретной только когда посмотрели глазами, а не замерами.</p><p class="les-r"><span>Правило</span>Смотреть глазами. Заказывать целые НАПРАВЛЕНИЯ облика, а не критику.</p></div><div class="les"><b>Правило заказчика важнее моего признака</b><p class="les-w">Одну и ту же просьбу — «текст во всю ширину» — он повторил трижды, и трижды я выводил «признак», по которому строка это заслуживает. Признак каждый раз был мой, а не его.</p><p class="les-r"><span>Правило</span>Вторая такая же просьба значит, что правило надо не сузить, а отменить.</p></div>
+
+<h3 class="sec">Где что лежит</h3>
+<table><tr><th><code>PLAYBOOK.md</code></th><td>Как строится и ведётся сайт: формула страницы, объём, отбор запросов, техника, границы, чек-лист запуска.</td></tr><tr><th><code>STRATEGY.md</code></th><td>Зачем всё это: лестница дохода, отбор ниш, сколько сайтов, деньги, риски.</td></tr><tr><th><code>DECISIONS.md</code></th><td>Журнал решений. Каждое с датой и причиной — чтобы через полгода не переспорить самих себя заново.</td></tr><tr><th><code>REGISTRY.md</code></th><td>Состояние портфеля: что живо, что в очереди, что закрыто, что открыто.</td></tr><tr><th><code>REVIEW.md</code></th><td>Регламент пересмотра: когда и по каким воротам оцениваем.</td></tr><tr><th><code>_research/</code></th><td>Четырнадцать разборов: экономика рекламы, политика Google, ниши, инфраструктура, вердикты по раундам отбора.</td></tr><tr><th><code>dashboard/board.html</code></th><td>Доска направления: как идут дела прямо сейчас.</td></tr></table>
+
+<footer>
+  Это ПЕРЕСКАЗ рабочих документов, а не замена им: в спорном случае прав
+  исходный документ. Хаб обновляется вместе с ними.<br>
+  Страница <b>генерируется</b> файлом <code>build_hub.py</code>. Править руками
+  нельзя — следующий прогон сотрёт правки.
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+# Посуточный ряд Google Search Console. Снято руками 31.08.2026.
+# Источник: Performance -> Search results -> вкладка DAYS, диапазон "3 months".
+# Правый край ряда — 28.08.2026, то есть T-3: Search Console отдаёт данные с
+# задержкой в два-три дня. Дни ДО первого показа в ряд не включены.
+site,day,clicks,impressions,position
+mileagecurve,2026-08-13,0,6,25.0
+mileagecurve,2026-08-14,0,302,10.7
+mileagecurve,2026-08-15,1,374,19.4
+mileagecurve,2026-08-16,0,73,32.2
+mileagecurve,2026-08-17,0,62,33.0
+mileagecurve,2026-08-18,0,114,40.1
+mileagecurve,2026-08-19,0,580,17.0
+mileagecurve,2026-08-20,0,210,27.1
+mileagecurve,2026-08-21,0,80,40.3
+mileagecurve,2026-08-22,0,66,34.9
+mileagecurve,2026-08-23,1,105,30.8
+mileagecurve,2026-08-24,2,136,37.2
+mileagecurve,2026-08-25,0,77,35.9
+mileagecurve,2026-08-26,0,30,55.6
+mileagecurve,2026-08-27,1,47,49.4
+mileagecurve,2026-08-28,0,104,50.6
+gspaytables,2026-08-26,34,487,9.5
+gspaytables,2026-08-27,29,1084,12.5
+gspaytables,2026-08-28,8,895,14.4

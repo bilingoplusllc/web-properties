@@ -1,0 +1,111 @@
+# Доска направления: раз в сутки тянет свежие числа и перевыкладывает страницу.
+#
+# Три вещи, ради которых он написан именно так.
+#
+# 1. «Не настроено» и «сломалось» — РАЗНЫЕ исходы. Пока секретов нет,
+#    fetch.py выходит с кодом 2, бот идёт дальше и пересобирает доску на
+#    прежних данных, а страница печатает их прежнюю дату. Любой другой
+#    ненулевой код — настоящий сбой, и он роняет прогон.
+# 2. Данные не переписываются пустотой: это правило живёт в fetch.py, но
+#    здесь оно тоже важно — коммит делается ТОЛЬКО если файлы изменились,
+#    иначе история засоряется пустыми правками.
+# 3. Ключ не попадает никуда, кроме памяти процесса: он приходит секретом,
+#    отдаётся переменной окружения и не пишется ни в один файл.
+name: daily board
+
+on:
+  schedule:
+    - cron: "17 5 * * *"     # 05:17 UTC ежедневно
+  workflow_dispatch:          # и вручную, кнопкой
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: board
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: библиотеки только для загрузчика
+        run: pip install --quiet google-auth requests
+
+      - name: свежие числа
+        id: fetch
+        env:
+          GOOGLE_SA_JSON: ${{ secrets.GOOGLE_SA_JSON }}
+          GA4_PROPERTIES: ${{ secrets.GA4_PROPERTIES }}
+        run: |
+          set +e
+          python dashboard/fetch.py
+          code=$?
+          set -e
+          if [ "$code" = "2" ]; then
+            echo "секретов нет — доска соберётся на прежних данных"
+            echo "configured=no" >> "$GITHUB_OUTPUT"
+          elif [ "$code" != "0" ]; then
+            echo "загрузчик упал с кодом $code"
+            exit "$code"
+          else
+            echo "configured=yes" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: собрать доску
+        run: |
+          cd dashboard
+          python build_web_board.py
+          python build_hub.py
+
+      - name: выложить в docs
+        run: |
+          mkdir -p docs
+          cp dashboard/board.html docs/index.html
+          cp dashboard/hub.html docs/hub.html
+          touch docs/.nojekyll
+          printf 'User-agent: *\nDisallow: /\n' > docs/robots.txt
+          python - <<'PY'
+          # Страница публичная по решению владельца, но в поиске ей делать
+          # нечего: это внутренняя доска. robots.txt просит не обходить,
+          # мета-тег просит не индексировать — вторая половина нужна потому,
+          # что страницу, на которую кто-то сослался, Google может показать
+          # и не обходя её.
+          import io, re
+          for p in ("docs/index.html", "docs/hub.html"):
+              t = io.open(p, encoding="utf-8").read()
+              if "name=\"robots\"" in t:
+                  continue
+              t = re.sub(r"(<head[^>]*>)",
+                         r'\1<meta name="robots" content="noindex,nofollow">',
+                         t, count=1)
+              io.open(p, "w", encoding="utf-8", newline="\n").write(t)
+              print("noindex ->", p)
+          PY
+
+      - name: закоммитить, если изменилось
+        run: |
+          git config user.name "board bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add dashboard/data docs
+          if git diff --cached --quiet; then
+            echo "ничего не изменилось — коммита нет"
+          else
+            git commit -m "доска: свежие числа $(date -u +%F)"
+            git push
+          fi
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - id: deployment
+        uses: actions/deploy-pages@v4
