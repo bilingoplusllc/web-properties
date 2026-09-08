@@ -46,6 +46,8 @@ import json
 import os
 import sys
 import time
+import concurrent.futures as cf
+import threading
 from datetime import date, timedelta
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -90,16 +92,28 @@ SITEMAP = {
 # 518 адресов, и это слишком: получасовой шаг легче отвалится посреди работы,
 # а в логе всё это время тишина.
 #
-# Поэтому обход идёт ПО КРУГУ: первыми те, кого проверяли раньше всех. Полный
-# круг у корпуса в 353 адреса — трое суток, прогон — минут двенадцать. Перепись
-# от этого не портится: у каждого адреса своя дата проверки, и доска печатает
-# ДИАПАЗОН дат, а не выдаёт трёхдневный срез за сегодняшний.
-INSPECT_PER_SITE = 120
+# Лечится это НЕ урезанием охвата, а параллельностью: последовательный опрос
+# давал 9 запросов в минуту при разрешённых 600 — полтора процента от того,
+# что позволено. Восемь потоков дают около 80 в минуту, и оба корпуса (518
+# адресов) снимаются целиком примерно за семь минут.
+#
+# Предел на прогон всё равно нужен — на вырост. Обход идёт ПО КРУГУ: первыми
+# те, кого проверяли раньше всех. Сегодня оба корпуса в предел влезают, то
+# есть перепись каждый день полная; когда сайт перерастёт предел, круг
+# растянется на несколько суток. Перепись от этого не портится: у каждого
+# адреса своя дата проверки, и доска печатает ДИАПАЗОН дат, а не выдаёт
+# многодневный срез за сегодняшний.
+INSPECT_PER_SITE = 400
 
 # И предел по времени, независимо от числа адресов: шаг, который может идти
 # сколько угодно, однажды пойдёт бесконечно. Что не успели — снимется
 # следующим прогоном, и недобор называется вслух.
 INSPECT_MINUTES = 15
+
+# Сколько запросов держим в воздухе. Восемь — это ~80 запросов в минуту при
+# разрешённых 600 на ресурс: с запасом в семь раз. Больше брать незачем, а
+# соседний пул соединений у requests по умолчанию тоже равен десяти.
+INSPECT_THREADS = 8
 
 
 class Missing(Exception):
@@ -384,7 +398,24 @@ def _sitemap_urls(url, depth=0):
     return locs
 
 
-def inspect_url(s, prop, url):
+_LOCAL = threading.local()
+
+
+def _thread_session(sessions):
+    """Своя сессия на КАЖДЫЙ поток.
+
+    requests.Session потокобезопасной не объявлена, и делить одну на восемь
+    потоков — приглашение к редкой ошибке, которая проявится однажды и не
+    воспроизведётся. Учётные данные при этом общие: их обновление google-auth
+    сам берёт под замок.
+    """
+    s = getattr(_LOCAL, "s", None)
+    if s is None:
+        s = _LOCAL.s = _session(sessions)
+    return s
+
+
+def inspect_url(sessions, prop, url):
     """Состояние ОДНОГО адреса в индексе Google.
 
     Сводки «сколько страниц в индексе» Search Console не отдаёт ни одним
@@ -395,7 +426,8 @@ def inspect_url(s, prop, url):
     арифметику значит считать по тексту, который Google вправе переписать.
     Мы её сохраняем, но только чтобы человек мог прочитать причину.
     """
-    r = s.post("https://searchconsole.googleapis.com/v1/urlInspection/index:inspect",
+    r = _thread_session(sessions).post(
+        "https://searchconsole.googleapis.com/v1/urlInspection/index:inspect",
                json={"inspectionUrl": url, "siteUrl": prop,
                      "languageCode": "en-US"},
                timeout=90)
@@ -410,7 +442,7 @@ def inspect_url(s, prop, url):
     return (r.json().get("inspectionResult") or {}).get("indexStatusResult") or {}
 
 
-def index_census(s, today):
+def index_census(creds, today):
     """Перепись индексации: по строке на КАЖДЫЙ опубликованный адрес.
 
     Три величины, ради которых она существует, выводятся из ДОКУМЕНТИРОВАННЫХ
@@ -428,11 +460,10 @@ def index_census(s, today):
     страницы вечно раздували бы знаменатель.
     """
     prev = _prev_index_rows()
+    sessions = creds
     rows, notes = [], []
     for key, prop in sorted(GSC.items()):
         urls = _sitemap_urls(SITEMAP[key])
-        # По кругу: первыми те, кого проверяли раньше всех. Пустая дата
-        # сортируется первой — это «ни разу не смотрели».
         # По кругу: первыми те, кого проверяли раньше всех. Пустая дата
         # сортируется первой — это «ни разу не смотрели». Адрес добавлен
         # вторым ключом не для красоты: без него порядок при РАВНЫХ датах
@@ -445,30 +476,38 @@ def index_census(s, today):
                          "в следующие прогоны" % (key, len(order), len(take)))
         fresh, stopped = {}, None
         started = time.monotonic()
-        for n, u in enumerate(take, 1):
-            if time.monotonic() - started > INSPECT_MINUTES * 60:
-                stopped = "предел времени %d мин" % INSPECT_MINUTES
-                break
-            try:
-                st = inspect_url(s, prop, u)
-            except Quota as e:
-                stopped = str(e)
-                break
-            if n % 25 == 0 or n == len(take):
-                # Полчаса тишины в логе — это то, из-за чего начинают гадать,
-                # завис прогон или нет.
-                print("  перепись %s: %d из %d, %.0f c"
-                      % (key, n, len(take), time.monotonic() - started),
-                      flush=True)
-            fresh[u] = (
-                key, u,
-                _csv_safe(st.get("verdict") or "VERDICT_UNSPECIFIED"),
-                _csv_safe(st.get("coverageState")),
-                _csv_safe(st.get("pageFetchState")),
-                _csv_safe(st.get("robotsTxtState")),
-                _csv_safe((st.get("lastCrawlTime") or "")[:10]),
-                today.isoformat(),
-            )
+        done = 0
+        with cf.ThreadPoolExecutor(max_workers=INSPECT_THREADS) as pool:
+            futures = {pool.submit(inspect_url, sessions, prop, u): u
+                       for u in take}
+            for fut in cf.as_completed(futures):
+                u = futures[fut]
+                done += 1
+                try:
+                    st = fut.result()
+                except Quota as e:
+                    stopped = stopped or str(e)
+                    continue
+                fresh[u] = (
+                    key, u,
+                    _csv_safe(st.get("verdict") or "VERDICT_UNSPECIFIED"),
+                    _csv_safe(st.get("coverageState")),
+                    _csv_safe(st.get("pageFetchState")),
+                    _csv_safe(st.get("robotsTxtState")),
+                    _csv_safe((st.get("lastCrawlTime") or "")[:10]),
+                    today.isoformat(),
+                )
+                if done % 50 == 0 or done == len(take):
+                    # Полчаса тишины в логе — это то, из-за чего начинают
+                    # гадать, завис прогон или нет.
+                    print("  перепись %s: %d из %d, %.0f c"
+                          % (key, done, len(take),
+                             time.monotonic() - started), flush=True)
+                if time.monotonic() - started > INSPECT_MINUTES * 60:
+                    stopped = stopped or ("предел времени %d мин"
+                                          % INSPECT_MINUTES)
+                    for f2 in futures:
+                        f2.cancel()
         if stopped:
             notes.append("%s: %s; опрошено %d из %d"
                          % (key, stopped, len(fresh), len(take)))
@@ -651,7 +690,7 @@ def main():
         _write("index_state.csv",
                ["site", "url", "verdict", "coverage", "fetch_state", "robots",
                 "last_crawl", "checked"],
-               index_census(s, until + timedelta(days=1)),
+               index_census(creds, until + timedelta(days=1)),
                "Перепись индексации по адресам карты сайта; обновляется ПО "
                "КРУГУ, у каждого адреса своя дата проверки. Считать по verdict "
                "(enum), НЕ по coverage: coverage — человекочитаемая строка без "
