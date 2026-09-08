@@ -318,8 +318,14 @@ def ribbon(s, series, today, ceil_c, ceil_i, suffix=""):
     """
     k = s["key"]
     start = today - __import__("datetime").timedelta(DAYS - 1)
-    by_day = {x[0]: x for x in series}
     launch = s["live"]
+    # Search Console отдаёт сутки ДО первого показа нулями: у gspaytables это
+    # 24 и 25 августа при запуске 26-го. Оставить их значит нарисовать
+    # «измеренный ноль» ВНУТРИ зоны «сайта ещё не было» — сказать читателю,
+    # что мы измерили день, которого не было. Зона уже называет этот период;
+    # чёрточка спорит с ней.
+    series = [x for x in series if x[0] >= launch]
+    by_day = {x[0]: x for x in series}
     last_data = series[-1][0] if series else None
     spike_days = wp.spikes(k)
     med = wp.median([x[2] for x in series]) if series else 0
