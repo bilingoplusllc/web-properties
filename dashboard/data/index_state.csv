@@ -148,7 +148,7 @@ gspaytables,https://gspaytables.com/promotion/gs-1-to-gs-2/,PASS,Submitted and i
 gspaytables,https://gspaytables.com/promotion/gs-2-to-gs-3/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-26,2026-09-08
 gspaytables,https://gspaytables.com/promotion/gs-3-to-gs-4/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-26,2026-09-08
 gspaytables,https://gspaytables.com/promotion/gs-4-to-gs-5/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-26,2026-09-08
-gspaytables,https://gspaytables.com/promotion/gs-5-to-gs-6/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
+gspaytables,https://gspaytables.com/promotion/gs-5-to-gs-6/,NEUTRAL,Crawled - currently not indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 gspaytables,https://gspaytables.com/promotion/gs-6-to-gs-7/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-30,2026-09-08
 gspaytables,https://gspaytables.com/promotion/gs-7-to-gs-8/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-02,2026-09-08
 gspaytables,https://gspaytables.com/promotion/gs-8-to-gs-9/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
@@ -186,7 +186,7 @@ mileagecurve,https://mileagecurve.com/gmc/,PASS,Submitted and indexed,SUCCESSFUL
 mileagecurve,https://mileagecurve.com/honda/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/hyundai/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/infiniti/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-05,2026-09-08
-mileagecurve,https://mileagecurve.com/jeep/,NEUTRAL,Discovered - currently not indexed,PAGE_FETCH_STATE_UNSPECIFIED,ROBOTS_TXT_STATE_UNSPECIFIED,,2026-09-08
+mileagecurve,https://mileagecurve.com/jeep/,NEUTRAL,URL is unknown to Google,PAGE_FETCH_STATE_UNSPECIFIED,ROBOTS_TXT_STATE_UNSPECIFIED,,2026-09-08
 mileagecurve,https://mileagecurve.com/kia/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
 mileagecurve,https://mileagecurve.com/lexus/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 mileagecurve,https://mileagecurve.com/lincoln/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-03,2026-09-08
@@ -231,7 +231,7 @@ mileagecurve,https://mileagecurve.com/honda-odyssey-1995-1998/,PASS,Submitted an
 mileagecurve,https://mileagecurve.com/honda-odyssey-1999-2004/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
 mileagecurve,https://mileagecurve.com/honda-odyssey-2005-2010/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-04,2026-09-08
 mileagecurve,https://mileagecurve.com/honda-odyssey-2011-2017/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
-mileagecurve,https://mileagecurve.com/honda-odyssey-2018-2025/,NEUTRAL,URL is unknown to Google,PAGE_FETCH_STATE_UNSPECIFIED,ROBOTS_TXT_STATE_UNSPECIFIED,,2026-09-08
+mileagecurve,https://mileagecurve.com/honda-odyssey-2018-2025/,NEUTRAL,Discovered - currently not indexed,PAGE_FETCH_STATE_UNSPECIFIED,ROBOTS_TXT_STATE_UNSPECIFIED,,2026-09-08
 mileagecurve,https://mileagecurve.com/ford-mustang-1994-2004/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-13,2026-09-08
 mileagecurve,https://mileagecurve.com/ford-mustang-2005-2014/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
 mileagecurve,https://mileagecurve.com/ford-mustang-2015-2023/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
