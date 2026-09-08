@@ -27,6 +27,40 @@ from datetime import date, timedelta
 
 DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
 
+def _head(name):
+    """Строки-комментарии файла. В них живут дата съёмки и сверка."""
+    with io.open(os.path.join(DIR, name), encoding="utf-8") as f:
+        return [l for l in f if l.startswith("#")]
+
+
+def _sc_check():
+    """Эталон СО СТОРОНЫ: итог окна, посчитанный самим Search Console.
+
+    Сумму ряда считаем мы; этот итог приходит отдельным запросом БЕЗ разбивки
+    по дням, то есть его считает не наш код. Сверять сумму ряда с самой собой
+    бессмысленно — на этом уже обжигались.
+
+    Пока ряд снимали руками, эталоном были числа с экрана, вбитые в
+    генератор. Их дата заморожена навсегда, поэтому с приходом бота они
+    перестают годиться: не совпадут не потому, что ряд неверен, а потому что
+    он новее эталона. Возвращаем None, когда строки сверки в файле нет, —
+    вызывающий обязан назвать, какой эталон он взял.
+    """
+    import re
+    for line in _head("daily_search.csv"):
+        if "СВЕРКА" not in line:
+            continue
+        m = re.search(r"окно (\d{4}-\d{2}-\d{2})\.\.(\d{4}-\d{2}-\d{2})", line)
+        pairs = re.findall(r"([a-z0-9_]+)=(\d+)/(\d+)/([\d.]+)", line)
+        if not m or not pairs:
+            raise RuntimeError(
+                "строка СВЕРКИ есть, но не разбирается: %r. Молча пропустить "
+                "её значит остаться без эталона и не заметить этого." % line)
+        return {"from": _d(m.group(1)), "to": _d(m.group(2)),
+                "sites": {k: (int(c), int(i), float(p)) for k, c, i, p in pairs}}
+    return None
+
+
 def _captured():
     """Дата снятия — ИЗ ФАЙЛА, а не литералом.
 
@@ -39,10 +73,12 @@ def _captured():
     подставить сегодня.
     """
     import re
-    path = os.path.join(DIR, "daily_search.csv")
-    with io.open(path, encoding="utf-8") as f:
-        head = [l for l in f if l.startswith("#")]
-    for line in head:
+    for line in _head("daily_search.csv"):
+        # Дата берётся ТОЛЬКО из строки со словом «Снято». В шапке есть и
+        # другие даты — границы окна, — и первая попавшаяся дала бы левый
+        # край окна вместо дня съёмки.
+        if "нято" not in line:
+            continue
         m = re.search(r"(\d{4})-(\d{2})-(\d{2})", line)      # снято ботом
         if m:
             return date(*map(int, m.groups()))
@@ -82,6 +118,9 @@ def _load_search():
 
 
 DAILY = _load_search()
+
+# Считается здесь, а не рядом с CAPTURED: разбор дат живёт ниже.
+SC_CHECK = _sc_check()
 
 # Правый край ряда — последний день, за который Search Console вообще что-то
 # отдал. У обоих сайтов он один и тот же, но считаем по каждому отдельно:

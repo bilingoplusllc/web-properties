@@ -210,7 +210,7 @@ def _prev_keys(name, col):
     return {r[col] for r in rows if r.get(col)}
 
 
-def _write(name, header, rows, note):
+def _write(name, header, rows, note, extra=()):
     """Записать файл, если шапка совпала и не пропал ни один прежний сайт."""
     was = _prev_header(name)
     if was is None:
@@ -236,8 +236,9 @@ def _write(name, header, rows, note):
                            % name)
     out = ["# %s" % note,
            "# Снято ботом %s. Правки руками будут стёрты следующим прогоном."
-           % date.today().isoformat(),
-           ",".join(header)]
+           % date.today().isoformat()]
+    out += ["# %s" % e for e in extra]
+    out.append(",".join(header))
     for r in rows:
         out.append(",".join("" if v is None else str(v) for v in r))
     path = os.path.join(DATA, name)
@@ -270,6 +271,35 @@ def search_daily(s, since, until):
                          int(row.get("impressions", 0)),
                          round(float(row.get("position", 0)), 1)))
     return rows
+
+
+def search_total(s, since, until):
+    """Итог окна ОДНИМ запросом, без разбивки по дням.
+
+    Это эталон со стороны для гейта доски: сумму посуточного ряда считает наш
+    код, а этот итог считает сам Search Console. Гейт, сверяющий сумму ряда с
+    самой собой, не может покраснеть, и такой у нас уже был.
+    """
+    out = {}
+    for key, prop in sorted(GSC.items()):
+        url = ("https://searchconsole.googleapis.com/webmasters/v3/sites/"
+               "%s/searchAnalytics/query" % prop.replace(":", "%3A"))
+        body = {"startDate": since.isoformat(), "endDate": until.isoformat()}
+        r = s.post(url, json=body, timeout=90)
+        if r.status_code == 403:
+            raise Missing("Search Console отказала по %s (403)." % prop)
+        r.raise_for_status()
+        rows = r.json().get("rows", [])
+        if not rows:
+            # Ноль здесь возможен честно: сайт мог не получить ни одного
+            # показа за окно. Но тогда и ряд обязан быть пуст, и гейт доски
+            # это увидит.
+            out[key] = (0, 0, 0.0)
+            continue
+        row = rows[0]
+        out[key] = (int(row.get("clicks", 0)), int(row.get("impressions", 0)),
+                    round(float(row.get("position", 0)), 1))
+    return out
 
 
 def ga4_report(s, prop, dims, mets, since, until, limit=100):
@@ -311,10 +341,15 @@ def main():
     win28 = "%s..%s" % (s28.isoformat(), until.isoformat())
 
     print("окно", window, "· снимок", win28)
+    totals = search_total(s, since, until)
+    check = "СВЕРКА: окно %s · итог отдельным запросом, без разбивки по дням: %s" % (
+        window, " ".join("%s=%d/%d/%.1f" % ((k,) + v)
+                         for k, v in sorted(totals.items())))
     _write("daily_search.csv",
            ["site", "day", "clicks", "impressions", "position"],
            search_daily(s, since, until),
-           "Посуточный ряд Google Search Console, окно " + window)
+           "Посуточный ряд Google Search Console, окно " + window,
+           extra=[check])
 
     prev_snap = _prev_rows("ga4_snapshot.csv")
     ch, snap = [], []
