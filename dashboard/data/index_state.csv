@@ -48,7 +48,7 @@ gspaytables,https://gspaytables.com/locality/portland-vancouver-salem-or-wa/,PAS
 gspaytables,https://gspaytables.com/locality/phoenix-mesa-az/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-30,2026-09-08
 gspaytables,https://gspaytables.com/locality/raleigh-durham-cary-nc/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-02,2026-09-08
 gspaytables,https://gspaytables.com/locality/richmond-va/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
-gspaytables,https://gspaytables.com/locality/reno-fernley-nv/,NEUTRAL,Discovered - currently not indexed,PAGE_FETCH_STATE_UNSPECIFIED,ROBOTS_TXT_STATE_UNSPECIFIED,,2026-09-08
+gspaytables,https://gspaytables.com/locality/reno-fernley-nv/,NEUTRAL,URL is unknown to Google,PAGE_FETCH_STATE_UNSPECIFIED,ROBOTS_TXT_STATE_UNSPECIFIED,,2026-09-08
 gspaytables,https://gspaytables.com/locality/rochester-batavia-seneca-falls-ny/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-02,2026-09-08
 gspaytables,https://gspaytables.com/locality/rest-of-u-s/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-26,2026-09-08
 gspaytables,https://gspaytables.com/locality/sacramento-roseville-ca-nv/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
@@ -178,7 +178,7 @@ mileagecurve,https://mileagecurve.com/audi/,PASS,Submitted and indexed,SUCCESSFU
 mileagecurve,https://mileagecurve.com/bmw/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 mileagecurve,https://mileagecurve.com/buick/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
 mileagecurve,https://mileagecurve.com/cadillac/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-29,2026-09-08
-mileagecurve,https://mileagecurve.com/chevrolet/,NEUTRAL,Discovered - currently not indexed,PAGE_FETCH_STATE_UNSPECIFIED,ROBOTS_TXT_STATE_UNSPECIFIED,,2026-09-08
+mileagecurve,https://mileagecurve.com/chevrolet/,NEUTRAL,URL is unknown to Google,PAGE_FETCH_STATE_UNSPECIFIED,ROBOTS_TXT_STATE_UNSPECIFIED,,2026-09-08
 mileagecurve,https://mileagecurve.com/chrysler/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-04,2026-09-08
 mileagecurve,https://mileagecurve.com/dodge/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/ford/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-30,2026-09-08
@@ -186,7 +186,7 @@ mileagecurve,https://mileagecurve.com/gmc/,PASS,Submitted and indexed,SUCCESSFUL
 mileagecurve,https://mileagecurve.com/honda/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/hyundai/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/infiniti/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-05,2026-09-08
-mileagecurve,https://mileagecurve.com/jeep/,NEUTRAL,URL is unknown to Google,PAGE_FETCH_STATE_UNSPECIFIED,ROBOTS_TXT_STATE_UNSPECIFIED,,2026-09-08
+mileagecurve,https://mileagecurve.com/jeep/,NEUTRAL,Discovered - currently not indexed,PAGE_FETCH_STATE_UNSPECIFIED,ROBOTS_TXT_STATE_UNSPECIFIED,,2026-09-08
 mileagecurve,https://mileagecurve.com/kia/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
 mileagecurve,https://mileagecurve.com/lexus/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 mileagecurve,https://mileagecurve.com/lincoln/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-03,2026-09-08
@@ -333,7 +333,7 @@ mileagecurve,https://mileagecurve.com/hyundai-sonata-2006-2010/,PASS,Submitted a
 mileagecurve,https://mileagecurve.com/hyundai-sonata-2011-2014/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/hyundai-sonata-2015-2019/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-13,2026-09-08
 mileagecurve,https://mileagecurve.com/hyundai-sonata-2020-2025/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
-mileagecurve,https://mileagecurve.com/dodge-durango-1998-2003/,NEUTRAL,Discovered - currently not indexed,PAGE_FETCH_STATE_UNSPECIFIED,ROBOTS_TXT_STATE_UNSPECIFIED,,2026-09-08
+mileagecurve,https://mileagecurve.com/dodge-durango-1998-2003/,NEUTRAL,URL is unknown to Google,PAGE_FETCH_STATE_UNSPECIFIED,ROBOTS_TXT_STATE_UNSPECIFIED,,2026-09-08
 mileagecurve,https://mileagecurve.com/dodge-durango-2004-2009/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
 mileagecurve,https://mileagecurve.com/dodge-durango-2011-2025/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/dodge-grand-caravan-1996-2000/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
@@ -430,7 +430,7 @@ mileagecurve,https://mileagecurve.com/chevrolet-suburban-1992-1999/,PASS,Submitt
 mileagecurve,https://mileagecurve.com/chevrolet-suburban-2000-2006/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-21,2026-09-08
 mileagecurve,https://mileagecurve.com/chevrolet-suburban-2007-2014/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-02,2026-09-08
 mileagecurve,https://mileagecurve.com/chevrolet-suburban-2015-2020/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
-mileagecurve,https://mileagecurve.com/ford-ranger-1993-1997/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
+mileagecurve,https://mileagecurve.com/ford-ranger-1993-1997/,NEUTRAL,Crawled - currently not indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 mileagecurve,https://mileagecurve.com/ford-ranger-1998-2011/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/ford-ranger-2019-2023/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/nissan-versa-2007-2011/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-02,2026-09-08
@@ -471,7 +471,7 @@ mileagecurve,https://mileagecurve.com/audi-a4-1996-2001/,PASS,Submitted and inde
 mileagecurve,https://mileagecurve.com/audi-a4-2002-2005/,NEUTRAL,Crawled - currently not indexed,SUCCESSFUL,ALLOWED,2026-08-15,2026-09-08
 mileagecurve,https://mileagecurve.com/audi-a4-2006-2008/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/audi-a4-2009-2016/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-06,2026-09-08
-mileagecurve,https://mileagecurve.com/chevrolet-hhr-2006-2011/,NEUTRAL,Discovered - currently not indexed,PAGE_FETCH_STATE_UNSPECIFIED,ROBOTS_TXT_STATE_UNSPECIFIED,,2026-09-08
+mileagecurve,https://mileagecurve.com/chevrolet-hhr-2006-2011/,NEUTRAL,URL is unknown to Google,PAGE_FETCH_STATE_UNSPECIFIED,ROBOTS_TXT_STATE_UNSPECIFIED,,2026-09-08
 mileagecurve,https://mileagecurve.com/saturn-ion-2003-2007/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
 mileagecurve,https://mileagecurve.com/ford-freestar-2004-2007/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
 mileagecurve,https://mileagecurve.com/mercury-grand-marquis-1992-1997/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08

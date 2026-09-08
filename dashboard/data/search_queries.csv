@@ -1,2 +1,503 @@
-# Разрез Search Console по запросам. Затравка: строк пока нет.
+# Разрез Search Console по query, окно 2026-06-10..2026-09-07. Показов в разрезе 975 из 13682 в итоге (7%): остальное Google не отдаёт по анонимизации, и это не потеря данных, а её предел
+# Снято ботом 2026-09-08. Правки руками будут стёрты следующим прогоном.
 site,query,impressions,clicks,ctr,position
+gspaytables,federal pay raise 2027,47,8,17.02,4.8
+gspaytables,2027 federal pay raise,30,5,16.67,8.4
+gspaytables,federal employee pay raise 2027,23,5,21.74,3.7
+gspaytables,gs pay raise 2027,8,3,37.5,3.4
+gspaytables,alternative pay plan letter 2027,28,2,7.14,7.1
+gspaytables,gs pay increase 2027,3,2,66.67,1.7
+gspaytables,2026 gs pay scale,1,1,100.0,25.0
+gspaytables,2027 civilian federal pay raise,2,1,50.0,4.0
+gspaytables,2027 federal civilian pay raise,5,1,20.0,2.6
+gspaytables,2027 federal pay increase,1,1,100.0,4.0
+gspaytables,2027 gs pay raise,3,1,33.33,2.0
+gspaytables,alternative pay plan 2027,3,1,33.33,6.3
+gspaytables,civilian pay raise 2027,2,1,50.0,2.0
+gspaytables,federal civilian pay raise 2027,3,1,33.33,4.0
+gspaytables,federal employees salary increase 2027,1,1,100.0,1.0
+gspaytables,federal pay 2027,3,1,33.33,3.0
+gspaytables,federal pay raise,4,1,25.0,2.5
+gspaytables,federal raise 2027,3,1,33.33,3.7
+gspaytables,federal worker pay raise 2027,4,1,25.0,2.8
+gspaytables,"atlanta" "locality",1,0,0.0,24.0
+gspaytables,2023 federal pay raise,1,0,0.0,46.0
+gspaytables,2024 pay raise,1,0,0.0,73.0
+gspaytables,2025 gs pay scale,5,0,0.0,35.2
+gspaytables,2025 gs pay scale dc,3,0,0.0,60.3
+gspaytables,2025 gs payscale,1,0,0.0,27.0
+gspaytables,2025 pay scale,1,0,0.0,32.0
+gspaytables,2025 pay tables,15,0,0.0,22.7
+gspaytables,2026 grade scale,1,0,0.0,7.0
+gspaytables,2026 gs pay scale hawaii,1,0,0.0,31.0
+gspaytables,2026 gs pay scale philadelphia,1,0,0.0,59.0
+gspaytables,2026 gs pay scale rest of us,2,0,0.0,40.0
+gspaytables,2026 gs pay scale san antonio,1,0,0.0,21.0
+gspaytables,2026 gs pay scale virginia beach,1,0,0.0,26.0
+gspaytables,2026 gs pay scale with locality,1,0,0.0,11.0
+gspaytables,2026 opm pay scale with locality pay,1,0,0.0,48.0
+gspaytables,2027 alternative pay plan,2,0,0.0,4.0
+gspaytables,2027 federal civilian pay increase,2,0,0.0,1.5
+gspaytables,2027 federal employee pay,1,0,0.0,4.0
+gspaytables,2027 pay increase,1,0,0.0,11.0
+gspaytables,6 pay,1,0,0.0,55.0
+gspaytables,ad government pay scale,1,0,0.0,32.0
+gspaytables,ad pay scale,1,0,0.0,37.0
+gspaytables,alaska state pay scale,1,0,0.0,26.0
+gspaytables,alternative pay,1,0,0.0,31.0
+gspaytables,alternative pay plan,2,0,0.0,14.5
+gspaytables,arizona gs pay scale 2026,1,0,0.0,11.0
+gspaytables,average pay in colorado springs,1,0,0.0,59.0
+gspaytables,average salary norfolk,1,0,0.0,68.0
+gspaytables,az gs,2,0,0.0,9.0
+gspaytables,bilingoplus,1,0,0.0,19.0
+gspaytables,boston gs pay scale,1,0,0.0,11.0
+gspaytables,boston gs pay scale 2026,1,0,0.0,10.0
+gspaytables,boston gs payscale,1,0,0.0,11.0
+gspaytables,both,1,0,0.0,3.0
+gspaytables,calculate gs pay,1,0,0.0,36.0
+gspaytables,california gs,1,0,0.0,11.0
+gspaytables,chicago gs,1,0,0.0,33.0
+gspaytables,chicago locality pay,1,0,0.0,11.0
+gspaytables,city based zone_1.25 compensation,1,0,0.0,8.0
+gspaytables,city of carlsbad salary schedule,1,0,0.0,26.0
+gspaytables,city of chula vista salary schedule,1,0,0.0,23.0
+gspaytables,city of colorado springs salary schedule 2026,13,0,0.0,9.8
+gspaytables,city of fort worth salary schedule,1,0,0.0,39.0
+gspaytables,city of fort worth salary schedule 2026,1,0,0.0,41.0
+gspaytables,city of houston pay grade 20,1,0,0.0,40.0
+gspaytables,city of huntsville pay scale,1,0,0.0,44.0
+gspaytables,city of huntsville pay scale pdf,1,0,0.0,35.0
+gspaytables,city of laredo salaries,1,0,0.0,38.0
+gspaytables,city of omaha pay scales,1,0,0.0,26.0
+gspaytables,city of omaha pay scales 2026,1,0,0.0,11.0
+gspaytables,city of portland pay scale,1,0,0.0,31.0
+gspaytables,city of san diego pay scale 2026,2,0,0.0,9.0
+gspaytables,city of san diego payscale,2,0,0.0,63.0
+gspaytables,city of san diego salary table 2026,14,0,0.0,10.3
+gspaytables,city of san jose pay scale,1,0,0.0,54.0
+gspaytables,city of tacoma salary table,1,0,0.0,25.0
+gspaytables,city of virginia beach salaries,1,0,0.0,36.0
+gspaytables,civilian pay grade,1,0,0.0,29.0
+gspaytables,civilian pay grades,1,0,0.0,27.0
+gspaytables,class 3 pay scale,1,0,0.0,38.0
+gspaytables,cleveland gs pay scale,2,0,0.0,22.5
+gspaytables,cleveland gs pay scale 2026,1,0,0.0,21.0
+gspaytables,cleveland gs scale,1,0,0.0,10.0
+gspaytables,colorado gs pay scale 2026,3,0,0.0,9.7
+gspaytables,colorado springs gs pay scale,1,0,0.0,25.0
+gspaytables,colorado springs locality pay 2026,1,0,0.0,10.0
+gspaytables,colorado springs police pay,1,0,0.0,44.0
+gspaytables,colorado springs salary,1,0,0.0,53.0
+gspaytables,columbus ohio,1,0,0.0,1.0
+gspaytables,compare hourly gsc,5,0,0.0,75.2
+gspaytables,cost of living increase 2027 federal employees,1,0,0.0,4.0
+gspaytables,ct pay scale federal government,1,0,0.0,8.0
+gspaytables,current gs pay scale,1,0,0.0,35.0
+gspaytables,dallas county salary schedule 2026,1,0,0.0,45.0
+gspaytables,dallas gs scale,1,0,0.0,10.0
+gspaytables,dc federal pay scale 2026,2,0,0.0,11.0
+gspaytables,dc gs,2,0,0.0,10.0
+gspaytables,dc gs 12,1,0,0.0,51.0
+gspaytables,dc gs locality pay,1,0,0.0,53.0
+gspaytables,dc gs pay scale,6,0,0.0,43.2
+gspaytables,dc gs pay scale 2026,1,0,0.0,44.0
+gspaytables,dc gs scale,1,0,0.0,44.0
+gspaytables,dc gs scale 2026,1,0,0.0,48.0
+gspaytables,dc locality pay 2025,2,0,0.0,42.5
+gspaytables,dc locality pay 2026,3,0,0.0,10.3
+gspaytables,dc pay scale,2,0,0.0,24.0
+gspaytables,dc pay scale 2025,1,0,0.0,39.0
+gspaytables,dc pay scale 2026,2,0,0.0,42.5
+gspaytables,dc pay scale gs,1,0,0.0,30.0
+gspaytables,de gs,1,0,0.0,19.0
+gspaytables,dea gs 14 salary,1,0,0.0,7.0
+gspaytables,denver gs pay scale 2026,2,0,0.0,26.5
+gspaytables,eo 14368,1,0,0.0,11.0
+gspaytables,executive order 14368,7,0,0.0,10.4
+gspaytables,federal 2027 pay raise,1,0,0.0,4.0
+gspaytables,federal employee pay freeze 2027,1,0,0.0,35.0
+gspaytables,federal employee pay raise 2027 update,2,0,0.0,3.5
+gspaytables,federal general schedule pay scale,1,0,0.0,24.0
+gspaytables,federal gs pay rates,1,0,0.0,25.0
+gspaytables,federal gs pay scale 2025,1,0,0.0,56.0
+gspaytables,federal gs pay scales,1,0,0.0,28.0
+gspaytables,federal gs payscale,1,0,0.0,37.0
+gspaytables,federal gs scale,1,0,0.0,26.0
+gspaytables,federal locality pay,1,0,0.0,48.0
+gspaytables,federal pay comparability act,1,0,0.0,35.0
+gspaytables,federal pay increase 2027,4,0,0.0,3.8
+gspaytables,federal pay raise 2023 effective date,1,0,0.0,87.0
+gspaytables,federal pay raise 2027 chart with locality,1,0,0.0,9.0
+gspaytables,federal pay raise 2027 update,3,0,0.0,3.7
+gspaytables,federal pay raise for 2027,1,0,0.0,4.0
+gspaytables,federal pay scale 2026 dc,6,0,0.0,10.8
+gspaytables,federal pay scale 2026 washington dc,1,0,0.0,11.0
+gspaytables,federal pay tables,1,0,0.0,16.0
+gspaytables,federal raises 2027,1,0,0.0,2.0
+gspaytables,federal salary tables,2,0,0.0,33.5
+gspaytables,federal wage tables,1,0,0.0,26.0
+gspaytables,fers locality pay,2,0,0.0,48.0
+gspaytables,fg pay scale,2,0,0.0,18.5
+gspaytables,florida gs pay scale 2026,1,0,0.0,33.0
+gspaytables,fort worth salary,1,0,0.0,54.0
+gspaytables,fresno county salaries 2026,1,0,0.0,37.0
+gspaytables,fv vs gs pay scale,1,0,0.0,25.0
+gspaytables,g s scale,1,0,0.0,41.0
+gspaytables,g-12 pay scale,1,0,0.0,29.0
+gspaytables,g11 salary,1,0,0.0,51.0
+gspaytables,g12 pay scale,3,0,0.0,23.0
+gspaytables,g14 salary,2,0,0.0,33.5
+gspaytables,g15 pay,1,0,0.0,7.0
+gspaytables,g6 pay scale,1,0,0.0,29.0
+gspaytables,g7 government pay scale,1,0,0.0,40.0
+gspaytables,g7 pay scale,2,0,0.0,21.5
+gspaytables,g7 salary,1,0,0.0,23.0
+gspaytables,g8 pay grade,1,0,0.0,34.0
+gspaytables,g9 salary,1,0,0.0,26.0
+gspaytables,ga gs,1,0,0.0,11.0
+gspaytables,ga pay,1,0,0.0,42.0
+gspaytables,gaji eselon 3,1,0,0.0,62.0
+gspaytables,general schedule pay,2,0,0.0,19.0
+gspaytables,general schedule pay tables,2,0,0.0,33.5
+gspaytables,general schedule payscale,4,0,0.0,27.8
+gspaytables,general schedule rating,1,0,0.0,46.0
+gspaytables,georgia gs,3,0,0.0,8.7
+gspaytables,gg 12 pay scale,1,0,0.0,22.0
+gspaytables,gg federal pay scale,1,0,0.0,26.0
+gspaytables,gg pay,1,0,0.0,49.0
+gspaytables,gg pay scale 2026 dc,1,0,0.0,40.0
+gspaytables,gg pay scale dc,1,0,0.0,30.0
+gspaytables,gg pay scale vs gs,1,0,0.0,61.0
+gspaytables,gg pay scale washington dc,3,0,0.0,39.0
+gspaytables,gg pay scale with locality,1,0,0.0,38.0
+gspaytables,gg scale,2,0,0.0,26.5
+gspaytables,gg-14,1,0,0.0,26.0
+gspaytables,gg9 pay scale,1,0,0.0,21.0
+gspaytables,gl 11 pay,1,0,0.0,29.0
+gspaytables,gl 6 pay scale,1,0,0.0,25.0
+gspaytables,gl-7,3,0,0.0,18.7
+gspaytables,gov gs pay scale,2,0,0.0,45.5
+gspaytables,government ad pay scale,1,0,0.0,29.0
+gspaytables,government grade scale,1,0,0.0,40.0
+gspaytables,government gs pay,1,0,0.0,29.0
+gspaytables,government gs pay scale,1,0,0.0,30.0
+gspaytables,government gs payscale,1,0,0.0,29.0
+gspaytables,government locality pay,1,0,0.0,29.0
+gspaytables,government pay bands,2,0,0.0,31.0
+gspaytables,government pay raise 2027,1,0,0.0,6.0
+gspaytables,government pay scale,9,0,0.0,21.9
+gspaytables,government pay scale dc,1,0,0.0,37.0
+gspaytables,government pay scale gs,2,0,0.0,19.5
+gspaytables,government pay scale washington dc,3,0,0.0,43.3
+gspaytables,government pay scales,2,0,0.0,26.0
+gspaytables,government salary grade 11,1,0,0.0,43.0
+gspaytables,government service pay scale,1,0,0.0,27.0
+gspaytables,govt salary grade,1,0,0.0,62.0
+gspaytables,grade 11 salary,1,0,0.0,31.0
+gspaytables,grade 4 government pay scale,2,0,0.0,20.0
+gspaytables,grade 5 pay,1,0,0.0,27.0
+gspaytables,grade 7 salary,1,0,0.0,33.0
+gspaytables,grade pay band,1,0,0.0,66.0
+gspaytables,grade pay scale,1,0,0.0,24.0
+gspaytables,grade scale 2026,17,0,0.0,9.9
+gspaytables,gs 04 pay,2,0,0.0,19.0
+gspaytables,gs 05 pay scale,1,0,0.0,10.0
+gspaytables,gs 06 pay,1,0,0.0,20.0
+gspaytables,gs 06 pay scale,1,0,0.0,30.0
+gspaytables,gs 07 pay,2,0,0.0,24.0
+gspaytables,gs 07 pay scale,1,0,0.0,23.0
+gspaytables,gs 09,2,0,0.0,21.5
+gspaytables,gs 09 pay,1,0,0.0,13.0
+gspaytables,gs 10,2,0,0.0,14.5
+gspaytables,gs 10 pay,6,0,0.0,13.5
+gspaytables,gs 10 pay scale,1,0,0.0,22.0
+gspaytables,gs 10 salary,2,0,0.0,21.5
+gspaytables,gs 10 step 4,1,0,0.0,30.0
+gspaytables,gs 11,3,0,0.0,31.7
+gspaytables,gs 11 dc pay,1,0,0.0,11.0
+gspaytables,gs 11 equivalent,1,0,0.0,41.0
+gspaytables,gs 11 hourly rate,1,0,0.0,31.0
+gspaytables,gs 11 pay,1,0,0.0,20.0
+gspaytables,gs 11 pay scale 2025,2,0,0.0,32.5
+gspaytables,gs 11 pay scale 2026 hawaii,2,0,0.0,10.5
+gspaytables,gs 11 pay scale 2026 nyc,1,0,0.0,10.0
+gspaytables,gs 11 pay scale dc,1,0,0.0,51.0
+gspaytables,gs 11 salary,1,0,0.0,27.0
+gspaytables,gs 11 salary dc,1,0,0.0,32.0
+gspaytables,gs 11 san diego,1,0,0.0,22.0
+gspaytables,gs 11 step 10,1,0,0.0,10.0
+gspaytables,gs 11 step 5 pay scale 2026,3,0,0.0,25.0
+gspaytables,gs 11 to gs 12,1,0,0.0,5.0
+gspaytables,gs 11 vs gs 12 pay scale,1,0,0.0,52.0
+gspaytables,gs 11/12 pay scale,1,0,0.0,21.0
+gspaytables,gs 1102 pay scale,1,0,0.0,24.0
+gspaytables,gs 12,2,0,0.0,24.5
+gspaytables,gs 12 12,1,0,0.0,23.0
+gspaytables,gs 12 13,1,0,0.0,28.0
+gspaytables,gs 12 chicago,1,0,0.0,18.0
+gspaytables,gs 12 dc,1,0,0.0,22.0
+gspaytables,gs 12 dc pay,4,0,0.0,40.8
+gspaytables,gs 12 dc pay scale,1,0,0.0,31.0
+gspaytables,gs 12 level,1,0,0.0,27.0
+gspaytables,gs 12 los angeles,1,0,0.0,21.0
+gspaytables,gs 12 pay,3,0,0.0,15.3
+gspaytables,gs 12 pay dc,1,0,0.0,6.0
+gspaytables,gs 12 pay san antonio,1,0,0.0,17.0
+gspaytables,gs 12 pay scale,2,0,0.0,16.0
+gspaytables,gs 12 pay scale 2026,1,0,0.0,7.0
+gspaytables,gs 12 pay scale 2026 huntsville al,2,0,0.0,10.0
+gspaytables,gs 12 pay scale 2026 norfolk va,5,0,0.0,11.0
+gspaytables,gs 12 pay scale dc,1,0,0.0,9.0
+gspaytables,gs 12 pay washington dc,1,0,0.0,52.0
+gspaytables,gs 12 philadelphia,2,0,0.0,15.0
+mileagecurve,"flat_rcl_post_2010" github,2,0,0.0,3.0
+mileagecurve,08 jeep liberty problems,1,0,0.0,51.0
+mileagecurve,1991 ford explorer mpg,1,0,0.0,49.0
+mileagecurve,1992 toyota camry value,1,0,0.0,60.0
+mileagecurve,1995 maxima,1,0,0.0,40.0
+mileagecurve,1996 honda civic gas mileage,1,0,0.0,49.0
+mileagecurve,1997 2001,1,0,0.0,41.0
+mileagecurve,1997 2003 ford f150,1,0,0.0,47.0
+mileagecurve,1997 honda accord reliability,1,0,0.0,29.0
+mileagecurve,1997 honda cr-v problems,1,0,0.0,45.0
+mileagecurve,1997-2001,1,0,0.0,36.0
+mileagecurve,1997-2003 f150,1,0,0.0,45.0
+mileagecurve,1998 jeep cherokee problems,1,0,0.0,56.0
+mileagecurve,1998 jeep grand cherokee problems,2,0,0.0,55.0
+mileagecurve,1998 jeep grand cherokee reliability,2,0,0.0,51.0
+mileagecurve,1998 subaru forester problems,2,0,0.0,40.5
+mileagecurve,1998 toyota sienna problems,1,0,0.0,37.0
+mileagecurve,1999 subaru outback problems,1,0,0.0,32.0
+mileagecurve,1999 subaru outback reliability,1,0,0.0,34.0
+mileagecurve,1999 toyota sienna problems,2,0,0.0,35.5
+mileagecurve,2000 ford focus problems,1,0,0.0,63.0
+mileagecurve,2000 honda civic problems,3,0,0.0,50.7
+mileagecurve,2000 toyota tundra problems,3,0,0.0,45.3
+mileagecurve,2001 chrysler town and country problems,1,0,0.0,54.0
+mileagecurve,2001 highlander problems,1,0,0.0,54.0
+mileagecurve,2001 hyundai santa fe,2,0,0.0,37.0
+mileagecurve,2001 hyundai santa fe problems,2,0,0.0,57.5
+mileagecurve,2001 kia sportage problems,2,0,0.0,60.5
+mileagecurve,2001 toyota highlander problems,1,0,0.0,34.0
+mileagecurve,2001 toyota highlander reliability,1,0,0.0,57.0
+mileagecurve,2002 chevy trailblazer problems,1,0,0.0,49.0
+mileagecurve,2002 chrysler town and country problems,1,0,0.0,50.0
+mileagecurve,2002 dodge caravan problems,2,0,0.0,50.0
+mileagecurve,2002 hyundai santa fe problems,1,0,0.0,53.0
+mileagecurve,2002 kia sportage problems,4,0,0.0,46.0
+mileagecurve,2002 kia sportage reliability,1,0,0.0,69.0
+mileagecurve,2002 subaru forester problems,6,0,0.0,41.8
+mileagecurve,2002 subaru forester reliability,1,0,0.0,59.0
+mileagecurve,2002 to 2008 dodge ram,1,0,0.0,36.0
+mileagecurve,2002 trailblazer issues,1,0,0.0,53.0
+mileagecurve,2002 trailblazer problems,2,0,0.0,40.5
+mileagecurve,2002 trailblazer reliability,1,0,0.0,42.0
+mileagecurve,2003 4runner issues,1,0,0.0,29.0
+mileagecurve,2003 dodge durango problems,2,0,0.0,42.0
+mileagecurve,2003 dodge durango reliability,2,0,0.0,43.0
+mileagecurve,2003 honda odyssey problems,1,0,0.0,49.0
+mileagecurve,2003 honda pilot,1,0,0.0,69.0
+mileagecurve,2003 honda pilot fuel economy,1,0,0.0,43.0
+mileagecurve,2003 honda pilot gas mileage,2,0,0.0,43.0
+mileagecurve,2003 honda pilot lx,1,0,0.0,67.0
+mileagecurve,2003 honda pilot mpg,1,0,0.0,38.0
+mileagecurve,2003 honda pilot transmission recall,1,0,0.0,55.0
+mileagecurve,2003 nissan murano,1,0,0.0,40.0
+mileagecurve,2003 nissan murano gas mileage,1,0,0.0,56.0
+mileagecurve,2003 nissan murano problems,4,0,0.0,47.2
+mileagecurve,2003 nissan murano reliability,2,0,0.0,58.5
+mileagecurve,2003 nissan murano sl,1,0,0.0,60.0
+mileagecurve,2003 subaru forester problems,2,0,0.0,36.5
+mileagecurve,2003 toyota 4runner gas mileage,1,0,0.0,41.0
+mileagecurve,2003 toyota 4runner mpg,2,0,0.0,50.5
+mileagecurve,2003 toyota 4runner problems,3,0,0.0,36.3
+mileagecurve,2003 trailblazer problems,2,0,0.0,35.0
+mileagecurve,2003 volvo xc90 problems,3,0,0.0,54.0
+mileagecurve,2003 volvo xc90 reliability,3,0,0.0,59.7
+mileagecurve,2003-2009,1,0,0.0,9.0
+mileagecurve,2003-2009 4runner,1,0,0.0,38.0
+mileagecurve,2004 buick lacrosse,1,0,0.0,59.0
+mileagecurve,2004 chrysler pacifica problems,2,0,0.0,39.0
+mileagecurve,2004 chrysler pacifica reliability,1,0,0.0,72.0
+mileagecurve,2004 honda odyssey problems,2,0,0.0,44.0
+mileagecurve,2004 honda odyssey reliability,2,0,0.0,47.0
+mileagecurve,2004 honda odyssey transmission recall,1,0,0.0,60.0
+mileagecurve,2005 buick allure problems,1,0,0.0,43.0
+mileagecurve,2005 buick lacrosse problems,4,0,0.0,53.2
+mileagecurve,2005 buick lacrosse reliability,1,0,0.0,53.0
+mileagecurve,2005 chrysler pacifica problems,1,0,0.0,45.0
+mileagecurve,2005 chrysler town and country problems,1,0,0.0,61.0
+mileagecurve,2005 kia sportage problems,2,0,0.0,66.0
+mileagecurve,2005 kia sportage reliability,2,0,0.0,56.5
+mileagecurve,2005 tacoma problems,2,0,0.0,51.5
+mileagecurve,2005 tacoma reliability,2,0,0.0,57.5
+mileagecurve,2005 toyota tacoma problems,1,0,0.0,54.0
+mileagecurve,2005 toyota tacoma recalls,1,0,0.0,60.0
+mileagecurve,2006 chrysler pacifica problems,3,0,0.0,72.0
+mileagecurve,2006 chrysler town and country problems,2,0,0.0,49.0
+mileagecurve,2006 dodge grand caravan problems,2,0,0.0,41.0
+mileagecurve,2006 ford explorer common problems,1,0,0.0,49.0
+mileagecurve,2006 ford explorer problems,1,0,0.0,58.0
+mileagecurve,2006 ford explorer recalls,1,0,0.0,55.0
+mileagecurve,2006 ford explorer reliability,2,0,0.0,52.0
+mileagecurve,2006 hyundai santa fe life expectancy,1,0,0.0,29.0
+mileagecurve,2006 hyundai santa fe problems,2,0,0.0,64.5
+mileagecurve,2006 hyundai santa fe reliability,3,0,0.0,51.3
+mileagecurve,2006 santa fe,1,0,0.0,33.0
+mileagecurve,2007 - 2021,1,0,0.0,3.0
+mileagecurve,2007 chrysler town and country problems,2,0,0.0,61.0
+mileagecurve,2007 dodge caravan problems,3,0,0.0,50.3
+mileagecurve,2007 dodge grand caravan problems,3,0,0.0,60.0
+mileagecurve,2007 honda cr v recalls,2,0,0.0,30.5
+mileagecurve,2007 honda crv common problems,1,0,0.0,37.0
+mileagecurve,2007 honda crv issues,1,0,0.0,43.0
+mileagecurve,2007 honda crv problems,2,0,0.0,30.5
+mileagecurve,2007 honda crv recalls,1,0,0.0,63.0
+mileagecurve,2007 nissan murano life expectancy,2,0,0.0,44.5
+mileagecurve,2007 nissan murano reliability,1,0,0.0,58.0
+mileagecurve,2007 toyota highlander hybrid problems,1,0,0.0,44.0
+mileagecurve,2007 toyota highlander life expectancy,1,0,0.0,30.0
+mileagecurve,2007 toyota highlander problems,2,0,0.0,42.5
+mileagecurve,2007 toyota highlander v6 problems,1,0,0.0,65.0
+mileagecurve,2007 toyota tundra recall,1,0,0.0,51.0
+mileagecurve,2007 toyota tundra recalls,1,0,0.0,64.0
+mileagecurve,2007 tundra recalls,1,0,0.0,70.0
+mileagecurve,2007-2011,1,0,0.0,52.0
+mileagecurve,2007-2021 toyota tundra,1,0,0.0,95.0
+mileagecurve,2008 acura csx reliability,1,0,0.0,55.0
+mileagecurve,2008 chrysler pacifica problems,2,0,0.0,53.5
+mileagecurve,2008 ford focus life expectancy,1,0,0.0,40.0
+mileagecurve,2008 ford focus reliability,1,0,0.0,49.0
+mileagecurve,2008 jeep liberty gas mileage,1,0,0.0,52.0
+mileagecurve,2008 jeep liberty mpg,1,0,0.0,41.0
+mileagecurve,2008 jeep liberty problems,5,0,0.0,30.8
+mileagecurve,2008 jeep liberty recalls,4,0,0.0,54.8
+mileagecurve,2009 buick lacrosse problems,1,0,0.0,32.0
+mileagecurve,2009 chevrolet trailblazer problems,1,0,0.0,65.0
+mileagecurve,2009 forester problems,1,0,0.0,41.0
+mileagecurve,2009 honda fit problems,1,0,0.0,37.0
+mileagecurve,2009 honda fit recalls,2,0,0.0,60.0
+mileagecurve,2009 nissan maxima problems,1,0,0.0,59.0
+mileagecurve,2009 nissan maxima reliability,3,0,0.0,61.0
+mileagecurve,2009 subaru forester common problems,1,0,0.0,37.0
+mileagecurve,2009 subaru forester life expectancy,1,0,0.0,27.0
+mileagecurve,2009 subaru forester problems,5,0,0.0,31.4
+mileagecurve,2009 toyota tundra problems,1,0,0.0,53.0
+mileagecurve,2010 hyundai tucson problems,1,0,0.0,61.0
+mileagecurve,2010 jeep liberty recalls,1,0,0.0,54.0
+mileagecurve,2010 prius mileage,1,0,0.0,56.0
+mileagecurve,2010 toyota prius life expectancy,1,0,0.0,29.0
+mileagecurve,2011 kia sorento reliability,1,0,0.0,55.0
+mileagecurve,2011 kia sorento reliability rating,1,0,0.0,67.0
+mileagecurve,2011 toyota sienna life expectancy,1,0,0.0,29.0
+mileagecurve,2011 toyota sienna recalls,1,0,0.0,71.0
+mileagecurve,2012 jeep liberty gas mileage,1,0,0.0,26.0
+mileagecurve,2012 jeep liberty mpg,1,0,0.0,37.0
+mileagecurve,2012 jeep liberty reliability,1,0,0.0,52.0
+mileagecurve,2014 highlander problems,2,0,0.0,47.0
+mileagecurve,2015 toyota sienna life expectancy,1,0,0.0,30.0
+mileagecurve,2016 kia sorento issues,1,0,0.0,71.0
+mileagecurve,2016 kia sorento mileage,1,0,0.0,37.0
+mileagecurve,2016 kia sorento problems,1,0,0.0,71.0
+mileagecurve,2016 maxima problems,1,0,0.0,58.0
+mileagecurve,2016 nissan maxima issues,1,0,0.0,58.0
+mileagecurve,2016 nissan maxima life expectancy,1,0,0.0,33.0
+mileagecurve,2016 nissan maxima reliability,2,0,0.0,73.0
+mileagecurve,2016 nissan maxima sl reliability,1,0,0.0,47.0
+mileagecurve,2016 nissan maxima sv reliability,1,0,0.0,46.0
+mileagecurve,2016 pilot mileage,1,0,0.0,64.0
+mileagecurve,2018 chevy equinox common problems,1,0,0.0,52.0
+mileagecurve,2018 chevy equinox premier problems,1,0,0.0,42.0
+mileagecurve,2018 chevy equinox recalls,2,0,0.0,89.0
+mileagecurve,2018 honda odyssey problems,1,0,0.0,50.0
+mileagecurve,2018 nissan maxima issues,1,0,0.0,56.0
+mileagecurve,2018 nissan maxima problems,2,0,0.0,51.0
+mileagecurve,2019 toyota highlander life expectancy,1,0,0.0,46.0
+mileagecurve,2020 kia sorento life expectancy,1,0,0.0,54.0
+mileagecurve,2021 chevy tahoe reliability rating,1,0,0.0,54.0
+mileagecurve,2021 kia sportage life expectancy,1,0,0.0,78.0
+mileagecurve,2021 tahoe reliability,1,0,0.0,51.0
+mileagecurve,2021 toyota tundra common problems,1,0,0.0,58.0
+mileagecurve,2024 chevrolet equinox issues,2,0,0.0,60.5
+mileagecurve,2024 chevrolet equinox problems,1,0,0.0,61.0
+mileagecurve,2024 chevy equinox lt problems,1,0,0.0,88.0
+mileagecurve,2024 chevy equinox problems,1,0,0.0,53.0
+mileagecurve,2024 toyota 4runner problems,1,0,0.0,61.0
+mileagecurve,2024 toyota 4runner recalls,1,0,0.0,61.0
+mileagecurve,2024 toyota camry problems,1,0,0.0,53.0
+mileagecurve,2025 chevrolet tahoe reliability,1,0,0.0,61.0
+mileagecurve,2025 chevy tahoe problems,1,0,0.0,43.0
+mileagecurve,2025 chevy tahoe reliability,2,0,0.0,69.5
+mileagecurve,2025 honda odyssey reliability,1,0,0.0,73.0
+mileagecurve,2025 kia soul reliability,3,0,0.0,69.3
+mileagecurve,2025 tahoe engine problems,1,0,0.0,44.0
+mileagecurve,2025 tahoe recalls,1,0,0.0,71.0
+mileagecurve,2025 tahoe reliability,1,0,0.0,60.0
+mileagecurve,82000-65000,1,0,0.0,8.0
+mileagecurve,91 explorer,1,0,0.0,74.0
+mileagecurve,96 honda civic,2,0,0.0,49.0
+mileagecurve,96-00 civic,1,0,0.0,66.0
+mileagecurve,acura lifespan,1,0,0.0,58.0
+mileagecurve,acura longevity,1,0,0.0,65.0
+mileagecurve,acura mileage life,2,0,0.0,44.5
+mileagecurve,acura reliability,6,0,0.0,53.8
+mileagecurve,acura reliability ranking,1,0,0.0,75.0
+mileagecurve,acura reliability rating,1,0,0.0,57.0
+mileagecurve,acura reliability ratings,4,0,0.0,68.0
+mileagecurve,acura years to avoid,1,0,0.0,63.0
+mileagecurve,acuras reliability,1,0,0.0,48.0
+mileagecurve,are 2002 kia sportage reliable?,1,0,0.0,57.0
+mileagecurve,are 90s nissan pathfinders reliable?,1,0,0.0,36.0
+mileagecurve,are dodge vehicles reliable,3,0,0.0,61.3
+mileagecurve,are dodges reliable,3,0,0.0,57.7
+mileagecurve,are pontiac reliable,2,0,0.0,61.5
+mileagecurve,are pontiacs reliable cars,1,0,0.0,58.0
+mileagecurve,are there any problems with the 2018 chevy equinox?,1,0,0.0,64.0
+mileagecurve,average age of cadillac owner,1,0,0.0,69.0
+mileagecurve,cadillac escalade reliability by year,1,0,0.0,52.0
+mileagecurve,cadillac longevity,1,0,0.0,62.0
+mileagecurve,cadillac mileage life,1,0,0.0,50.0
+mileagecurve,cadillac reliability,5,0,0.0,51.4
+mileagecurve,cadillac reliability ratings,2,0,0.0,61.5
+mileagecurve,chevy equinox 2018 problems,1,0,0.0,54.0
+mileagecurve,chevy equinox 2024 problems,1,0,0.0,61.0
+mileagecurve,civic 1996,1,0,0.0,45.0
+mileagecurve,civic 96,1,0,0.0,38.0
+mileagecurve,do acuras last a long time,1,0,0.0,60.0
+mileagecurve,dodge charger reliability by year,1,0,0.0,59.0
+mileagecurve,dodge grand caravan worst years,1,0,0.0,62.0
+mileagecurve,dodge reliability,9,0,0.0,50.7
+mileagecurve,dodge reliability rating,1,0,0.0,83.0
+mileagecurve,dodge reliable,1,0,0.0,50.0
+mileagecurve,honda civic 1996 2000,1,0,0.0,24.0
+mileagecurve,honda civic 96 00,1,0,0.0,39.0
+mileagecurve,honda crv 2007 problems,1,0,0.0,45.0
+mileagecurve,honda crv 2007 recall,1,0,0.0,60.0
+mileagecurve,honda fit (2009–2013),1,0,0.0,55.0
+mileagecurve,honda pilot sales figures,3,0,0.0,72.3
+mileagecurve,how long can a 2003 honda pilot last?,2,0,0.0,36.5
+mileagecurve,how long do acuras last,2,0,0.0,61.0
+mileagecurve,how long do toyota siennas last,10,0,0.0,25.6
+mileagecurve,how long does a 2007 chrysler town and country last?,6,0,0.0,27.7
+mileagecurve,how long does a acura last,1,0,0.0,56.0
+mileagecurve,how long does an acura last,1,0,0.0,63.0
+mileagecurve,how long should a 2011 kia sorento last?,1,0,0.0,34.0
+mileagecurve,how long should a 2018 kia sorento last?,1,0,0.0,41.0
+mileagecurve,how long toyota sienna last,1,0,0.0,23.0
+mileagecurve,how long will a 2008 chrysler pacifica last?,4,0,0.0,31.8
+mileagecurve,how long will a 2010 4runner last?,1,0,0.0,37.0
+mileagecurve,how long will toyota sienna last,1,0,0.0,26.0
+mileagecurve,how many miles can a 1997 nissan last?,2,0,0.0,64.0
+mileagecurve,how many miles can a 2005 chrysler pacifica last?,1,0,0.0,64.0
+mileagecurve,how many miles can a 2010 hyundai tucson last?,3,0,0.0,35.0
+mileagecurve,how many miles can a 2012 honda cr-v last?,1,0,0.0,33.0
+mileagecurve,how many miles can a 2013 ford taurus last?,1,0,0.0,34.0
+mileagecurve,how many miles can a 2018 equinox last?,1,0,0.0,43.0
+mileagecurve,how many miles can a pontiac g6 last?,1,0,0.0,40.0
+mileagecurve,how many miles can a sienna last,1,0,0.0,23.0
+mileagecurve,how many miles can a toyota sienna last,11,0,0.0,22.2
+mileagecurve,how many miles can an infiniti i35 last?,2,0,0.0,42.5
+mileagecurve,how many miles can kia soul last,1,0,0.0,20.0
+mileagecurve,how many miles do acuras last,1,0,0.0,46.0
+mileagecurve,how many miles do cadillacs last,2,0,0.0,56.5
