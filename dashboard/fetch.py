@@ -545,6 +545,38 @@ def _prev_index_rows():
     return out
 
 
+def search_by(s, dim, since, until, limit=250):
+    """Разрез поискового ряда по ЗАПРОСАМ или по СТРАНИЦАМ.
+
+    Посуточный ряд отвечает «сколько», но не отвечает «за что». Пока его не
+    было, любой разговор про то, почему сайт стоит на 26-м месте, был
+    гаданием: мы видели итог и не видели ни одного запроса, по которому он
+    сложился.
+
+    Google подрезает выдачу сам: часть запросов он не отдаёт вовсе (редкие,
+    способные выдать человека). Поэтому сумма по этому разрезу МЕНЬШЕ итога
+    из посуточного ряда, и это не ошибка — это анонимизация. Доля, которую
+    удалось увидеть, печатается рядом.
+    """
+    rows = []
+    for key, prop in sorted(GSC.items()):
+        url = ("https://searchconsole.googleapis.com/webmasters/v3/sites/"
+               "%s/searchAnalytics/query" % prop.replace(":", "%3A"))
+        body = {"startDate": since.isoformat(), "endDate": until.isoformat(),
+                "dimensions": [dim], "rowLimit": limit}
+        r = s.post(url, json=body, timeout=90)
+        if r.status_code == 403:
+            raise Missing("Search Console отказала по %s (403)." % prop)
+        r.raise_for_status()
+        for row in r.json().get("rows", []):
+            rows.append((key, _csv_safe(row["keys"][0]),
+                         int(row.get("impressions", 0)),
+                         int(row.get("clicks", 0)),
+                         round(float(row.get("ctr", 0)) * 100, 2),
+                         round(float(row.get("position", 0)), 1)))
+    return rows
+
+
 def search_total(s, since, until):
     """Итог окна ОДНИМ запросом, без разбивки по дням.
 
@@ -626,6 +658,21 @@ def main():
            extra=[check])
 
     prev_snap = _prev_rows("ga4_snapshot.csv")
+    # Разрезы «за что» — по запросам и по страницам. Без них разговор о том,
+    # почему сайт стоит на 26-м месте, остаётся гаданием.
+    for _name, _dim, _col in (("search_queries.csv", "query", "query"),
+                              ("search_pages.csv", "page", "page")):
+        _rows = search_by(s, _dim, since, until)
+        _shown = sum(r[2] for r in _rows)
+        _all = sum(v[1] for v in totals.values())
+        _write(_name, ["site", _col, "impressions", "clicks", "ctr", "position"],
+               _rows,
+               "Разрез Search Console по %s, окно %s. Показов в разрезе %d из "
+               "%d в итоге (%.0f%%): остальное Google не отдаёт по "
+               "анонимизации, и это не потеря данных, а её предел"
+               % (_col, window, _shown, _all,
+                  (_shown / _all * 100) if _all else 0))
+
     ch, snap = [], []
     for key, prop in sorted(props.items()):
         for row in ga4_report(s, prop, ["sessionDefaultChannelGroup"],
