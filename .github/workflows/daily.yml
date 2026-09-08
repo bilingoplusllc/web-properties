@@ -1,16 +1,21 @@
 # Доска направления: раз в сутки тянет свежие числа и перевыкладывает страницу.
 #
-# Три вещи, ради которых он написан именно так.
+# Четыре вещи, ради которых он написан именно так.
 #
-# 1. «Не настроено» и «сломалось» — РАЗНЫЕ исходы. Пока секретов нет,
+# 1. Ключа не существует. Организация запрещает создавать ключи служебных
+#    аккаунтов, и это правильно: скачанный ключ живёт вечно. Вместо ключа —
+#    федерация: GitHub предъявляет свой OIDC-токен, Google меняет его на
+#    временный. В репозитории нет ни одного секрета, и ротировать нечего.
+# 2. «Не настроено» и «сломалось» — РАЗНЫЕ исходы. Если личности нет вообще,
 #    fetch.py выходит с кодом 2, бот идёт дальше и пересобирает доску на
 #    прежних данных, а страница печатает их прежнюю дату. Любой другой
 #    ненулевой код — настоящий сбой, и он роняет прогон.
-# 2. Данные не переписываются пустотой: это правило живёт в fetch.py, но
+# 3. Данные не переписываются пустотой: это правило живёт в fetch.py, но
 #    здесь оно тоже важно — коммит делается ТОЛЬКО если файлы изменились,
 #    иначе история засоряется пустыми правками.
-# 3. Ключ не попадает никуда, кроме памяти процесса: он приходит секретом,
-#    отдаётся переменной окружения и не пишется ни в один файл.
+# 4. Доверие сужено до одного репозитория: условие провайдера пускает только
+#    владельца bilingoplusllc, а право выступать от имени служебного аккаунта
+#    выдано принципалу attribute.repository = bilingoplusllc/web-properties.
 name: daily board
 
 on:
@@ -21,11 +26,15 @@ on:
 permissions:
   contents: write
   pages: write
-  id-token: write
+  id-token: write             # без этого GitHub не выдаст OIDC-токен
 
 concurrency:
   group: board
   cancel-in-progress: false
+
+env:
+  WIF_PROVIDER: projects/344965276479/locations/global/workloadIdentityPools/github/providers/gh-actions
+  WIF_ACCOUNT: board-fetch@bilingoplus-board.iam.gserviceaccount.com
 
 jobs:
   build:
@@ -40,18 +49,32 @@ jobs:
       - name: библиотеки только для загрузчика
         run: pip install --quiet google-auth requests
 
+      # Обмен OIDC-токена GitHub на временную личность Google. Шаг кладёт
+      # файл учётных данных и указывает на него переменной окружения —
+      # fetch.py находит его через google.auth.default() и не знает, откуда
+      # взялась личность. Постоянного секрета в этом файле нет.
+      - name: личность Google без ключа
+        id: auth
+        continue-on-error: true
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ env.WIF_PROVIDER }}
+          service_account: ${{ env.WIF_ACCOUNT }}
+
       - name: свежие числа
         id: fetch
-        env:
-          GOOGLE_SA_JSON: ${{ secrets.GOOGLE_SA_JSON }}
-          GA4_PROPERTIES: ${{ secrets.GA4_PROPERTIES }}
         run: |
+          if [ "${{ steps.auth.outcome }}" != "success" ]; then
+            echo "личность не выдана — доска соберётся на прежних данных"
+            echo "configured=no" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           set +e
           python dashboard/fetch.py
           code=$?
           set -e
           if [ "$code" = "2" ]; then
-            echo "секретов нет — доска соберётся на прежних данных"
+            echo "личности нет — доска соберётся на прежних данных"
             echo "configured=no" >> "$GITHUB_OUTPUT"
           elif [ "$code" != "0" ]; then
             echo "загрузчик упал с кодом $code"

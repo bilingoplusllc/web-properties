@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Свежие данные для доски: Search Console и GA4 через служебный аккаунт.
+"""Свежие данные для доски: Search Console и GA4.
 
 До этого КАЖДЫЙ ряд снимался руками — в шапке любого CSV стоит «Снято руками
 31.08.2026». Пока так, доска стареет молча: числа выглядят сегодняшними,
@@ -15,18 +15,29 @@
   * Он не подставляет вчерашние числа под сегодняшнюю дату. В шапку каждого
     файла пишется дата и окно, за которое данные взяты, и доска печатает их
     рядом с числами.
-  * Он не хранит ключ. Ключ приходит из переменной окружения, которую
-    заполняет секрет репозитория, и в файлы не попадает.
+  * Он не хранит ключ. Ключа не существует — см. ниже.
 
-Настройка со стороны владельца (разово, руками — я к ключам не прикасаюсь):
-  1. В Google Cloud завести проект и СЛУЖЕБНЫЙ АККАУНТ, скачать ключ JSON.
-  2. Включить два API: Search Console API и Google Analytics Data API.
-  3. В Search Console добавить адрес служебного аккаунта читателем КАЖДОГО
-     ресурса; в GA4 — читателем ресурса (Admin -> Property access management).
-  4. В репозитории завести секрет GOOGLE_SA_JSON — содержимое файла ключа
-     целиком, и секрет GA4_PROPERTIES вида
-     "mileagecurve=123456789,gspaytables=987654321" (числовые id ресурсов
-     GA4, они в Admin -> Property details, НЕ измерительные G-XXXX).
+ПОЧЕМУ КЛЮЧА НЕТ ВООБЩЕ.
+
+Организация bilingoplus.com запрещает создание ключей служебных аккаунтов
+(политика iam.disableServiceAccountKeyCreation, Enforced). Запрет правильный:
+скачанный ключ живёт вечно, лежит файлом и утекает молча. Вместо ключа —
+федерация: GitHub Actions предъявляет свой OIDC-токен, Google меняет его на
+временный и выдаёт его от имени служебного аккаунта. Владельцу нечего
+вставлять, нечего ротировать и нечему утекать.
+
+  проект         bilingoplus-board (номер 344965276479)
+  служебный      board-fetch@bilingoplus-board.iam.gserviceaccount.com
+  пул/провайдер  github / gh-actions, issuer token.actions.githubusercontent.com
+  условие входа  assertion.repository_owner == 'bilingoplusllc'
+  кому доверяем  attribute.repository = bilingoplusllc/web-properties
+
+Читательский доступ выдан отдельно, потому что Search Console и GA4 не знают
+про роли Cloud: в Search Console служебный аккаунт добавлен пользователем
+обоих ресурсов, в GA4 — ролью Viewer на обоих ресурсах.
+
+GOOGLE_SA_JSON поддержан на случай запуска НЕ из CI, но в репозитории его нет
+и заводить его не нужно.
 
 Запуск:  python fetch.py            (нужны google-auth и requests)
 """
@@ -51,6 +62,16 @@ GSC = {
     "gspaytables": "sc-domain:gspaytables.com",
 }
 
+# ЧИСЛОВЫЕ идентификаторы ресурсов GA4 (Admin -> Property details), а НЕ
+# измерительные G-XXXX. Секретом они не являются: сами по себе не открывают
+# ни одного отчёта — доступ даёт роль Viewer у служебного аккаунта. Поэтому
+# они лежат здесь, а не в секрете репозитория: секрет, который нельзя
+# прочитать, невозможно и проверить глазами.
+GA4 = {
+    "mileagecurve": "550704652",
+    "gspaytables": "551647466",
+}
+
 
 class Missing(Exception):
     """Не настроено. Это не сбой сети и не ноль — это отсутствие доступа, и
@@ -59,17 +80,32 @@ class Missing(Exception):
 
 def _creds():
     raw = os.environ.get("GOOGLE_SA_JSON", "").strip()
-    if not raw:
-        raise Missing(
-            "нет GOOGLE_SA_JSON. Данные НЕ обновлены и НЕ затёрты; доска "
-            "покажет прежние числа с их прежней датой.")
+    if raw:
+        try:
+            info = json.loads(raw)
+        except ValueError as e:
+            raise Missing("GOOGLE_SA_JSON не разбирается как JSON: %s" % e)
+        from google.oauth2 import service_account      # noqa: E402
+        return service_account.Credentials.from_service_account_info(
+            info, scopes=SCOPES)
+    # Ключа нет — и это норма. В CI личность приходит федерацией, а
+    # google.auth.default() находит её по файлу, который положил шаг
+    # google-github-actions/auth. Вне CI не найдёт ничего — и это «не
+    # настроено», а не поломка.
     try:
-        info = json.loads(raw)
-    except ValueError as e:
-        raise Missing("GOOGLE_SA_JSON не разбирается как JSON: %s" % e)
-    from google.oauth2 import service_account          # noqa: E402
-    return service_account.Credentials.from_service_account_info(
-        info, scopes=SCOPES)
+        import google.auth                              # noqa: E402
+        from google.auth.exceptions import DefaultCredentialsError  # noqa: E402
+    except ImportError as e:
+        raise Missing("библиотека google-auth не установлена (%s); она нужна "
+                      "только боту" % e)
+    try:
+        creds, _project = google.auth.default(scopes=SCOPES)
+    except DefaultCredentialsError as e:
+        raise Missing(
+            "личности нет: ни GOOGLE_SA_JSON, ни федерации (%s). Данные НЕ "
+            "обновлены и НЕ затёрты; доска покажет прежние числа с их "
+            "прежней датой." % e)
+    return creds
 
 
 def _session(creds):
@@ -80,9 +116,11 @@ def _session(creds):
 
 
 def _ga4_properties():
+    """Ресурсы GA4. Переменная окружения перекрывает список в коде — это для
+    разового прогона по другому ресурсу, а не для постоянной настройки."""
     raw = os.environ.get("GA4_PROPERTIES", "").strip()
     if not raw:
-        raise Missing("нет GA4_PROPERTIES вида key=123456789,key=987654321")
+        return dict(GA4)
     out = {}
     for part in raw.split(","):
         if "=" not in part:
@@ -92,6 +130,21 @@ def _ga4_properties():
     if not out:
         raise Missing("GA4_PROPERTIES пуст после разбора: %r" % raw)
     return out
+
+
+def _same_sites(props):
+    """Два источника обязаны говорить об одних и тех же сайтах.
+
+    Если сайт есть в Search Console и нет в GA4 (или наоборот), доска
+    напечатает две таблицы про РАЗНЫЕ множества, и никто этого не заметит:
+    отсутствующая строка не выглядит ошибкой. Пусть лучше упадёт здесь.
+    """
+    a, b = set(GSC), set(props)
+    if a != b:
+        raise RuntimeError(
+            "списки сайтов разошлись: только в Search Console %s, только в "
+            "GA4 %s. Пока они не совпадут, доска сравнивала бы разное."
+            % (sorted(a - b) or "-", sorted(b - a) or "-"))
 
 
 def _prev_keys(name, col):
@@ -184,6 +237,7 @@ def main():
     except Missing as e:
         print("НЕ НАСТРОЕНО:", e)
         return 2                                # отличается от сбоя (1)
+    _same_sites(props)
     s = _session(creds)
 
     print("окно", window)
