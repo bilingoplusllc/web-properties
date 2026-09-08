@@ -17,7 +17,7 @@ import io
 import json
 import os
 import re
-from datetime import date
+from datetime import date, timedelta
 
 import charts
 import wp_data as wp
@@ -1871,7 +1871,16 @@ for _s in SITES:
 
     # 4г. Измеренный ноль нарисован чёрточкой. Пустая клетка обязана означать
     #     «данных нет», и ничего больше.
-    _zeros = sum(1 for x in wp.DAILY[_k] if x[1] == 0)
+    #     Считать надо ПО ДОРОЖКАМ и ВНУТРИ окна ленты. Дорожек с нулями две —
+    #     переходы и показы, — а лента показывает последние 28 суток. Пока ряд
+    #     снимали руками, он весь помещался в окно и в нём не было ни одних
+    #     суток без показов: «нулей по переходам» случайно равнялось числу
+    #     чёрточек. С девяностодневным рядом совпадение кончилось, и гейт
+    #     покраснел на верной картинке.
+    _lo = TODAY - timedelta(charts.DAYS - 1)
+    _in = [x for x in wp.DAILY[_k] if _lo <= x[0] <= TODAY]
+    _zeros = (sum(1 for x in _in if x[1] == 0)      # дорожка переходов
+              + sum(1 for x in _in if x[2] == 0))   # дорожка показов
     _g.append(_gate("измеренный ноль нарисован: " + _k,
                     _rb.count('class="zero"') == _zeros,
                     "нулевых суток %d, чёрточек %d"
