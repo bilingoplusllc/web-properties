@@ -147,6 +147,56 @@ def _same_sites(props):
             % (sorted(a - b) or "-", sorted(b - a) or "-"))
 
 
+def _secs(total):
+    """Секунды в том виде, в каком их печатает доска: «13s», «1m 05s».
+
+    Формат не украшение: слой данных отдаёт эту величину В ДОСКУ СТРОКОЙ, как
+    её сняли руками из GA4. Отдать сюда число значит напечатать «13.0» там,
+    где рядом стоит «1m 05s».
+    """
+    total = int(round(float(total)))
+    if total < 60:
+        return "%ds" % total
+    return "%dm %02ds" % (total // 60, total % 60)
+
+
+def _pct(x):
+    """Доля в том же виде, что снятая руками: «50%», «4.41%»."""
+    v = round(float(x) * 100, 2)
+    s = ("%.2f" % v).rstrip("0").rstrip(".")
+    return s + "%"
+
+
+def _prev_header(name):
+    """Шапка ПРЕЖНЕГО файла — эталон, взятый не у проверяемого.
+
+    Загрузчик писал «site,date,impressions,clicks,position», а доска читала
+    «site,day,clicks,impressions,position»: имена и порядок разошлись, и
+    узналось это только когда бот впервые действительно сходил за данными.
+    Эталон нельзя брать из этого файла — он и есть проверяемое. Берём его у
+    того, кто уже работает: у файла, который доска читает сегодня.
+    """
+    path = os.path.join(DATA, name)
+    if not os.path.exists(path):
+        return None
+    with io.open(path, encoding="utf-8") as f:
+        for line in f:
+            if not line.startswith("#"):
+                return [c.strip() for c in line.strip().split(",")]
+    return None
+
+
+def _prev_rows(name):
+    """Прежние строки файла словарями — для колонок, которых в API нет."""
+    path = os.path.join(DATA, name)
+    if not os.path.exists(path):
+        return {}
+    import csv
+    with io.open(path, encoding="utf-8") as f:
+        rows = list(csv.DictReader(l for l in f if not l.startswith("#")))
+    return {r["site"]: r for r in rows if r.get("site")}
+
+
 def _prev_keys(name, col):
     """Какие сайты БЫЛИ в прежнем файле. Нужно, чтобы отличить «нуль» от
     «запрос не выполнился»: сайт, у которого строки были, а теперь их нет, —
@@ -161,7 +211,18 @@ def _prev_keys(name, col):
 
 
 def _write(name, header, rows, note):
-    """Записать файл, если в нём не пропал ни один прежний сайт."""
+    """Записать файл, если шапка совпала и не пропал ни один прежний сайт."""
+    was = _prev_header(name)
+    if was is None:
+        raise RuntimeError(
+            "%s: прежнего файла нет, а значит не с чем сверить шапку. "
+            "Загрузчик не заводит новые таблицы: их формат знает тот, кто их "
+            "читает." % name)
+    if was != list(header):
+        raise RuntimeError(
+            "%s: шапка разошлась с той, которую читает доска.\n"
+            "  доска ждёт:  %s\n  загрузчик даёт: %s\nФайл не переписан."
+            % (name, ",".join(was), ",".join(header)))
     had = _prev_keys(name, header[0])
     now = {r[0] for r in rows}
     lost = sorted(had - now)
@@ -202,8 +263,11 @@ def search_daily(s, since, until):
         r.raise_for_status()
         for row in r.json().get("rows", []):
             d = row["keys"][0]
-            rows.append((key, d, int(row.get("impressions", 0)),
+            # Порядок колонок — не вкус: доска читает их по именам, но файл
+            # читают и глазами, а рядом лежит снятый руками ряд.
+            rows.append((key, d,
                          int(row.get("clicks", 0)),
+                         int(row.get("impressions", 0)),
                          round(float(row.get("position", 0)), 1)))
     return rows
 
@@ -240,35 +304,76 @@ def main():
     _same_sites(props)
     s = _session(creds)
 
-    print("окно", window)
+    # Снимок берётся за 28 суток, а не за 90. Это не мелочь: `views` из него —
+    # ЧИСЛИТЕЛЬ порога рекламной сети, а порог у сети МЕСЯЧНЫЙ. Снять то же
+    # число за квартал и положить в ту же клетку значит утроить его молча.
+    s28 = until - timedelta(27)
+    win28 = "%s..%s" % (s28.isoformat(), until.isoformat())
+
+    print("окно", window, "· снимок", win28)
     _write("daily_search.csv",
-           ["site", "date", "impressions", "clicks", "position"],
+           ["site", "day", "clicks", "impressions", "position"],
            search_daily(s, since, until),
            "Посуточный ряд Google Search Console, окно " + window)
 
-    ch, pg = [], []
+    prev_snap = _prev_rows("ga4_snapshot.csv")
+    ch, snap = [], []
     for key, prop in sorted(props.items()):
         for row in ga4_report(s, prop, ["sessionDefaultChannelGroup"],
                               ["sessions", "engagedSessions",
-                               "averageSessionDuration"], since, until):
+                               "engagementRate", "averageSessionDuration"],
+                              since, until):
+            m = row["metricValues"]
             ch.append((key, row["dimensionValues"][0]["value"],
-                       row["metricValues"][0]["value"],
-                       row["metricValues"][1]["value"],
-                       round(float(row["metricValues"][2]["value"]), 1)))
-        for row in ga4_report(s, prop, ["pagePath"],
-                              ["screenPageViews", "totalUsers",
-                               "userEngagementDuration"], since, until, 25):
-            pg.append((key, row["dimensionValues"][0]["value"],
-                       row["metricValues"][0]["value"],
-                       row["metricValues"][1]["value"],
-                       round(float(row["metricValues"][2]["value"]), 1)))
+                       int(float(m[0]["value"])), int(float(m[1]["value"])),
+                       _pct(m[2]["value"]), _secs(m[3]["value"])))
+
+        tot = ga4_report(s, prop, [], ["screenPageViews", "totalUsers",
+                                       "userEngagementDuration", "eventCount"],
+                         s28, until)
+        if not tot:
+            raise RuntimeError(
+                "%s: итоговый отчёт GA4 вернул ноль строк. У сайта с трафиком "
+                "это невыполненный запрос, а не отсутствие данных." % key)
+        m = tot[0]["metricValues"]
+        views, users = int(float(m[0]["value"])), int(float(m[1]["value"]))
+        if not users:
+            raise RuntimeError("%s: ноль пользователей за %s — делить не на "
+                               "что, файл не переписан" % (key, win28))
+        # Страницы, у которых был хоть один просмотр. Предел в 1000 строк
+        # осознан: у обоих сайтов страниц втрое меньше, но если корпус
+        # вырастет, счёт замолчит — поэтому упираемся в предел ЯВНО.
+        pages = ga4_report(s, prop, ["pagePath"], ["screenPageViews"],
+                           s28, until, 1000)
+        if len(pages) >= 1000:
+            raise RuntimeError("%s: страниц ровно предел выборки (1000) — "
+                               "счёт «страниц с просмотрами» занижен" % key)
+        seen = sum(1 for r in pages
+                   if int(float(r["metricValues"][0]["value"])) > 0)
+        # pages_built приходит НЕ из GA4: это число собранных страниц сайта,
+        # и знает его только сборка сайта. Переносим прежнее значение и
+        # говорим об этом в шапке файла — иначе знаменатель охвата будет
+        # стареть незаметно, а доля расти сама собой.
+        built = (prev_snap.get(key) or {}).get("pages_built", "")
+        if not built:
+            raise RuntimeError(
+                "%s: в прежнем снимке нет pages_built, а из GA4 его не "
+                "узнать. Файл не переписан." % key)
+        snap.append((key, views, users, round(views / users, 2),
+                     _secs(float(m[2]["value"]) / users),
+                     int(float(m[3]["value"])), seen, built))
 
     _write("ga4_channels.csv",
-           ["site", "channel", "sessions", "engaged", "avg_seconds"],
+           ["site", "channel", "sessions", "engaged", "engagement_rate",
+            "avg_time"],
            ch, "GA4 Traffic acquisition, окно " + window)
-    _write("ga4_pages.csv",
-           ["site", "path", "views", "users", "avg_engagement"],
-           pg, "GA4 топ страниц по просмотрам, окно " + window)
+    _write("ga4_snapshot.csv",
+           ["site", "views", "users", "views_per_user", "avg_engagement",
+            "events", "pages_with_views", "pages_built"],
+           snap,
+           "GA4 итог за 28 суток (порог рекламной сети месячный), окно "
+           + win28 + ". Колонка pages_built НЕ из GA4: перенесена из "
+           "прежнего снимка, её обновляет сборка сайта")
     print("готово")
     return 0
 
