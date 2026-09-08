@@ -1,8 +1,23 @@
-# Посуточный ряд Google Search Console. Снято руками 31.08.2026.
-# Источник: Performance -> Search results -> вкладка DAYS, диапазон "3 months".
-# Правый край ряда — 28.08.2026, то есть T-3: Search Console отдаёт данные с
-# задержкой в два-три дня. Дни ДО первого показа в ряд не включены.
+# Посуточный ряд Google Search Console, окно 2026-06-10..2026-09-07
+# Снято ботом 2026-09-08. Правки руками будут стёрты следующим прогоном.
+# СВЕРКА: окно 2026-06-10..2026-09-07 · итог отдельным запросом, без разбивки по дням: gspaytables=122/10865/12.6 mileagecurve=6/2817/26.5
 site,day,clicks,impressions,position
+gspaytables,2026-08-24,0,0,0.0
+gspaytables,2026-08-25,0,0,0.0
+gspaytables,2026-08-26,34,487,9.5
+gspaytables,2026-08-27,29,1084,12.5
+gspaytables,2026-08-28,8,895,14.4
+gspaytables,2026-08-29,2,638,23.5
+gspaytables,2026-08-30,3,516,21.3
+gspaytables,2026-08-31,7,866,13.7
+gspaytables,2026-09-01,12,1113,10.4
+gspaytables,2026-09-02,10,1388,11.0
+gspaytables,2026-09-03,2,1321,10.1
+gspaytables,2026-09-04,2,1163,10.0
+gspaytables,2026-09-05,7,791,11.0
+gspaytables,2026-09-06,6,603,11.9
+mileagecurve,2026-08-11,0,0,0.0
+mileagecurve,2026-08-12,0,0,0.0
 mileagecurve,2026-08-13,0,6,25.0
 mileagecurve,2026-08-14,0,302,10.7
 mileagecurve,2026-08-15,1,374,19.4
@@ -19,6 +34,12 @@ mileagecurve,2026-08-25,0,77,35.9
 mileagecurve,2026-08-26,0,30,55.6
 mileagecurve,2026-08-27,1,47,49.4
 mileagecurve,2026-08-28,0,104,50.6
-gspaytables,2026-08-26,34,487,9.5
-gspaytables,2026-08-27,29,1084,12.5
-gspaytables,2026-08-28,8,895,14.4
+mileagecurve,2026-08-29,0,85,40.0
+mileagecurve,2026-08-30,0,62,44.4
+mileagecurve,2026-08-31,0,55,37.9
+mileagecurve,2026-09-01,0,55,32.5
+mileagecurve,2026-09-02,0,33,20.5
+mileagecurve,2026-09-03,1,35,18.2
+mileagecurve,2026-09-04,0,45,11.0
+mileagecurve,2026-09-05,0,40,22.8
+mileagecurve,2026-09-06,0,41,23.3
