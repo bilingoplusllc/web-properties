@@ -1424,6 +1424,26 @@ def _esc(s):
             .replace(">", "&gt;").replace('"', "&quot;"))
 
 
+def deploys_block():
+    """Что мы меняли и когда. Без этого перелом на графике не прочитать:
+    видно, что что-то случилось, и нечем сказать, наша это работа или чужая."""
+    rows = wp.deploys()
+    if not rows:
+        return ""
+    body = "".join(
+        f'<tr><td class="num">{_esc(r["date"])}</td>'
+        f'<td>{_esc(r["site"])}</td><td>{_esc(r["what"])}</td></tr>'
+        for r in rows[:12])
+    return f"""
+<section>
+  <h2>Что мы меняли</h2>
+  <p class="sub">Список ведётся руками. Бот его не трогает и не может: он не
+  знает, что мы делали. Нужен, чтобы перелом на графике можно было отнести к
+  своей работе, а не к сезону.</p>
+  <table class="plan"><tbody>{body}</tbody></table>
+</section>"""
+
+
 def pipeline_block():
     """Три сайта, которые ещё строятся. Читает снимок data/pipeline.json."""
     p = os.path.join(_HERE, "data", "pipeline.json")
@@ -1930,6 +1950,7 @@ HTML = f"""<!DOCTYPE html>
   {"".join(site_block(s, i == 0) for i, s in enumerate(SITES))}
 </section>
 
+{deploys_block()}
 {pipeline_block()}
 
 <section>
@@ -2357,6 +2378,15 @@ _gap = (TODAY - wp.CAPTURED).days
 _g.append(_gate("залежалость данных названа, когда данным больше суток",
                 _gap < 2 or "данные не обновлялись" in HTML,
                 "данным %d сут., слова на странице нет" % _gap))
+
+# 19. ЖУРНАЛ ВЫКЛАДОК напечатан. Файл, который никто не читает, — это ровно
+#     то, за что уже удалён ga4_pages.csv: тянулся и не показывался нигде.
+_dp = wp.deploys()
+_g.append(_gate("журнал выкладок не пуст", bool(_dp), "строк 0"))
+_g.append(_gate("выкладки напечатаны на доске",
+                all(_esc(r["what"][:40]) in HTML for r in _dp[:12]),
+                str([r["date"] for r in _dp[:12]
+                     if _esc(r["what"][:40]) not in HTML])))
 
 # 18. ИНДЕКС КАЧЕСТВА. До этой сборки его не охранял НИ ОДИН гейт — и он
 #     прожил так до сверки, в которой выяснилось, что доля индексации даёт
