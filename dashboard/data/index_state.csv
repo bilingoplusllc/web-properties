@@ -33,7 +33,7 @@ gspaytables,https://gspaytables.com/locality/huntsville-decatur-al-tn/,PASS,Subm
 gspaytables,https://gspaytables.com/locality/houston-the-woodlands-tx/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
 gspaytables,https://gspaytables.com/locality/indianapolis-carmel-muncie-in/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-26,2026-09-08
 gspaytables,https://gspaytables.com/locality/kansas-city-overland-park-kansas-city-mo-ks/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
-gspaytables,https://gspaytables.com/locality/los-angeles-long-beach-ca/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
+gspaytables,https://gspaytables.com/locality/los-angeles-long-beach-ca/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-30,2026-09-08
 gspaytables,https://gspaytables.com/locality/laredo-tx/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-26,2026-09-08
 gspaytables,https://gspaytables.com/locality/las-vegas-henderson-nv-az/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-03,2026-09-08
 gspaytables,https://gspaytables.com/locality/miami-port-st-lucie-fort-lauderdale-fl/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
@@ -160,7 +160,7 @@ gspaytables,https://gspaytables.com/promotion/gs-13-to-gs-14/,PASS,Submitted and
 gspaytables,https://gspaytables.com/promotion/gs-14-to-gs-15/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-26,2026-09-08
 gspaytables,https://gspaytables.com/promotion/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-04,2026-09-08
 gspaytables,https://gspaytables.com/how-locality-pay-works/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-26,2026-09-08
-gspaytables,https://gspaytables.com/about/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
+gspaytables,https://gspaytables.com/about/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-04,2026-09-08
 gspaytables,https://gspaytables.com/contact/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 gspaytables,https://gspaytables.com/methodology/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-26,2026-09-08
 gspaytables,https://gspaytables.com/privacy/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-26,2026-09-08
@@ -206,7 +206,6 @@ mileagecurve,https://mileagecurve.com/ford-f-150-1997-2003/,PASS,Submitted and i
 mileagecurve,https://mileagecurve.com/ford-f-150-2004-2008/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
 mileagecurve,https://mileagecurve.com/ford-f-150-2009-2014/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
 mileagecurve,https://mileagecurve.com/ford-f-150-2015-2020/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-02,2026-09-08
-mileagecurve,https://mileagecurve.com/ford-f-150-2021-2025/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 mileagecurve,https://mileagecurve.com/chevrolet-malibu-1997-2003/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 mileagecurve,https://mileagecurve.com/chevrolet-malibu-2004-2007/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/chevrolet-malibu-2008-2012/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-02,2026-09-08
@@ -217,21 +216,17 @@ mileagecurve,https://mileagecurve.com/toyota-camry-1997-2001/,PASS,Submitted and
 mileagecurve,https://mileagecurve.com/toyota-camry-2002-2006/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/toyota-camry-2007-2011/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
 mileagecurve,https://mileagecurve.com/toyota-camry-2012-2017/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
-mileagecurve,https://mileagecurve.com/toyota-camry-2018-2024/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/chrysler-town-and-country-1996-2000/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/chrysler-town-and-country-2001-2007/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-02,2026-09-08
 mileagecurve,https://mileagecurve.com/chrysler-town-and-country-2008-2016/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 mileagecurve,https://mileagecurve.com/nissan-rogue-2008-2013/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/nissan-rogue-2014-2020/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
-mileagecurve,https://mileagecurve.com/nissan-rogue-2021-2025/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/chevrolet-impala-2000-2005/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/chevrolet-impala-2006-2013/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-21,2026-09-08
 mileagecurve,https://mileagecurve.com/chevrolet-impala-2014-2020/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
-mileagecurve,https://mileagecurve.com/honda-odyssey-1995-1998/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
 mileagecurve,https://mileagecurve.com/honda-odyssey-1999-2004/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
 mileagecurve,https://mileagecurve.com/honda-odyssey-2005-2010/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-04,2026-09-08
 mileagecurve,https://mileagecurve.com/honda-odyssey-2011-2017/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
-mileagecurve,https://mileagecurve.com/honda-odyssey-2018-2025/,NEUTRAL,Discovered - currently not indexed,PAGE_FETCH_STATE_UNSPECIFIED,ROBOTS_TXT_STATE_UNSPECIFIED,,2026-09-08
 mileagecurve,https://mileagecurve.com/ford-mustang-1994-2004/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-13,2026-09-08
 mileagecurve,https://mileagecurve.com/ford-mustang-2005-2014/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
 mileagecurve,https://mileagecurve.com/ford-mustang-2015-2023/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
@@ -240,79 +235,63 @@ mileagecurve,https://mileagecurve.com/subaru-outback-2000-2004/,PASS,Submitted a
 mileagecurve,https://mileagecurve.com/subaru-outback-2005-2009/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/subaru-outback-2010-2014/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/subaru-outback-2015-2019/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
-mileagecurve,https://mileagecurve.com/subaru-outback-2020-2025/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
 mileagecurve,https://mileagecurve.com/chevrolet-traverse-2009-2017/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
-mileagecurve,https://mileagecurve.com/chevrolet-traverse-2018-2023/,NEUTRAL,Crawled - currently not indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
 mileagecurve,https://mileagecurve.com/ford-explorer-1991-1994/,NEUTRAL,Crawled - currently not indexed,SUCCESSFUL,ALLOWED,2026-08-12,2026-09-08
 mileagecurve,https://mileagecurve.com/ford-explorer-1995-2001/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
 mileagecurve,https://mileagecurve.com/ford-explorer-2002-2005/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/ford-explorer-2006-2010/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-13,2026-09-08
 mileagecurve,https://mileagecurve.com/ford-explorer-2011-2019/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
-mileagecurve,https://mileagecurve.com/ford-explorer-2020-2025/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
 mileagecurve,https://mileagecurve.com/honda-accord-1994-1997/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-13,2026-09-08
 mileagecurve,https://mileagecurve.com/honda-accord-1998-2002/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/honda-accord-2003-2007/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-15,2026-09-08
 mileagecurve,https://mileagecurve.com/honda-accord-2008-2012/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 mileagecurve,https://mileagecurve.com/honda-accord-2013-2017/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
-mileagecurve,https://mileagecurve.com/honda-accord-2018-2022/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
 mileagecurve,https://mileagecurve.com/honda-cr-v-1997-2001/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-05,2026-09-08
 mileagecurve,https://mileagecurve.com/honda-cr-v-2002-2006/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/honda-cr-v-2007-2011/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-13,2026-09-08
 mileagecurve,https://mileagecurve.com/honda-cr-v-2012-2016/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-13,2026-09-08
 mileagecurve,https://mileagecurve.com/honda-cr-v-2017-2022/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
-mileagecurve,https://mileagecurve.com/honda-cr-v-2023-2025/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-26,2026-09-08
 mileagecurve,https://mileagecurve.com/ford-edge-2007-2014/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/ford-edge-2015-2024/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
 mileagecurve,https://mileagecurve.com/toyota-corolla-1998-2002/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
 mileagecurve,https://mileagecurve.com/toyota-corolla-2003-2008/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-03,2026-09-08
 mileagecurve,https://mileagecurve.com/toyota-corolla-2009-2013/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-21,2026-09-08
 mileagecurve,https://mileagecurve.com/toyota-corolla-2014-2019/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
-mileagecurve,https://mileagecurve.com/toyota-corolla-2020-2025/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
 mileagecurve,https://mileagecurve.com/hyundai-elantra-1996-2000/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
 mileagecurve,https://mileagecurve.com/hyundai-elantra-2001-2006/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 mileagecurve,https://mileagecurve.com/hyundai-elantra-2007-2010/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 mileagecurve,https://mileagecurve.com/hyundai-elantra-2011-2016/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
-mileagecurve,https://mileagecurve.com/hyundai-elantra-2017-2020/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
 mileagecurve,https://mileagecurve.com/chevrolet-tahoe-1995-1999/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
 mileagecurve,https://mileagecurve.com/chevrolet-tahoe-2000-2006/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/chevrolet-tahoe-2007-2014/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/chevrolet-tahoe-2015-2020/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-12,2026-09-08
-mileagecurve,https://mileagecurve.com/chevrolet-tahoe-2021-2025/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-05,2026-09-08
 mileagecurve,https://mileagecurve.com/kia-optima-2001-2005/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
 mileagecurve,https://mileagecurve.com/kia-optima-2006-2010/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-02,2026-09-08
 mileagecurve,https://mileagecurve.com/kia-optima-2011-2015/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-13,2026-09-08
-mileagecurve,https://mileagecurve.com/kia-optima-2016-2020/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/dodge-charger-2006-2010/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/dodge-charger-2011-2023/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
 mileagecurve,https://mileagecurve.com/gmc-acadia-2007-2016/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
-mileagecurve,https://mileagecurve.com/gmc-acadia-2017-2023/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
 mileagecurve,https://mileagecurve.com/jeep-grand-cherokee-1993-1998/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 mileagecurve,https://mileagecurve.com/jeep-grand-cherokee-1999-2004/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 mileagecurve,https://mileagecurve.com/jeep-grand-cherokee-2005-2010/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 mileagecurve,https://mileagecurve.com/jeep-grand-cherokee-2011-2020/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-02,2026-09-08
-mileagecurve,https://mileagecurve.com/jeep-grand-cherokee-2021-2025/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
 mileagecurve,https://mileagecurve.com/chevrolet-silverado-1500-1988-1998/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
 mileagecurve,https://mileagecurve.com/chevrolet-silverado-1500-1999-2006/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-21,2026-09-08
 mileagecurve,https://mileagecurve.com/chevrolet-silverado-1500-2007-2013/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
 mileagecurve,https://mileagecurve.com/chevrolet-silverado-1500-2014-2018/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
-mileagecurve,https://mileagecurve.com/chevrolet-silverado-1500-2019-2025/,NEUTRAL,Crawled - currently not indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 mileagecurve,https://mileagecurve.com/nissan-altima-1998-2001/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/nissan-altima-2002-2006/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
 mileagecurve,https://mileagecurve.com/nissan-altima-2007-2012/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/nissan-altima-2013-2018/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
-mileagecurve,https://mileagecurve.com/nissan-altima-2019-2025/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
 mileagecurve,https://mileagecurve.com/jeep-cherokee-1984-2001/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 mileagecurve,https://mileagecurve.com/jeep-cherokee-2014-2023/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/toyota-rav4-2001-2005/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-16,2026-09-08
 mileagecurve,https://mileagecurve.com/toyota-rav4-2006-2012/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
 mileagecurve,https://mileagecurve.com/toyota-rav4-2013-2018/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
-mileagecurve,https://mileagecurve.com/toyota-rav4-2019-2025/,NEUTRAL,Crawled - currently not indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 mileagecurve,https://mileagecurve.com/nissan-sentra-2000-2006/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 mileagecurve,https://mileagecurve.com/nissan-sentra-2007-2012/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
 mileagecurve,https://mileagecurve.com/nissan-sentra-2013-2019/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-13,2026-09-08
-mileagecurve,https://mileagecurve.com/nissan-sentra-2020-2025/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-13,2026-09-08
 mileagecurve,https://mileagecurve.com/chevrolet-cruze-2011-2015/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
-mileagecurve,https://mileagecurve.com/chevrolet-cruze-2016-2019/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/dodge-ram-1500-1994-2001/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
 mileagecurve,https://mileagecurve.com/dodge-ram-1500-2002-2008/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/dodge-ram-1500-2009-2010/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
@@ -323,16 +302,13 @@ mileagecurve,https://mileagecurve.com/ford-taurus-2010-2019/,PASS,Submitted and 
 mileagecurve,https://mileagecurve.com/hyundai-tucson-2005-2009/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
 mileagecurve,https://mileagecurve.com/hyundai-tucson-2010-2015/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-13,2026-09-08
 mileagecurve,https://mileagecurve.com/hyundai-tucson-2016-2021/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
-mileagecurve,https://mileagecurve.com/hyundai-tucson-2022-2025/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-13,2026-09-08
 mileagecurve,https://mileagecurve.com/ford-escape-2001-2007/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-21,2026-09-08
 mileagecurve,https://mileagecurve.com/ford-escape-2008-2012/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
 mileagecurve,https://mileagecurve.com/ford-escape-2013-2019/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
-mileagecurve,https://mileagecurve.com/ford-escape-2020-2025/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 mileagecurve,https://mileagecurve.com/hyundai-sonata-1999-2005/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-26,2026-09-08
 mileagecurve,https://mileagecurve.com/hyundai-sonata-2006-2010/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
 mileagecurve,https://mileagecurve.com/hyundai-sonata-2011-2014/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/hyundai-sonata-2015-2019/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-13,2026-09-08
-mileagecurve,https://mileagecurve.com/hyundai-sonata-2020-2025/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 mileagecurve,https://mileagecurve.com/dodge-durango-1998-2003/,NEUTRAL,Discovered - currently not indexed,PAGE_FETCH_STATE_UNSPECIFIED,ROBOTS_TXT_STATE_UNSPECIFIED,,2026-09-08
 mileagecurve,https://mileagecurve.com/dodge-durango-2004-2009/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
 mileagecurve,https://mileagecurve.com/dodge-durango-2011-2025/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
@@ -341,23 +317,18 @@ mileagecurve,https://mileagecurve.com/dodge-grand-caravan-2001-2007/,NEUTRAL,Cra
 mileagecurve,https://mileagecurve.com/dodge-grand-caravan-2008-2020/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-15,2026-09-08
 mileagecurve,https://mileagecurve.com/chevrolet-equinox-2005-2009/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 mileagecurve,https://mileagecurve.com/chevrolet-equinox-2010-2017/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
-mileagecurve,https://mileagecurve.com/chevrolet-equinox-2018-2024/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-13,2026-09-08
 mileagecurve,https://mileagecurve.com/kia-sorento-2003-2009/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
 mileagecurve,https://mileagecurve.com/kia-sorento-2011-2015/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/kia-sorento-2016-2020/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
-mileagecurve,https://mileagecurve.com/kia-sorento-2021-2025/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 mileagecurve,https://mileagecurve.com/toyota-highlander-2001-2007/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-13,2026-09-08
 mileagecurve,https://mileagecurve.com/toyota-highlander-2008-2013/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
 mileagecurve,https://mileagecurve.com/toyota-highlander-2014-2019/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-05,2026-09-08
-mileagecurve,https://mileagecurve.com/toyota-highlander-2020-2025/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
 mileagecurve,https://mileagecurve.com/kia-soul-2010-2013/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-03,2026-09-08
 mileagecurve,https://mileagecurve.com/kia-soul-2014-2019/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
-mileagecurve,https://mileagecurve.com/kia-soul-2020-2025/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-06,2026-09-08
 mileagecurve,https://mileagecurve.com/volkswagen-jetta-1993-1998/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
 mileagecurve,https://mileagecurve.com/volkswagen-jetta-1999-2004/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
 mileagecurve,https://mileagecurve.com/volkswagen-jetta-2005-2010/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 mileagecurve,https://mileagecurve.com/volkswagen-jetta-2011-2018/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
-mileagecurve,https://mileagecurve.com/volkswagen-jetta-2019-2025/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-03,2026-09-08
 mileagecurve,https://mileagecurve.com/bmw-3-series-1999-2005/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-03,2026-09-08
 mileagecurve,https://mileagecurve.com/bmw-3-series-2006-2011/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
 mileagecurve,https://mileagecurve.com/ford-focus-2000-2007/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-13,2026-09-08
@@ -365,13 +336,11 @@ mileagecurve,https://mileagecurve.com/ford-focus-2008-2011/,PASS,Submitted and i
 mileagecurve,https://mileagecurve.com/ford-focus-2012-2018/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-30,2026-09-08
 mileagecurve,https://mileagecurve.com/jeep-wrangler-1997-2006/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-04,2026-09-08
 mileagecurve,https://mileagecurve.com/jeep-wrangler-2007-2017/,NEUTRAL,Crawled - currently not indexed,SUCCESSFUL,ALLOWED,2026-08-21,2026-09-08
-mileagecurve,https://mileagecurve.com/jeep-wrangler-2018-2025/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
 mileagecurve,https://mileagecurve.com/honda-civic-1996-2000/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-13,2026-09-08
 mileagecurve,https://mileagecurve.com/honda-civic-2001-2005/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 mileagecurve,https://mileagecurve.com/honda-civic-2006-2011/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/honda-civic-2012-2015/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
 mileagecurve,https://mileagecurve.com/honda-civic-2016-2021/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
-mileagecurve,https://mileagecurve.com/honda-civic-2022-2025/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-13,2026-09-08
 mileagecurve,https://mileagecurve.com/toyota-prius-2001-2003/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/toyota-prius-2004-2009/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-03,2026-09-08
 mileagecurve,https://mileagecurve.com/toyota-prius-2010-2015/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
@@ -389,21 +358,17 @@ mileagecurve,https://mileagecurve.com/subaru-forester-1998-2002/,PASS,Submitted 
 mileagecurve,https://mileagecurve.com/subaru-forester-2003-2008/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-02,2026-09-08
 mileagecurve,https://mileagecurve.com/subaru-forester-2009-2013/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-13,2026-09-08
 mileagecurve,https://mileagecurve.com/subaru-forester-2014-2018/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
-mileagecurve,https://mileagecurve.com/subaru-forester-2019-2024/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-13,2026-09-08
 mileagecurve,https://mileagecurve.com/cadillac-escalade-2002-2006/,NEUTRAL,Crawled - currently not indexed,SUCCESSFUL,ALLOWED,2026-08-14,2026-09-08
 mileagecurve,https://mileagecurve.com/cadillac-escalade-2007-2014/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
-mileagecurve,https://mileagecurve.com/cadillac-escalade-2015-2020/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-02,2026-09-08
 mileagecurve,https://mileagecurve.com/ford-fusion-2006-2012/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 mileagecurve,https://mileagecurve.com/ford-fusion-2013-2020/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/nissan-maxima-1995-1999/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-13,2026-09-08
 mileagecurve,https://mileagecurve.com/nissan-maxima-2000-2003/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
 mileagecurve,https://mileagecurve.com/nissan-maxima-2004-2008/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
 mileagecurve,https://mileagecurve.com/nissan-maxima-2009-2014/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
-mileagecurve,https://mileagecurve.com/nissan-maxima-2016-2023/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-13,2026-09-08
 mileagecurve,https://mileagecurve.com/ford-expedition-1997-2002/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/ford-expedition-2003-2006/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/ford-expedition-2007-2017/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
-mileagecurve,https://mileagecurve.com/ford-expedition-2018-2024/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
 mileagecurve,https://mileagecurve.com/honda-pilot-2003-2008/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-13,2026-09-08
 mileagecurve,https://mileagecurve.com/honda-pilot-2009-2015/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
 mileagecurve,https://mileagecurve.com/honda-pilot-2016-2022/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-13,2026-09-08
@@ -414,7 +379,6 @@ mileagecurve,https://mileagecurve.com/toyota-tacoma-2016-2023/,NEUTRAL,Crawled -
 mileagecurve,https://mileagecurve.com/gmc-sierra-1500-1999-2006/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 mileagecurve,https://mileagecurve.com/gmc-sierra-1500-2007-2013/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/gmc-sierra-1500-2014-2018/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
-mileagecurve,https://mileagecurve.com/gmc-sierra-1500-2019-2025/,NEUTRAL,Crawled - currently not indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
 mileagecurve,https://mileagecurve.com/mazda-mazda3-2004-2009/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
 mileagecurve,https://mileagecurve.com/mazda-mazda3-2010-2013/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/mazda-mazda3-2014-2018/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
@@ -432,20 +396,16 @@ mileagecurve,https://mileagecurve.com/chevrolet-suburban-2007-2014/,PASS,Submitt
 mileagecurve,https://mileagecurve.com/chevrolet-suburban-2015-2020/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/ford-ranger-1993-1997/,NEUTRAL,Crawled - currently not indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 mileagecurve,https://mileagecurve.com/ford-ranger-1998-2011/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
-mileagecurve,https://mileagecurve.com/ford-ranger-2019-2023/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/nissan-versa-2007-2011/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-02,2026-09-08
 mileagecurve,https://mileagecurve.com/nissan-versa-2012-2019/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-03,2026-09-08
 mileagecurve,https://mileagecurve.com/toyota-tundra-2000-2006/,NEUTRAL,Discovered - currently not indexed,PAGE_FETCH_STATE_UNSPECIFIED,ROBOTS_TXT_STATE_UNSPECIFIED,,2026-09-08
 mileagecurve,https://mileagecurve.com/toyota-tundra-2007-2021/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-13,2026-09-08
-mileagecurve,https://mileagecurve.com/toyota-tundra-2022-2025/,NEUTRAL,Crawled - currently not indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 mileagecurve,https://mileagecurve.com/honda-fit-2007-2008/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
 mileagecurve,https://mileagecurve.com/honda-fit-2009-2013/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
 mileagecurve,https://mileagecurve.com/honda-fit-2015-2020/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
 mileagecurve,https://mileagecurve.com/kia-forte-2010-2013/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-21,2026-09-08
 mileagecurve,https://mileagecurve.com/kia-forte-2014-2018/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
-mileagecurve,https://mileagecurve.com/kia-forte-2019-2024/,NEUTRAL,Crawled - currently not indexed,SUCCESSFUL,ALLOWED,2026-08-15,2026-09-08
 mileagecurve,https://mileagecurve.com/jeep-compass-2007-2016/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
-mileagecurve,https://mileagecurve.com/jeep-compass-2017-2025/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/pontiac-g6-2005-2010/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/chrysler-pacifica-2004-2008/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-13,2026-09-08
 mileagecurve,https://mileagecurve.com/chrysler-pacifica-2017-2025/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
@@ -454,13 +414,11 @@ mileagecurve,https://mileagecurve.com/buick-enclave-2008-2017/,PASS,Submitted an
 mileagecurve,https://mileagecurve.com/hyundai-santa-fe-2001-2006/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-13,2026-09-08
 mileagecurve,https://mileagecurve.com/hyundai-santa-fe-2007-2012/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/hyundai-santa-fe-2013-2018/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
-mileagecurve,https://mileagecurve.com/hyundai-santa-fe-2019-2023/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 mileagecurve,https://mileagecurve.com/nissan-murano-2003-2007/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-13,2026-09-08
 mileagecurve,https://mileagecurve.com/nissan-murano-2009-2014/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-02,2026-09-08
 mileagecurve,https://mileagecurve.com/nissan-murano-2015-2024/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 mileagecurve,https://mileagecurve.com/chevrolet-camaro-1993-2002/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-02,2026-09-08
 mileagecurve,https://mileagecurve.com/chevrolet-camaro-2010-2015/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
-mileagecurve,https://mileagecurve.com/chevrolet-camaro-2016-2024/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 mileagecurve,https://mileagecurve.com/toyota-4runner-1996-2002/,NEUTRAL,Discovered - currently not indexed,PAGE_FETCH_STATE_UNSPECIFIED,ROBOTS_TXT_STATE_UNSPECIFIED,,2026-09-08
 mileagecurve,https://mileagecurve.com/toyota-4runner-2003-2009/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-13,2026-09-08
 mileagecurve,https://mileagecurve.com/toyota-4runner-2010-2024/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-02,2026-09-08
@@ -491,7 +449,6 @@ mileagecurve,https://mileagecurve.com/infiniti-g35-2007-2008/,PASS,Submitted and
 mileagecurve,https://mileagecurve.com/subaru-impreza-2002-2007/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/subaru-impreza-2008-2011/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
 mileagecurve,https://mileagecurve.com/subaru-impreza-2012-2016/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-08
-mileagecurve,https://mileagecurve.com/subaru-impreza-2017-2023/,NEUTRAL,Crawled - currently not indexed,SUCCESSFUL,ALLOWED,2026-08-26,2026-09-08
 mileagecurve,https://mileagecurve.com/pontiac-grand-am-1992-1998/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/pontiac-grand-am-1999-2005/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 mileagecurve,https://mileagecurve.com/oldsmobile-alero-1999-2004/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-15,2026-09-08
@@ -503,13 +460,10 @@ mileagecurve,https://mileagecurve.com/gmc-yukon-1992-1999/,PASS,Submitted and in
 mileagecurve,https://mileagecurve.com/gmc-yukon-2000-2006/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 mileagecurve,https://mileagecurve.com/gmc-yukon-2007-2014/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-21,2026-09-08
 mileagecurve,https://mileagecurve.com/gmc-yukon-2015-2020/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
-mileagecurve,https://mileagecurve.com/gmc-yukon-2021-2025/,NEUTRAL,Crawled - currently not indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
 mileagecurve,https://mileagecurve.com/mazda-cx-9-2007-2015/,NEUTRAL,Crawled - currently not indexed,SUCCESSFUL,ALLOWED,2026-08-21,2026-09-08
-mileagecurve,https://mileagecurve.com/mazda-cx-9-2016-2023/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
 mileagecurve,https://mileagecurve.com/kia-sportage-1995-2002/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
 mileagecurve,https://mileagecurve.com/kia-sportage-2005-2010/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-13,2026-09-08
 mileagecurve,https://mileagecurve.com/kia-sportage-2011-2016/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-08
-mileagecurve,https://mileagecurve.com/kia-sportage-2017-2022/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-13,2026-09-08
 mileagecurve,https://mileagecurve.com/hyundai-accent-2000-2005/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-08
 mileagecurve,https://mileagecurve.com/hyundai-accent-2006-2011/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
 mileagecurve,https://mileagecurve.com/hyundai-accent-2012-2017/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-08
