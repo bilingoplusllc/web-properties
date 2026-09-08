@@ -32,6 +32,21 @@ BRAND = next((p for p in (
 ) if os.path.exists(p)), "")
 TODAY = date.today()
 
+# ВОЗРАСТ ДАННЫХ. Доска печатала «Снято <сегодня>» — то есть день, когда
+# ЗАПУСТИЛИ сборку, а не день, когда сняли числа. Пока и то и другое делали
+# руками за один присест, разницы не было. С ботом она появилась, и появилась
+# в худшем виде: если загрузка не отработала, бот всё равно пересобирает
+# страницу на прежних CSV, прогон зелёный, а страница объявляет вчерашние
+# числа сегодняшними. Чем дольше молчит загрузка, тем крупнее враньё.
+#
+# Поэтому дата берётся из шапки самих данных (wp.CAPTURED), а расхождение с
+# днём сборки печатается ОТДЕЛЬНО. Порог — двое суток: сборка на следующий
+# день после ночного прогона это норма, а не залежалость.
+STALE_DAYS = (TODAY - wp.CAPTURED).days
+STALE = STALE_DAYS >= 2
+STALE_NOTE = ("" if not STALE else
+              " · данные не обновлялись %d сут." % STALE_DAYS)
+
 logo = ""
 if os.path.exists(BRAND):
     # В файле лежит ГОЛЫЙ base64, без схемы data:. Схема добавляется при
@@ -101,7 +116,7 @@ SITES = [
         "name": "MileageCurve",
         "host": "mileagecurve.com",
         "niche": "Надёжность автомобилей по поколениям, США",
-        "live": date(2026, 8, 12),
+        "live": wp.LAUNCH["mileagecurve"],   # одна дата на весь код
         "domain": date(2026, 8, 12),
         "pages": 353,
         "pages_plan": 353,
@@ -114,7 +129,7 @@ SITES = [
         "name": "GS Pay Tables",
         "host": "gspaytables.com",
         "niche": "Оклады федеральных служащих США по зонам локалити",
-        "live": date(2026, 8, 26),
+        "live": wp.LAUNCH["gspaytables"],    # одна дата на весь код
         "domain": date(2026, 8, 25),
         "pages": 165,
         "pages_plan": 165,
@@ -142,15 +157,13 @@ SNAP = {
         "discovered": 238,
         "indexed_as_of": date(2026, 8, 21),
         # ВЕСЬ трафик, не органика: разбивки по каналу мы не снимали.
-        "us": 81.94, "us_base": "59 из 72 человек, весь трафик",
-        "ga_window": "GA4, 3–30 августа",
+        "us": 81.94, "us_base": "59 из 72 человек, весь трафик, снято руками 31.08.2026",
     },
     "gspaytables": {
         "indexed": 164,
         "discovered": 0,
         "indexed_as_of": date(2026, 8, 26),
-        "us": 92.79, "us_base": "103 из 111 человек, весь трафик",
-        "ga_window": "GA4, 3–30 августа",
+        "us": 92.79, "us_base": "103 из 111 человек, весь трафик, снято руками 31.08.2026",
     },
 }
 
@@ -208,7 +221,9 @@ def mm(k, per):
         available=True,
         window_search=f'{w["from"].strftime("%d.%m")}–{w["to"].strftime("%d.%m")}{span_note}',
         win_s=f'{w["days"]} дн.' if not w["partial"] else f'{w["span"]} дн. жизни',
-        window_ga=SNAP[k]["ga_window"] + " · только органика",
+        # Окно GA4 читается из шапки файла и НЕ следует периоду панели:
+        # поведенческие числа у всех трёх панелей одни и те же.
+        window_ga=wp.GA_WINDOW + " · только органика, одно окно на все три панели",
         win_g="органика",
         impressions=w["impressions"], clicks=w["clicks"],
         ctr=_fmt_pct(w["ctr"]), position="%.1f" % w["position"],
@@ -1067,7 +1082,14 @@ COMPARE = [
     # НЕ «человек»: это визиты органики. Один человек может зайти дважды,
     # а разбивки по людям в разрезе канала GA4 не отдаёт.
     ("Визитов из поиска", lambda k, s: str(mm(k, "life")["sessions"]), "max"),
-    ("Не мимолётных визитов", lambda k, s: mm(k, "life")["engagement"], "max"),
+    # Доля по выборке меньше MIN_SESSIONS не печатается и НЕ ПОБЕЖДАЕТ.
+    # Панели выше на этой же странице уже отказываются её красить, а таблица
+    # «кто впереди» присуждала по ней победу: 50,0% по восьми визитам — это
+    # четыре сессии, и доля по ним может означать что угодно от 12% до 88%.
+    ("Не мимолётных визитов",
+     lambda k, s: (mm(k, "life")["engagement"]
+                   if mm(k, "life")["sessions"] >= MIN_SESSIONS else "н/д"),
+     "max"),
     ("Среднее время визита", lambda k, s: mm(k, "life")["avg_time"], None),
     ("Доля аудитории из США", lambda k, s: num_ru(mm(k, "life")["us"]) + "%", "max"),
 ]
@@ -1282,6 +1304,11 @@ HTML = f"""<!DOCTYPE html>
     border-radius:99px;padding:6px 14px;font-size:13px;color:var(--ink2);
     white-space:nowrap}}
   .badge b{{color:var(--ink)}}
+  /* Залежавшиеся данные обязаны быть ВИДНЫ, а не выводиться из даты.
+     Прогон, где загрузка не отработала, зелёный и молчаливый. */
+  .badge.stale{{background:var(--warn-bg,#fff4e5);border-color:#e0a355;
+    color:#8a5300}}
+  .badge.stale b{{color:#8a5300}}
   h1{{font-size:30px;line-height:1.15;margin:0;letter-spacing:-.015em}}
   section{{margin:30px 0 0}}
   h2{{font-size:13px;letter-spacing:.12em;text-transform:uppercase;
@@ -1692,7 +1719,7 @@ HTML = f"""<!DOCTYPE html>
 <div class="top">
   {'<img src="data:image/svg+xml;base64,' + logo + '" alt="BiLingoPlus">'
     if logo else '<span></span>'}
-  <span class="topright"><a class="hublink" href="hub.html">📘 Как мы это делаем</a><span class="badge">Снято <b>{d(TODAY)}</b></span></span>
+  <span class="topright"><a class="hublink" href="hub.html">📘 Как мы это делаем</a><span class="badge{" stale" if STALE else ""}">Снято <b>{d(wp.CAPTURED)}</b>{STALE_NOTE}</span></span>
 </div>
 <h1>Справочники</h1>
 
@@ -1737,8 +1764,9 @@ HTML = f"""<!DOCTYPE html>
 </section>
 
 <footer>
-  Все цифры сняты руками из Google Search Console и Google Analytics
-  {d(TODAY)}. Прочее — из <code>web-properties/REGISTRY.md</code> и
+  Числа из Google Search Console и Google Analytics сняты ботом
+  {d(wp.CAPTURED)}{STALE_NOTE}; страница собрана {d(TODAY)}. Прочее — из
+  <code>web-properties/REGISTRY.md</code> и
   <code>STRATEGY.md</code>.<br>
   Ферменная доска по компании целиком — <code>company/dashboard/board.html</code>;
   она остаётся единой, эта смотрит внутрь направления.<br>
@@ -1779,6 +1807,11 @@ def _strip_code(h, sep):
 
 
 _g = []
+
+# Левый край ряда здесь НЕ проверяется: он проверяется при загрузке
+# (wp_data._load_search). Гейт поверх той проверки покраснеть не может —
+# генератор до него не доживёт, — а проверка, которая не может покраснеть,
+# ничего не охраняет.
 
 # 1. Ряд обязан сходиться с итогами, которые показывает сам Search Console.
 #    Итоги вбиты сюда как эталон СО СТОРОНЫ — иначе проверка сверяла бы
@@ -1842,7 +1875,7 @@ for _s in SITES:
     _pw, _pn = wp.pos_disp(_wa["position"]), wp.pos_disp(_no["position"])
     _head = charts.verdict_head(_s, wp.DAILY[_k], _pair)
     _worse = _tv == "падение" or _pn > _pw + 0.3
-    _better = _tv == "рост" or _pn < _pw - 0.3
+    _better = _tv in ("рост", "рост с нуля") or _pn < _pw - 0.3
     _g.append(_gate("вердикт не противоречит измеренному: " + _k,
                     not (_worse and "Растём" in _head)
                     and not (_better and not _worse and "Падаем" in _head),
@@ -1856,8 +1889,10 @@ for _s in SITES:
     #     объявить шум ростом.
     _cl = _head + charts.cmp_clicks(_s, _pair)
     _has_pct = "%" in _cl
+    #     У «роста с нуля» процента нет по арифметике, а не по слабости
+    #     выборки: делить на ноль нельзя. Это третий случай, и он назван.
     _g.append(_gate("процент есть ровно там, где измерено: " + _k,
-                    _has_pct == (_tv != "не измерено"),
+                    _has_pct == (_tv not in ("не измерено", "рост с нуля")),
                     "тест «%s», процент в блоке: %s" % (_tv, _has_pct)))
 
     # 4в. Равные корзины: ширина суток одна на всю ленту и на все сайты.
@@ -1904,6 +1939,7 @@ _KNOWN = [
     (1, 4, "не измерено"),    # живой случай MileageCurve: плюс 300% на пяти
     (34, 8, "падение"),       # живой случай GS Pay Tables
     (0, 3, "не измерено"),    # три события из ничего — ещё не событие
+    (0, 25, "рост с нуля"),   # а двадцать пять — событие, но процента нет
     (100, 40, "падение"),
     (40, 100, "рост"),
     (50, 52, "не измерено"),  # разница меньше разброса
@@ -2095,6 +2131,37 @@ if os.path.exists(_hubp):
     _g.append(_gate("на документацию есть ссылка с доски",
                     'href="hub.html' in HTML,
                     "хаб недостижим с доски"))
+
+# 15. ВОЗРАСТ ДАННЫХ ПЕЧАТАЕТСЯ ИЗ ДАННЫХ.
+#     Доска штамповала «Снято <сегодня>» — день, когда ЗАПУСТИЛИ сборку. Пока
+#     числа снимали руками за один присест со сборкой, это было правдой. С
+#     ботом стало ловушкой: если загрузка не отработала, бот всё равно
+#     пересобирает страницу на прежних CSV, прогон зелёный, GitHub молчит — а
+#     страница объявляет вчерашние числа сегодняшними, и чем дольше молчит
+#     загрузка, тем крупнее враньё. Эталон здесь — шапка CSV, а не литерал.
+_cap_shown = re.search(r'class="badge[^"]*">Снято <b>([^<]+)</b>', HTML)
+_g.append(_gate("плашка печатает дату СЪЁМКИ, а не сборки",
+                bool(_cap_shown) and _cap_shown.group(1) == d(wp.CAPTURED),
+                "в плашке «%s», в шапке данных «%s», сегодня «%s»"
+                % (_cap_shown.group(1) if _cap_shown else "—",
+                   d(wp.CAPTURED), d(TODAY))))
+#     И залежалость обязана быть НАПИСАНА, а не выводима читателем из даты.
+#     Разрыв считается ЗДЕСЬ ЗАНОВО, из даты в шапке CSV и сегодняшнего дня,
+#     а не берётся из STALE: первая версия этого гейта сверяла флаг генератора
+#     с выводом того же генератора и оставалась зелёной, когда ломали сам флаг.
+#     Двойка написана дважды нарочно — сломанный порог обязан разойтись с
+#     правилом, а не поехать вместе с ним.
+_gap = (TODAY - wp.CAPTURED).days
+_g.append(_gate("залежалость данных названа, когда данным больше суток",
+                _gap < 2 or "данные не обновлялись" in HTML,
+                "данным %d сут., слова на странице нет" % _gap))
+
+# 16. Окно поведенческих чисел на странице — то же, что в шапке их файла.
+#     Литерал «GA4, 3–30 августа» пережил свои данные: файл давно снят за
+#     другое окно, а подпись под ним осталась августовской.
+_g.append(_gate("окно GA4 на странице совпадает с окном файла",
+                wp.GA_WINDOW in HTML,
+                "в файле «%s», а на странице его нет" % wp.GA_WINDOW))
 
 io.open(OUT, "w", encoding="utf-8", newline="\n").write(HTML)
 print("web board written:", len(HTML), "chars ->", OUT)

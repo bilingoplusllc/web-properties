@@ -197,6 +197,47 @@ def _prev_rows(name):
     return {r["site"]: r for r in rows if r.get("site")}
 
 
+def _merge_history(name, header, fresh, key_cols=2):
+    """Дописать окно к ряду, а НЕ заменить ряд окном.
+
+    Загрузчик тянет последние DAYS суток и раньше переписывал файл целиком.
+    Пока сайты моложе окна, разницы нет — окно покрывает всю их жизнь. Дальше
+    начинается тихая потеря: у mileagecurve (запуск 12.08.2026) первые сутки
+    с показами выпадают из файла 12.11.2026, у gspaytables — 25.11.2026. С
+    этого дня «с запуска» считается по обрезанному слева ряду и уменьшается
+    само по себе, сутки за сутками. Ни один гейт этого не видит: все они
+    сверяют окно с итогом за то же окно.
+
+    Свежая строка вытесняет прежнюю за те же сутки — Search Console
+    пересчитывает последние дни, и новое значение вернее. Всё, что старше
+    окна, остаётся нетронутым.
+    """
+    path = os.path.join(DATA, name)
+    prev = []
+    if os.path.exists(path):
+        with io.open(path, encoding="utf-8") as f:
+            body = [l.rstrip("\n") for l in f if not l.startswith("#")]
+        if body:
+            was = [c.strip() for c in body[0].split(",")]
+            if was != list(header):
+                raise RuntimeError(
+                    "%s: шапка прежнего файла %s не совпадает с новой %s — "
+                    "сливать нечего." % (name, ",".join(was), ",".join(header)))
+            prev = [tuple(l.split(",")) for l in body[1:] if l]
+    by_key = {tuple(r[:key_cols]): tuple(str(v) for v in r) for r in prev}
+    before = len(by_key)
+    for r in fresh:
+        by_key[tuple(str(v) for v in r[:key_cols])] = tuple(
+            "" if v is None else str(v) for v in r)
+    if len(by_key) < before:
+        raise RuntimeError(
+            "%s: после слияния строк стало МЕНЬШЕ (%d против %d). История не "
+            "должна укорачиваться никогда." % (name, len(by_key), before))
+    print("  %-22s было %d, стало %d (+%d)"
+          % (name, before, len(by_key), len(by_key) - before))
+    return [by_key[k] for k in sorted(by_key)]
+
+
 def _prev_keys(name, col):
     """Какие сайты БЫЛИ в прежнем файле. Нужно, чтобы отличить «нуль» от
     «запрос не выполнился»: сайт, у которого строки были, а теперь их нет, —
@@ -345,10 +386,12 @@ def main():
     check = "СВЕРКА: окно %s · итог отдельным запросом, без разбивки по дням: %s" % (
         window, " ".join("%s=%d/%d/%.1f" % ((k,) + v)
                          for k, v in sorted(totals.items())))
-    _write("daily_search.csv",
-           ["site", "day", "clicks", "impressions", "position"],
-           search_daily(s, since, until),
-           "Посуточный ряд Google Search Console, окно " + window,
+    SEARCH_HEAD = ["site", "day", "clicks", "impressions", "position"]
+    _write("daily_search.csv", SEARCH_HEAD,
+           _merge_history("daily_search.csv", SEARCH_HEAD,
+                          search_daily(s, since, until)),
+           "Посуточный ряд Google Search Console. Ряд НАКАПЛИВАЕТСЯ; каждый "
+           "прогон дописывает окно " + window,
            extra=[check])
 
     prev_snap = _prev_rows("ga4_snapshot.csv")

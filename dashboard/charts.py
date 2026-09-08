@@ -116,7 +116,7 @@ def verdict_head(s, series, pair):
              "лучше" if p_now < p_was - 0.3 else "без движения")
 
     down = verdict == "падение" or (verdict == "не измерено" and d_pos == "хуже")
-    up = verdict == "рост" and d_pos in ("лучше", "без движения")
+    up = verdict in ("рост", "рост с нуля") and d_pos in ("лучше", "без движения")
     if verdict == "не измерено" and d_pos == "без движения":
         word, cls = "Без движения", "na"
     elif up:
@@ -230,13 +230,17 @@ def cmp_clicks(s, pair):
     def x(v):
         return CMP_X0 + span * (v / ceil_ if ceil_ else 0)
 
-    fill = {"падение": "var(--coral-soft)", "рост": "var(--ok-bg)"}.get(
-        verdict, "var(--wait-bg)")
+    fill = {"падение": "var(--coral-soft)", "рост": "var(--ok-bg)",
+            "рост с нуля": "var(--ok-bg)"}.get(verdict, "var(--wait-bg)")
     badge_fill = fill
-    badge_ink = {"падение": "var(--coral)", "рост": "var(--ok)"}.get(
-        verdict, "var(--wait)")
-    badge_text = "не измерено" if pct is None else (
-        ("+" if pct > 0 else "") + str(pct) + "%")
+    badge_ink = {"падение": "var(--coral)", "рост": "var(--ok)",
+                 "рост с нуля": "var(--ok)"}.get(verdict, "var(--wait)")
+    # «с нуля» и «не измерено» — разные вещи, и обе без процента. Пока они
+    # печатались одним словом, на плашке стояло «не измерено» рядом со словом
+    # «Растём».
+    badge_text = ("с нуля" if verdict == "рост с нуля" else
+                  "не измерено" if pct is None else
+                  ("+" if pct > 0 else "") + str(pct) + "%")
 
     band_lab = "полоса случайности — внутри неё разницу считать нельзя"
     band_w = x(hi) - x(lo)
@@ -319,12 +323,11 @@ def ribbon(s, series, today, ceil_c, ceil_i, suffix=""):
     k = s["key"]
     start = today - __import__("datetime").timedelta(DAYS - 1)
     launch = s["live"]
-    # Search Console отдаёт сутки ДО первого показа нулями: у gspaytables это
-    # 24 и 25 августа при запуске 26-го. Оставить их значит нарисовать
-    # «измеренный ноль» ВНУТРИ зоны «сайта ещё не было» — сказать читателю,
-    # что мы измерили день, которого не было. Зона уже называет этот период;
-    # чёрточка спорит с ней.
-    series = [x for x in series if x[0] >= launch]
+    # Сутки до запуска сюда не доходят: ряд обрезан по LAUNCH при загрузке
+    # (wp_data._load_search). Здесь этого фильтра БЫТЬ НЕ ДОЛЖНО — он стоял
+    # тут одну итерацию и чинил только ленту, пока то же самое враньё лезло в
+    # сравнение окон: «показов в сутки 517 → 1035, +100%», где двое из суток
+    # «было» сайта ещё не существовало. Одна величина — одна функция.
     by_day = {x[0]: x for x in series}
     last_data = series[-1][0] if series else None
     spike_days = wp.spikes(k)
