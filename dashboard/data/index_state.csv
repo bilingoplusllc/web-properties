@@ -48,7 +48,7 @@ gspaytables,https://gspaytables.com/locality/portland-vancouver-salem-or-wa/,PAS
 gspaytables,https://gspaytables.com/locality/phoenix-mesa-az/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-30,2026-09-09
 gspaytables,https://gspaytables.com/locality/raleigh-durham-cary-nc/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-02,2026-09-09
 gspaytables,https://gspaytables.com/locality/richmond-va/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-09
-gspaytables,https://gspaytables.com/locality/reno-fernley-nv/,NEUTRAL,Discovered - currently not indexed,PAGE_FETCH_STATE_UNSPECIFIED,ROBOTS_TXT_STATE_UNSPECIFIED,,2026-09-09
+gspaytables,https://gspaytables.com/locality/reno-fernley-nv/,NEUTRAL,URL is unknown to Google,PAGE_FETCH_STATE_UNSPECIFIED,ROBOTS_TXT_STATE_UNSPECIFIED,,2026-09-09
 gspaytables,https://gspaytables.com/locality/rochester-batavia-seneca-falls-ny/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-02,2026-09-09
 gspaytables,https://gspaytables.com/locality/rest-of-u-s/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-26,2026-09-09
 gspaytables,https://gspaytables.com/locality/sacramento-roseville-ca-nv/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-09
