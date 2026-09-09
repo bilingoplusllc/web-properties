@@ -280,64 +280,6 @@ def mm(k, per):
     return d
 
 
-# Запросы — целиком, как отдал Search Console 29.08.2026.
-# Снято 29.08.2026 за ВСЁ время жизни сайта и отсортировано ПО ПОКАЗАМ,
-# а не по кликам: сортировка по кликам показывает наши лучшие запросы, а не
-# типичные, и из-за этого средняя позиция выглядит противоречащей списку.
-QUERIES = {
-    "gspaytables": {
-        "total": 293,
-        "shown_imp": 168,
-        "note": "Верхние строки — про прибавку 2027, и там мы в первой "
-                "десятке. Но ниже видно главное: по ЯДРУ своей темы сайт "
-                "стоит на третьей-четвёртой странице и не получает ни одного "
-                "перехода. Весь трафик даёт одна страница из ста шестидесяти "
-                "пяти.",
-        "rows": [
-            ("federal pay raise 2027", 8, 47, "17%", "4.8"),
-            ("2027 federal pay raise", 5, 29, "17,2%", "8.1"),
-            ("alternative pay plan letter 2027", 2, 28, "7,1%", "7.1"),
-            ("federal employee pay raise 2027", 5, 23, "21,7%", "3.7"),
-            ("gs pay scale 2026", 0, 9, "0%", "27.6"),
-            ("gs pay raise 2027", 3, 8, "37,5%", "3.4"),
-            ("gs pay table washington dc", 0, 7, "0%", "34.4"),
-            ("2027 federal civilian pay raise", 1, 5, "20%", "2.6"),
-            ("city of san diego salary table 2026", 0, 5, "0%", "10.0"),
-            ("federal pay raise", 1, 4, "25%", "2.5"),
-            ("federal worker pay raise 2027", 1, 4, "25%", "2.8"),
-            ("gs pay increase 2027", 2, 3, "66,7%", "1.7"),
-        ],
-    },
-    "mileagecurve": {
-        "total": 271,
-        "shown_imp": 66,
-        "note": "Ни одного перехода в первой дюжине по показам. Позиции "
-                "25–85 — это третья-девятая страница выдачи. И все запросы "
-                "вопросительные: на такие Google всё чаще отвечает сам, не "
-                "отдавая переход. Наш же плейбук велит вопросительную долю "
-                "рынка ВЫЧИТАТЬ, а не считать.",
-        "rows": [
-            ("what is the reliability track record of hyundai vehicles over "
-             "the past decade?", 0, 8, "0%", "84.9"),
-            ("is the 1995 nissan maxima reliable?", 0, 7, "0%", "26.3"),
-            ("how long does a 2007 chrysler town and country last?", 0, 6, "0%", "27.7"),
-            ("2002 subaru forester problems", 0, 6, "0%", "41.8"),
-            ("dodge reliability", 0, 6, "0%", "52.0"),
-            ("acura reliability", 0, 6, "0%", "53.8"),
-            ("2008 jeep liberty problems", 0, 5, "0%", "30.8"),
-            ("2009 subaru forester problems", 0, 5, "0%", "31.4"),
-            ("cadillac reliability", 0, 5, "0%", "51.4"),
-            ("what's the average lifespan of a 2009 tundra?", 0, 4, "0%", "24.8"),
-            ("how long will a 2008 chrysler pacifica last?", 0, 4, "0%", "31.8"),
-            ("2002 kia sportage problems", 0, 4, "0%", "46.0"),
-        ],
-    },
-}
-
-
-# Планы. Теперь они живут ВНУТРИ сайта, поэтому у каждой строки есть ключ.
-# Сюда же слиты бывшие «открытые пункты»: план без даты — это и есть открытый
-# пункт, двух списков для одного и того же держать не надо.
 PLAN = {
     "gspaytables": [
         (date(2026, 8, 31), "Перепроверить статус письма о прибавке 2027",
@@ -1007,14 +949,22 @@ def query_block(k):
     прокрутки срезал — прочитать было нельзя.
     Позиция показана шкалой: число «84.9» ничего не говорит, пока не
     переведёшь его в страницу выдачи, а полоса переводит сама."""
-    q = QUERIES[k]
-    rows_src = q["rows"]
+    src = wp.QUERIES_FRESH.get(k, [])
+    if not src:
+        return ('<p class="qnote">Разрез по запросам не снят: файла '
+                '<code>data/search_queries.csv</code> нет или он пуст.</p>')
+    rows_src = [(x["text"], x["clicks"], x["impressions"],
+                 num_ru(x["ctr"], 1) + "%", "%.1f" % x["position"])
+                for x in src[:12]]
     top_imp = max(i for _, _, i, _, _ in rows_src) or 1
 
-    p1 = sum(1 for _, _, _, _, p in rows_src if float(p) <= 10)
-    p2 = sum(1 for _, _, _, _, p in rows_src if 10 < float(p) <= 20)
-    p3 = len(rows_src) - p1 - p2
-    with_clicks = sum(1 for _, c, _, _, _ in rows_src if c > 0)
+    # Счёт по ВСЕМ названным запросам, а не по двенадцати показанным: до этой
+    # правки сводка считалась по видимой дюжине и называла «первая страница
+    # выдачи: 0» там, где названных запросов на первой странице четыре.
+    p1 = sum(1 for x in src if x["position"] <= 10)
+    p2 = sum(1 for x in src if 10 < x["position"] <= 20)
+    p3 = len(src) - p1 - p2
+    with_clicks = sum(1 for x in src if x["clicks"] > 0)
 
     rows = ""
     for text, c, i, ct, p in rows_src:
@@ -1031,19 +981,96 @@ def query_block(k):
             f'<i class="pdot {pos_tone(p)}" style="left:{left}%"></i></span>'
             f'<b class="pos-{pos_tone(p)}">{num_ru(pos)}</b></td></tr>')
 
-    m = mm(k, "life")
-    total = (f'Запросов всего: <b>{q["total"]}</b>, но двенадцать верхних дают '
-             f'лишь {q["shown_imp"]} показов из {m["impressions"]}. ')
+    named = wp.named_share(k)
+    if named:
+        nq, npg, share = named
+        total = (
+            f'Google называет запрос далеко не для каждого показа: по имени '
+            f'известны <b>{plural(nq, "показ", "показа", "показов")}</b> из '
+            f'<b>{npg}</b> — это '
+            f'<b>{num_ru(share, 0)}%</b>. Остальное он анонимизирует и не '
+            f'отдаёт никогда, поэтому список ниже — ВЫБОРКА, и смещённая: в '
+            f'неё попадает хвост, который не жалко назвать, а крупные показы '
+            f'прячутся. Полную картину даёт разрез по страницам ниже. ')
+    else:
+        total = ""
     return f"""
       <div class="qsum">
         <span class="qs good">Первая страница выдачи: <b>{p1}</b></span>
         <span class="qs mid">Вторая: <b>{p2}</b></span>
         <span class="qs bad">Дальше второй: <b>{p3}</b></span>
-        <span class="qs">С переходами: <b>{with_clicks}</b> из {len(rows_src)}</span>
+        <span class="qs">С переходами: <b>{with_clicks}</b> из {len(src)}</span>
       </div>
       <p class="qnote">{total}{tip("почему средняя позиция не как в списке", POS_WHY)}</p>
       <div class="qwrap"><table class="qt">
         <tr><th>Запрос, который человек набрал в Google</th>
+          <th class="num">{tip("Пере&shy;ходы", TIPS["клики"])}</th>
+          <th class="num">{tip("Показы", TIPS["показы"])}</th>
+          <th class="num">{tip("CTR", TIPS["CTR"])}</th>
+          <th class="pcell">{tip("Позиция", TIPS["позиция"])}
+            <span class="pkey">1<i></i>50</span></th></tr>
+        {rows}
+      </table></div>"""
+
+
+def pages_block(k):
+    """Разрез по СТРАНИЦАМ — вторая половина картины, которой не было.
+
+    Список запросов показывает 13% показов: остальное Google анонимизирует.
+    Из-за этого доска показывала «мы на 22–54-м месте» и была права ровно про
+    ту восьмую часть, которую видно. Разрез по страницам дыры не имеет, и в
+    нём видно обратное: 34 страницы держат среднее место выше десятого.
+
+    Именно здесь виден настоящий дефект, которого в запросах не найти:
+    страницы стоят на первой странице выдачи и НЕ ПОЛУЧАЮТ переходов.
+    """
+    src = wp.PAGES_FRESH.get(k, [])
+    if not src:
+        return ('<p class="qnote">Разрез по страницам не снят: файла '
+                '<code>data/search_pages.csv</code> нет или он пуст.</p>')
+    top = [x for x in src if x["position"] <= 10]
+    top_imp_all = sum(x["impressions"] for x in top)
+    top_clicks = sum(x["clicks"] for x in top)
+    top_imp = max(x["impressions"] for x in src) or 1
+
+    rows = ""
+    for x in src[:10]:
+        pos = x["position"]
+        left = min(98, pos / 50 * 100)
+        w = max(3, round(x["impressions"] / top_imp * 100))
+        path = x["text"].split("//", 1)[-1]
+        path = path[path.find("/"):] if "/" in path else path
+        rows += (
+            f'<tr><td class="q">{_esc(path)}</td>'
+            f'<td class="num"><b class="{"cl-yes" if x["clicks"] else "cl-no"}">'
+            f'{x["clicks"]}</b></td>'
+            f'<td class="num"><span class="ibar-s"><i style="width:{w}%"></i></span>'
+            f'<em>{x["impressions"]}</em></td>'
+            f'<td class="num">{num_ru(x["ctr"], 1)}%</td>'
+            f'<td class="pcell"><span class="pscale">'
+            f'<i class="pdot {pos_tone(pos)}" style="left:{left}%"></i></span>'
+            f'<b class="pos-{pos_tone(pos)}">{num_ru(pos)}</b></td></tr>')
+
+    verdict = ""
+    if top and top_imp_all >= 200:
+        # Страницы на первой странице выдачи без переходов — это НЕ проблема
+        # позиции. Это значит, что нашу строчку видят и не выбирают.
+        verdict = (
+            # plural() уже несёт число внутри себя — рядом с ним второе
+            # печатать не надо: получалось «1 1 переход».
+            f'<b>{plural(len(top), "страница", "страницы", "страниц")}</b> '
+            f'{"держит" if len(top) == 1 else "держат"} '
+            f'среднее место выше десятого — это первая страница выдачи. Они '
+            f'дали <b>{plural(top_imp_all, "показ", "показа", "показов")}</b> и '
+            f'<b>{plural(top_clicks, "переход", "перехода", "переходов")}</b>. '
+            f'{"Нас видят и не выбирают: дело не в позиции, а в том, что обещает наша строчка." if top_clicks * 100 < top_imp_all else ""}</p>')
+
+    return f"""
+      <p class="blk">На каких страницах нас показывают
+        <span>весь объём, без анонимизации</span></p>
+      {verdict}
+      <div class="qwrap"><table class="qt">
+        <tr><th>Страница</th>
           <th class="num">{tip("Пере&shy;ходы", TIPS["клики"])}</th>
           <th class="num">{tip("Показы", TIPS["показы"])}</th>
           <th class="num">{tip("CTR", TIPS["CTR"])}</th>
@@ -1245,8 +1272,10 @@ def site_block(s, opened):
         месяцев. Это условие нельзя ускорить работой — только переждать.</p>
       </div>
 
-      <p class="blk">По каким запросам нас находят</p>
+      <p class="blk">По каким запросам нас находят
+        <span>только то, что Google согласился назвать</span></p>
       {query_block(k)}
+      {pages_block(k)}
 
       <details class="sub">
         <summary>Планы по сайту — {len(PLAN[k])}</summary>
@@ -2399,6 +2428,42 @@ _gap = (TODAY - wp.CAPTURED).days
 _g.append(_gate("залежалость данных названа, когда данным больше суток",
                 _gap < 2 or "данные не обновлялись" in HTML,
                 "данным %d сут., слова на странице нет" % _gap))
+
+# 20. ОБА РАЗРЕЗА ПОИСКА читаются и печатаются.
+#     Два промаха подряд, оба мои. Первый: блок «по каким запросам нас
+#     находят» кормился словарём, снятым руками 29.08 — ровно тот класс
+#     замороженного литерала, который в этот же день убирался отовсюду
+#     ещё трижды. Второй: разрезы по запросам и по страницам загружались
+#     ботом и не читались НИКЕМ — то самое, за что удалён ga4_pages.csv.
+#
+#     Из-за этого доска показывала «мы всегда далеко» и была права ровно про
+#     ту восьмую часть показов, которую Google согласился назвать запросом.
+for _s in SITES:
+    _k = _s["key"]
+    _q, _p = wp.QUERIES_FRESH.get(_k, []), wp.PAGES_FRESH.get(_k, [])
+    _g.append(_gate("разрез по запросам не пуст: " + _k, bool(_q), "строк 0"))
+    _g.append(_gate("разрез по страницам не пуст: " + _k, bool(_p), "строк 0"))
+    #     Доля названного печатается ЧИСЛОМ. Без неё список запросов читается
+    #     как полная картина, а он — 13% от неё.
+    _ns = wp.named_share(_k)
+    _g.append(_gate("доля названных запросов напечатана: " + _k,
+                    _ns is not None
+                    and num_ru(_ns[2], 0) + "%" in query_block(_k),
+                    "доля %s" % (num_ru(_ns[2], 0) if _ns else "—")))
+    #     И самое дорогое: страницы на первой странице выдачи обязаны быть
+    #     видны. Именно их не было на доске, когда владелец спросил, откуда
+    #     взялись «34 страницы на первой странице».
+    #     Проверяется СОБРАННАЯ СТРАНИЦА, а не то, что вернула функция.
+    #     Первая версия звала pages_block() сама и оставалась зелёной, когда
+    #     блок выкидывали из шаблона: функция-то по-прежнему считала верно.
+    #     Это ровно «гейт, который сверяется сам с собой», и сегодня я
+    #     наступил на него уже второй раз.
+    _top = [x for x in _p if x["position"] <= 10]
+    _want = plural(len(_top), "страница", "страницы", "страниц")
+    _g.append(_gate("страницы первой страницы выдачи видны на доске: " + _k,
+                    not _top or (_want in HTML
+                                 and "На каких страницах нас показывают" in HTML),
+                    "их %d, а на странице «%s» нет" % (len(_top), _want)))
 
 # 19. ЖУРНАЛ ВЫКЛАДОК напечатан. Файл, который никто не читает, — это ровно
 #     то, за что уже удалён ga4_pages.csv: тянулся и не показывался нигде.

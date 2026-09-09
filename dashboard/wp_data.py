@@ -249,6 +249,51 @@ GA_WINDOW = _ga_window()
 INDEX = _index_census()
 
 
+def _slice(name, col):
+    """Разрез поискового ряда: по запросам или по страницам.
+
+    ЗАЧЕМ ОБА, и почему одного мало. Google называет запрос далеко не для
+    каждого показа: у mileagecurve по имени известны 402 показа из 3137 (13%),
+    у gspaytables — 573 из 11 250 (5%). Остальное он анонимизирует и не отдаёт
+    никогда. Значит список запросов — это ВЫБОРКА, причём смещённая: в неё
+    попадает длинный хвост, который Google не жалко назвать, а самые крупные
+    показы прячутся. Разрез по страницам такой дыры не имеет — там виден весь
+    объём.
+
+    Из-за этого две картины расходятся, и обе верны: по названным запросам мы
+    стоим на 22–54-м месте, а по страницам 34 из них держат среднее место
+    выше десятого. Пока доска показывала только запросы, второй половины не
+    существовало.
+    """
+    path = os.path.join(DIR, name)
+    if not os.path.exists(path):
+        return {}
+    out = {}
+    for r in _rows(name):
+        out.setdefault(r["site"], []).append({
+            "text": r[col],
+            "clicks": int(r["clicks"]), "impressions": int(r["impressions"]),
+            "ctr": float(r["ctr"]), "position": float(r["position"]),
+        })
+    for k in out:
+        out[k].sort(key=lambda x: -x["impressions"])
+    return out
+
+
+QUERIES_FRESH = _slice("search_queries.csv", "query")
+PAGES_FRESH = _slice("search_pages.csv", "page")
+
+
+def named_share(k):
+    """Какая доля показов вообще названа запросом. Без этого числа список
+    запросов читается как полная картина, а он — 13% от неё."""
+    q = sum(x["impressions"] for x in QUERIES_FRESH.get(k, []))
+    p = sum(x["impressions"] for x in PAGES_FRESH.get(k, []))
+    if not p:
+        return None
+    return q, p, q / p * 100
+
+
 def deploys():
     """Что и когда меняли на сайтах.
 
