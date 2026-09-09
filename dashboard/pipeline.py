@@ -23,7 +23,30 @@ import sys
 from datetime import date
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-TPL = os.path.join(HERE, "..", "_template")
+def _find_template(start: str) -> str:
+    """Найти каталог `_template` ВВЕРХ по дереву, а не по фиксированному «..».
+
+    Раньше путь был жёстким: `HERE/../_template`. Он верен ровно при одной
+    раскладке — когда каталог доски лежит прямо в каталоге направления. С
+    09.09.2026 доска живёт клоном репозитория (`_board/dashboard/`), и `..`
+    указывает уже внутрь клона: снимок стадии молча сообщил бы «каталога
+    нет» по всем трём сайтам, а это, по его же комментарию, значит «не
+    смотрели», а не «ноль страниц». Поиск вверх переживает и эту раскладку,
+    и следующую.
+    """
+    d = os.path.abspath(start)
+    for _ in range(5):
+        cand = os.path.join(d, "_template")
+        if os.path.isdir(cand):
+            return cand
+        up = os.path.dirname(d)
+        if up == d:
+            break
+        d = up
+    return os.path.join(start, "..", "_template")
+
+
+TPL = _find_template(HERE)
 OUT = os.path.join(HERE, "data", "pipeline.json")
 
 # Что известно НЕ из кода и потому объявлено с причиной. Даты доменов — из
