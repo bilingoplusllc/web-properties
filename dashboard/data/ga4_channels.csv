@@ -1,12 +1,13 @@
-# GA4 Traffic acquisition, окно 2026-06-11..2026-09-08
-# Снято ботом 2026-09-09. Правки руками будут стёрты следующим прогоном.
+# GA4 Traffic acquisition, окно 2026-06-12..2026-09-09
+# Снято ботом 2026-09-10. Правки руками будут стёрты следующим прогоном.
 site,channel,sessions,engaged,engagement_rate,avg_time
-gspaytables,Organic Search,149,89,59.73%,3m 10s
-gspaytables,Direct,118,12,10.17%,3s
-gspaytables,Cross-network,5,0,0%,1m 24s
-gspaytables,Referral,1,1,100%,1m 33s
-gspaytables,Unassigned,1,0,0%,0s
-mileagecurve,Direct,102,4,3.92%,15s
+gspaytables,Organic Search,157,92,58.6%,3m 04s
+gspaytables,Direct,119,12,10.08%,3s
+gspaytables,Unassigned,5,0,0%,14s
+gspaytables,Cross-network,3,0,0%,56m 31s
+gspaytables,Referral,2,2,100%,56s
+mileagecurve,Direct,104,4,3.85%,15s
 mileagecurve,Organic Search,8,4,50%,1m 07s
 mileagecurve,AI Assistant,3,3,100%,5m 56s
-mileagecurve,Unassigned,1,0,0%,0s
+mileagecurve,Unassigned,2,0,0%,0s
+mileagecurve,Cross-network,1,0,0%,0s
