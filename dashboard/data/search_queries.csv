@@ -1,5 +1,5 @@
-# Разрез Search Console по query, окно 2026-06-12..2026-09-09. Показов в разрезе 978 из 14389 в итоге (7%): остальное Google не отдаёт по анонимизации, и это не потеря данных, а её предел
-# Снято ботом 2026-09-10. Правки руками будут стёрты следующим прогоном.
+# Разрез Search Console по query, окно 2026-06-13..2026-09-10. Показов в разрезе 995 из 15577 в итоге (6%): остальное Google не отдаёт по анонимизации, и это не потеря данных, а её предел
+# Снято ботом 2026-09-11. Правки руками будут стёрты следующим прогоном.
 site,query,impressions,clicks,ctr,position
 gspaytables,federal pay raise 2027,47,8,17.02,4.8
 gspaytables,2027 federal pay raise,30,5,16.67,8.4
@@ -29,6 +29,7 @@ gspaytables,2025 gs payscale,1,0,0.0,27.0
 gspaytables,2025 pay scale,1,0,0.0,32.0
 gspaytables,2025 pay tables,16,0,0.0,22.4
 gspaytables,2026 grade scale,1,0,0.0,7.0
+gspaytables,2026 gs pay scale dc,1,0,0.0,54.0
 gspaytables,2026 gs pay scale hawaii,1,0,0.0,31.0
 gspaytables,2026 gs pay scale philadelphia,1,0,0.0,59.0
 gspaytables,2026 gs pay scale rest of us,2,0,0.0,40.0
@@ -44,16 +45,19 @@ gspaytables,3.1 percent pay raise,1,0,0.0,19.0
 gspaytables,6 pay,1,0,0.0,55.0
 gspaytables,ad government pay scale,1,0,0.0,32.0
 gspaytables,ad pay scale,1,0,0.0,37.0
+gspaytables,alaska gs pay scale 2026,1,0,0.0,11.0
 gspaytables,alaska salary schedules,1,0,0.0,26.0
 gspaytables,alaska state pay scale,1,0,0.0,26.0
 gspaytables,alternative pay,1,0,0.0,31.0
 gspaytables,alternative pay plan,2,0,0.0,14.5
+gspaytables,annual pay raise,1,0,0.0,39.0
+gspaytables,arizona gs,1,0,0.0,9.0
 gspaytables,arizona gs pay scale 2026,1,0,0.0,11.0
 gspaytables,average pay in colorado springs,1,0,0.0,59.0
 gspaytables,average salary norfolk,1,0,0.0,68.0
 gspaytables,az gs,2,0,0.0,9.0
 gspaytables,bilingoplus,1,0,0.0,19.0
-gspaytables,boston gs pay scale,2,0,0.0,17.0
+gspaytables,boston gs pay scale,6,0,0.0,21.5
 gspaytables,boston gs pay scale 2026,1,0,0.0,10.0
 gspaytables,boston gs payscale,1,0,0.0,11.0
 gspaytables,both,1,0,0.0,3.0
@@ -64,16 +68,18 @@ gspaytables,chicago locality pay,1,0,0.0,11.0
 gspaytables,city based zone_1.25 compensation,1,0,0.0,8.0
 gspaytables,city of carlsbad salary schedule,1,0,0.0,26.0
 gspaytables,city of chula vista salary schedule,1,0,0.0,23.0
-gspaytables,city of colorado springs salary schedule 2026,13,0,0.0,9.8
+gspaytables,city of colorado springs salary schedule 2026,14,0,0.0,9.7
 gspaytables,city of fort worth salary schedule,1,0,0.0,39.0
 gspaytables,city of fort worth salary schedule 2026,1,0,0.0,41.0
 gspaytables,city of houston pay grade 20,1,0,0.0,40.0
 gspaytables,city of huntsville pay scale,1,0,0.0,44.0
 gspaytables,city of huntsville pay scale pdf,1,0,0.0,35.0
 gspaytables,city of laredo salaries,1,0,0.0,38.0
+gspaytables,city of long beach salary schedule 2026,1,0,0.0,9.0
 gspaytables,city of omaha pay scales,1,0,0.0,26.0
 gspaytables,city of omaha pay scales 2026,1,0,0.0,11.0
 gspaytables,city of portland pay scale,1,0,0.0,31.0
+gspaytables,city of san diego pay scale,1,0,0.0,39.0
 gspaytables,city of san diego pay scale 2026,2,0,0.0,9.0
 gspaytables,city of san diego payscale,2,0,0.0,63.0
 gspaytables,city of san diego salary table 2026,14,0,0.0,10.3
@@ -85,7 +91,7 @@ gspaytables,civilian pay grades,1,0,0.0,27.0
 gspaytables,class 3 pay scale,1,0,0.0,38.0
 gspaytables,cleveland gs pay scale,2,0,0.0,22.5
 gspaytables,cleveland gs pay scale 2026,1,0,0.0,21.0
-gspaytables,cleveland gs scale,1,0,0.0,10.0
+gspaytables,cleveland gs scale,2,0,0.0,9.5
 gspaytables,colorado gs pay scale 2026,3,0,0.0,9.7
 gspaytables,colorado springs gs pay scale,1,0,0.0,25.0
 gspaytables,colorado springs locality pay 2026,1,0,0.0,10.0
@@ -103,6 +109,7 @@ gspaytables,dc federal pay scale 2026,2,0,0.0,11.0
 gspaytables,dc gs,2,0,0.0,10.0
 gspaytables,dc gs 12,1,0,0.0,51.0
 gspaytables,dc gs locality pay,1,0,0.0,53.0
+gspaytables,dc gs pay,1,0,0.0,11.0
 gspaytables,dc gs pay scale,6,0,0.0,43.2
 gspaytables,dc gs pay scale 2025,3,0,0.0,51.7
 gspaytables,dc gs pay scale 2026,1,0,0.0,44.0
@@ -123,30 +130,35 @@ gspaytables,federal 2027 pay raise,1,0,0.0,4.0
 gspaytables,federal employee pay freeze 2027,1,0,0.0,35.0
 gspaytables,federal employee pay raise 2027 update,2,0,0.0,3.5
 gspaytables,federal general schedule pay scale,1,0,0.0,24.0
+gspaytables,federal government gs pay scale,1,0,0.0,39.0
 gspaytables,federal gs pay rates,1,0,0.0,25.0
 gspaytables,federal gs pay scale 2025,1,0,0.0,56.0
 gspaytables,federal gs pay scales,1,0,0.0,28.0
 gspaytables,federal gs payscale,1,0,0.0,37.0
 gspaytables,federal gs scale,1,0,0.0,26.0
+gspaytables,federal job grades,1,0,0.0,22.0
 gspaytables,federal locality pay,1,0,0.0,48.0
 gspaytables,federal pay comparability act,1,0,0.0,35.0
+gspaytables,federal pay grade,3,0,0.0,30.0
 gspaytables,federal pay increase 2027,4,0,0.0,3.8
 gspaytables,federal pay raise 2023 effective date,1,0,0.0,87.0
 gspaytables,federal pay raise 2027 chart with locality,1,0,0.0,9.0
 gspaytables,federal pay raise 2027 update,3,0,0.0,3.7
 gspaytables,federal pay raise for 2027,1,0,0.0,4.0
 gspaytables,federal pay scale 2026 dc,6,0,0.0,10.8
-gspaytables,federal pay scale 2026 washington dc,1,0,0.0,11.0
-gspaytables,federal pay tables,1,0,0.0,16.0
+gspaytables,federal pay scale 2026 washington dc,2,0,0.0,11.0
+gspaytables,federal pay tables,2,0,0.0,21.0
 gspaytables,federal raises 2027,1,0,0.0,2.0
+gspaytables,federal salary table,1,0,0.0,38.0
 gspaytables,federal salary tables,2,0,0.0,33.5
 gspaytables,federal wage tables,1,0,0.0,26.0
 gspaytables,fers locality pay,2,0,0.0,48.0
 gspaytables,fg pay scale,2,0,0.0,18.5
 gspaytables,florida gs pay scale 2026,1,0,0.0,33.0
-gspaytables,fort worth salary,1,0,0.0,54.0
+gspaytables,fort worth salary,2,0,0.0,52.5
 gspaytables,fresno county salaries 2026,1,0,0.0,37.0
 gspaytables,fv vs gs pay scale,1,0,0.0,25.0
+gspaytables,g s pay scale,1,0,0.0,32.0
 gspaytables,g s scale,1,0,0.0,41.0
 gspaytables,g-12 pay scale,1,0,0.0,29.0
 gspaytables,g11 salary,1,0,0.0,51.0
@@ -214,23 +226,23 @@ gspaytables,grade pay scale,1,0,0.0,24.0
 gspaytables,grade scale 2026,17,0,0.0,9.9
 gspaytables,gs 04 pay,2,0,0.0,19.0
 gspaytables,gs 05 pay scale,2,0,0.0,16.0
-gspaytables,gs 06 pay,1,0,0.0,20.0
+gspaytables,gs 06 pay,2,0,0.0,19.5
 gspaytables,gs 06 pay scale,1,0,0.0,30.0
-gspaytables,gs 07 pay,2,0,0.0,24.0
+gspaytables,gs 07 pay,3,0,0.0,22.7
 gspaytables,gs 07 pay scale,1,0,0.0,23.0
 gspaytables,gs 09,5,0,0.0,26.8
 gspaytables,gs 09 pay,1,0,0.0,13.0
 gspaytables,gs 09 pay scale,1,0,0.0,29.0
-gspaytables,gs 10,2,0,0.0,14.5
-gspaytables,gs 10 pay,6,0,0.0,13.5
+gspaytables,gs 10,4,0,0.0,12.8
+gspaytables,gs 10 pay,7,0,0.0,13.1
 gspaytables,gs 10 pay scale,1,0,0.0,22.0
-gspaytables,gs 10 salary,2,0,0.0,21.5
+gspaytables,gs 10 salary,3,0,0.0,18.0
 gspaytables,gs 10 step 4,1,0,0.0,30.0
-gspaytables,gs 11,3,0,0.0,31.7
+gspaytables,gs 11,4,0,0.0,28.8
 gspaytables,gs 11 dc pay,1,0,0.0,11.0
 gspaytables,gs 11 equivalent,1,0,0.0,41.0
 gspaytables,gs 11 hourly rate,1,0,0.0,31.0
-gspaytables,gs 11 pay,1,0,0.0,20.0
+gspaytables,gs 11 pay,3,0,0.0,13.3
 gspaytables,gs 11 pay scale,1,0,0.0,20.0
 gspaytables,gs 11 pay scale 2025,2,0,0.0,32.5
 gspaytables,gs 11 pay scale 2026 hawaii,2,0,0.0,10.5
@@ -239,18 +251,6 @@ gspaytables,gs 11 pay scale dc,1,0,0.0,51.0
 gspaytables,gs 11 payscale,1,0,0.0,25.0
 gspaytables,gs 11 salary,1,0,0.0,27.0
 gspaytables,gs 11 salary dc,1,0,0.0,32.0
-gspaytables,gs 11 san diego,1,0,0.0,22.0
-gspaytables,gs 11 step 10,1,0,0.0,10.0
-gspaytables,gs 11 step 5 pay scale 2026,3,0,0.0,25.0
-gspaytables,gs 11 to gs 12,1,0,0.0,5.0
-gspaytables,gs 11 vs gs 12 pay scale,1,0,0.0,52.0
-gspaytables,gs 11/12 pay scale,1,0,0.0,21.0
-gspaytables,gs 1102 pay scale,1,0,0.0,24.0
-gspaytables,gs 12,4,0,0.0,26.2
-gspaytables,gs 12 12,1,0,0.0,23.0
-gspaytables,gs 12 13,1,0,0.0,28.0
-gspaytables,gs 12 chicago,1,0,0.0,18.0
-gspaytables,gs 12 dc,1,0,0.0,22.0
 mileagecurve,"flat_rcl_post_2010" github,2,0,0.0,3.0
 mileagecurve,08 jeep liberty problems,1,0,0.0,51.0
 mileagecurve,1991 ford explorer mpg,1,0,0.0,49.0
@@ -385,6 +385,7 @@ mileagecurve,2009 subaru forester common problems,1,0,0.0,37.0
 mileagecurve,2009 subaru forester life expectancy,1,0,0.0,27.0
 mileagecurve,2009 subaru forester problems,5,0,0.0,31.4
 mileagecurve,2009 toyota tundra problems,1,0,0.0,53.0
+mileagecurve,2010 ford focus mileage,1,0,0.0,55.0
 mileagecurve,2010 hyundai tucson problems,1,0,0.0,61.0
 mileagecurve,2010 jeep liberty recalls,1,0,0.0,54.0
 mileagecurve,2010 prius mileage,1,0,0.0,56.0
@@ -468,9 +469,10 @@ mileagecurve,civic 96,1,0,0.0,38.0
 mileagecurve,do acuras last a long time,1,0,0.0,60.0
 mileagecurve,dodge charger reliability by year,1,0,0.0,59.0
 mileagecurve,dodge grand caravan worst years,1,0,0.0,62.0
-mileagecurve,dodge reliability,11,0,0.0,50.3
+mileagecurve,dodge reliability,13,0,0.0,49.6
 mileagecurve,dodge reliability rating,1,0,0.0,83.0
 mileagecurve,dodge reliable,1,0,0.0,50.0
+mileagecurve,ford focus 2010 mileage,1,0,0.0,56.0
 mileagecurve,honda civic 1996 2000,1,0,0.0,24.0
 mileagecurve,honda civic 96 00,1,0,0.0,39.0
 mileagecurve,honda crv 2007 problems,1,0,0.0,45.0
@@ -499,5 +501,3 @@ mileagecurve,how many miles can a pontiac g6 last?,1,0,0.0,40.0
 mileagecurve,how many miles can a sienna last,1,0,0.0,23.0
 mileagecurve,how many miles can a toyota sienna last,11,0,0.0,22.2
 mileagecurve,how many miles can an infiniti i35 last?,2,0,0.0,42.5
-mileagecurve,how many miles can kia soul last,1,0,0.0,20.0
-mileagecurve,how many miles do acuras last,1,0,0.0,46.0
