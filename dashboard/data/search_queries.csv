@@ -1,5 +1,5 @@
-# Разрез Search Console по query, окно 2026-06-13..2026-09-10. Показов в разрезе 995 из 15577 в итоге (6%): остальное Google не отдаёт по анонимизации, и это не потеря данных, а её предел
-# Снято ботом 2026-09-11. Правки руками будут стёрты следующим прогоном.
+# Разрез Search Console по query, окно 2026-06-14..2026-09-11. Показов в разрезе 1005 из 16846 в итоге (6%): остальное Google не отдаёт по анонимизации, и это не потеря данных, а её предел
+# Снято ботом 2026-09-12. Правки руками будут стёрты следующим прогоном.
 site,query,impressions,clicks,ctr,position
 gspaytables,federal pay raise 2027,47,8,17.02,4.8
 gspaytables,2027 federal pay raise,30,5,16.67,8.4
@@ -21,8 +21,9 @@ gspaytables,federal pay raise,4,1,25.0,2.5
 gspaytables,federal raise 2027,3,1,33.33,3.7
 gspaytables,federal worker pay raise 2027,4,1,25.0,2.8
 gspaytables,"atlanta" "locality",1,0,0.0,24.0
+gspaytables,12 pay,1,0,0.0,38.0
 gspaytables,2023 federal pay raise,1,0,0.0,46.0
-gspaytables,2024 pay raise,1,0,0.0,73.0
+gspaytables,2024 pay raise,3,0,0.0,35.3
 gspaytables,2025 gs pay scale,5,0,0.0,35.2
 gspaytables,2025 gs pay scale dc,3,0,0.0,60.3
 gspaytables,2025 gs payscale,1,0,0.0,27.0
@@ -57,10 +58,11 @@ gspaytables,average pay in colorado springs,1,0,0.0,59.0
 gspaytables,average salary norfolk,1,0,0.0,68.0
 gspaytables,az gs,2,0,0.0,9.0
 gspaytables,bilingoplus,1,0,0.0,19.0
-gspaytables,boston gs pay scale,6,0,0.0,21.5
+gspaytables,boston gs pay scale,7,0,0.0,21.6
 gspaytables,boston gs pay scale 2026,1,0,0.0,10.0
 gspaytables,boston gs payscale,1,0,0.0,11.0
 gspaytables,both,1,0,0.0,3.0
+gspaytables,buffalo gs pay scale 2026,1,0,0.0,8.0
 gspaytables,calculate gs pay,1,0,0.0,36.0
 gspaytables,california gs,1,0,0.0,11.0
 gspaytables,chicago gs,1,0,0.0,33.0
@@ -68,7 +70,7 @@ gspaytables,chicago locality pay,1,0,0.0,11.0
 gspaytables,city based zone_1.25 compensation,1,0,0.0,8.0
 gspaytables,city of carlsbad salary schedule,1,0,0.0,26.0
 gspaytables,city of chula vista salary schedule,1,0,0.0,23.0
-gspaytables,city of colorado springs salary schedule 2026,14,0,0.0,9.7
+gspaytables,city of colorado springs salary schedule 2026,16,0,0.0,9.6
 gspaytables,city of fort worth salary schedule,1,0,0.0,39.0
 gspaytables,city of fort worth salary schedule 2026,1,0,0.0,41.0
 gspaytables,city of houston pay grade 20,1,0,0.0,40.0
@@ -90,8 +92,9 @@ gspaytables,civilian pay grade,1,0,0.0,29.0
 gspaytables,civilian pay grades,1,0,0.0,27.0
 gspaytables,class 3 pay scale,1,0,0.0,38.0
 gspaytables,cleveland gs pay scale,2,0,0.0,22.5
-gspaytables,cleveland gs pay scale 2026,1,0,0.0,21.0
+gspaytables,cleveland gs pay scale 2026,2,0,0.0,15.5
 gspaytables,cleveland gs scale,2,0,0.0,9.5
+gspaytables,co gs,1,0,0.0,11.0
 gspaytables,colorado gs pay scale 2026,3,0,0.0,9.7
 gspaytables,colorado springs gs pay scale,1,0,0.0,25.0
 gspaytables,colorado springs locality pay 2026,1,0,0.0,10.0
@@ -103,6 +106,7 @@ gspaytables,cost of living increase 2027 federal employees,1,0,0.0,4.0
 gspaytables,cost of living raise 2027,1,0,0.0,26.0
 gspaytables,ct pay scale federal government,1,0,0.0,8.0
 gspaytables,current gs pay scale,1,0,0.0,35.0
+gspaytables,dallas and fort worth,1,0,0.0,9.0
 gspaytables,dallas county salary schedule 2026,1,0,0.0,45.0
 gspaytables,dallas gs scale,1,0,0.0,10.0
 gspaytables,dc federal pay scale 2026,2,0,0.0,11.0
@@ -155,6 +159,7 @@ gspaytables,federal wage tables,1,0,0.0,26.0
 gspaytables,fers locality pay,2,0,0.0,48.0
 gspaytables,fg pay scale,2,0,0.0,18.5
 gspaytables,florida gs pay scale 2026,1,0,0.0,33.0
+gspaytables,florida pay scale,1,0,0.0,45.0
 gspaytables,fort worth salary,2,0,0.0,52.5
 gspaytables,fresno county salaries 2026,1,0,0.0,37.0
 gspaytables,fv vs gs pay scale,1,0,0.0,25.0
@@ -166,7 +171,7 @@ gspaytables,g12 pay scale,3,0,0.0,23.0
 gspaytables,g14 salary,2,0,0.0,33.5
 gspaytables,g15 pay,1,0,0.0,7.0
 gspaytables,g6 pay,1,0,0.0,11.0
-gspaytables,g6 pay scale,1,0,0.0,29.0
+gspaytables,g6 pay scale,3,0,0.0,27.3
 gspaytables,g7 government pay scale,1,0,0.0,40.0
 gspaytables,g7 pay scale,2,0,0.0,21.5
 gspaytables,g7 salary,1,0,0.0,23.0
@@ -179,11 +184,14 @@ gspaytables,general schedule locality pay,1,0,0.0,38.0
 gspaytables,general schedule pay,2,0,0.0,19.0
 gspaytables,general schedule pay scale,2,0,0.0,23.0
 gspaytables,general schedule pay tables,2,0,0.0,33.5
-gspaytables,general schedule payscale,4,0,0.0,27.8
+gspaytables,general schedule payscale,5,0,0.0,27.0
 gspaytables,general schedule rating,1,0,0.0,46.0
 gspaytables,general service pay scale,2,0,0.0,23.0
 gspaytables,georgia gs,3,0,0.0,8.7
+gspaytables,gg 11,2,0,0.0,34.0
 gspaytables,gg 12 pay scale,1,0,0.0,22.0
+gspaytables,gg 14,1,0,0.0,29.0
+gspaytables,gg 15 pay scale,1,0,0.0,30.0
 gspaytables,gg federal pay scale,1,0,0.0,26.0
 gspaytables,gg pay,1,0,0.0,49.0
 gspaytables,gg pay scale 2026 dc,1,0,0.0,40.0
@@ -193,8 +201,9 @@ gspaytables,gg pay scale washington dc,3,0,0.0,39.0
 gspaytables,gg pay scale with locality,1,0,0.0,38.0
 gspaytables,gg scale,2,0,0.0,26.5
 gspaytables,gg-14,1,0,0.0,26.0
+gspaytables,gg-15 pay scale,1,0,0.0,29.0
 gspaytables,gg9 pay scale,1,0,0.0,21.0
-gspaytables,gl 11 pay,1,0,0.0,29.0
+gspaytables,gl 11 pay,2,0,0.0,20.0
 gspaytables,gl 6 pay scale,1,0,0.0,25.0
 gspaytables,gl 7,1,0,0.0,18.0
 gspaytables,gl-7,3,0,0.0,18.7
@@ -213,17 +222,19 @@ gspaytables,government pay scale dc,1,0,0.0,37.0
 gspaytables,government pay scale gs,2,0,0.0,19.5
 gspaytables,government pay scale washington dc,3,0,0.0,43.3
 gspaytables,government pay scales,2,0,0.0,26.0
+gspaytables,government pay table,1,0,0.0,18.0
 gspaytables,government salary grade 11,1,0,0.0,43.0
 gspaytables,government service pay scale,1,0,0.0,27.0
 gspaytables,govt salary grade,1,0,0.0,62.0
 gspaytables,grade 11 salary,1,0,0.0,31.0
+gspaytables,grade 11 salary federal government,1,0,0.0,19.0
 gspaytables,grade 15 pay scale,1,0,0.0,8.0
 gspaytables,grade 4 government pay scale,2,0,0.0,20.0
 gspaytables,grade 5 pay,1,0,0.0,27.0
 gspaytables,grade 7 salary,1,0,0.0,33.0
 gspaytables,grade pay band,1,0,0.0,66.0
 gspaytables,grade pay scale,1,0,0.0,24.0
-gspaytables,grade scale 2026,17,0,0.0,9.9
+gspaytables,grade scale 2026,19,0,0.0,9.7
 gspaytables,gs 04 pay,2,0,0.0,19.0
 gspaytables,gs 05 pay scale,2,0,0.0,16.0
 gspaytables,gs 06 pay,2,0,0.0,19.5
@@ -234,23 +245,12 @@ gspaytables,gs 09,5,0,0.0,26.8
 gspaytables,gs 09 pay,1,0,0.0,13.0
 gspaytables,gs 09 pay scale,1,0,0.0,29.0
 gspaytables,gs 10,4,0,0.0,12.8
-gspaytables,gs 10 pay,7,0,0.0,13.1
+gspaytables,gs 10 pay,8,0,0.0,12.9
 gspaytables,gs 10 pay scale,1,0,0.0,22.0
 gspaytables,gs 10 salary,3,0,0.0,18.0
 gspaytables,gs 10 step 4,1,0,0.0,30.0
 gspaytables,gs 11,4,0,0.0,28.8
-gspaytables,gs 11 dc pay,1,0,0.0,11.0
-gspaytables,gs 11 equivalent,1,0,0.0,41.0
-gspaytables,gs 11 hourly rate,1,0,0.0,31.0
-gspaytables,gs 11 pay,3,0,0.0,13.3
-gspaytables,gs 11 pay scale,1,0,0.0,20.0
-gspaytables,gs 11 pay scale 2025,2,0,0.0,32.5
-gspaytables,gs 11 pay scale 2026 hawaii,2,0,0.0,10.5
-gspaytables,gs 11 pay scale 2026 nyc,1,0,0.0,10.0
-gspaytables,gs 11 pay scale dc,1,0,0.0,51.0
-gspaytables,gs 11 payscale,1,0,0.0,25.0
-gspaytables,gs 11 salary,1,0,0.0,27.0
-gspaytables,gs 11 salary dc,1,0,0.0,32.0
+gspaytables,gs 11 dc,1,0,0.0,16.0
 mileagecurve,"flat_rcl_post_2010" github,2,0,0.0,3.0
 mileagecurve,08 jeep liberty problems,1,0,0.0,51.0
 mileagecurve,1991 ford explorer mpg,1,0,0.0,49.0
