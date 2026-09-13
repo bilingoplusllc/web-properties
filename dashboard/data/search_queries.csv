@@ -1,5 +1,5 @@
-# Разрез Search Console по query, окно 2026-06-14..2026-09-11. Показов в разрезе 1005 из 16846 в итоге (6%): остальное Google не отдаёт по анонимизации, и это не потеря данных, а её предел
-# Снято ботом 2026-09-12. Правки руками будут стёрты следующим прогоном.
+# Разрез Search Console по query, окно 2026-06-15..2026-09-12. Показов в разрезе 1009 из 17803 в итоге (6%): остальное Google не отдаёт по анонимизации, и это не потеря данных, а её предел
+# Снято ботом 2026-09-13. Правки руками будут стёрты следующим прогоном.
 site,query,impressions,clicks,ctr,position
 gspaytables,federal pay raise 2027,47,8,17.02,4.8
 gspaytables,2027 federal pay raise,30,5,16.67,8.4
@@ -20,7 +20,7 @@ gspaytables,federal pay 2027,3,1,33.33,3.0
 gspaytables,federal pay raise,4,1,25.0,2.5
 gspaytables,federal raise 2027,3,1,33.33,3.7
 gspaytables,federal worker pay raise 2027,4,1,25.0,2.8
-gspaytables,"atlanta" "locality",1,0,0.0,24.0
+gspaytables,"atlanta" "locality",2,0,0.0,27.5
 gspaytables,12 pay,1,0,0.0,38.0
 gspaytables,2023 federal pay raise,1,0,0.0,46.0
 gspaytables,2024 pay raise,3,0,0.0,35.3
@@ -46,7 +46,7 @@ gspaytables,3.1 percent pay raise,1,0,0.0,19.0
 gspaytables,6 pay,1,0,0.0,55.0
 gspaytables,ad government pay scale,1,0,0.0,32.0
 gspaytables,ad pay scale,1,0,0.0,37.0
-gspaytables,alaska gs pay scale 2026,1,0,0.0,11.0
+gspaytables,alaska gs pay scale 2026,3,0,0.0,9.7
 gspaytables,alaska salary schedules,1,0,0.0,26.0
 gspaytables,alaska state pay scale,1,0,0.0,26.0
 gspaytables,alternative pay,1,0,0.0,31.0
@@ -70,7 +70,7 @@ gspaytables,chicago locality pay,1,0,0.0,11.0
 gspaytables,city based zone_1.25 compensation,1,0,0.0,8.0
 gspaytables,city of carlsbad salary schedule,1,0,0.0,26.0
 gspaytables,city of chula vista salary schedule,1,0,0.0,23.0
-gspaytables,city of colorado springs salary schedule 2026,16,0,0.0,9.6
+gspaytables,city of colorado springs salary schedule 2026,20,0,0.0,9.8
 gspaytables,city of fort worth salary schedule,1,0,0.0,39.0
 gspaytables,city of fort worth salary schedule 2026,1,0,0.0,41.0
 gspaytables,city of houston pay grade 20,1,0,0.0,40.0
@@ -141,11 +141,12 @@ gspaytables,federal gs pay scales,1,0,0.0,28.0
 gspaytables,federal gs payscale,1,0,0.0,37.0
 gspaytables,federal gs scale,1,0,0.0,26.0
 gspaytables,federal job grades,1,0,0.0,22.0
+gspaytables,federal job pay grades,1,0,0.0,22.0
 gspaytables,federal locality pay,1,0,0.0,48.0
 gspaytables,federal pay comparability act,1,0,0.0,35.0
 gspaytables,federal pay grade,3,0,0.0,30.0
 gspaytables,federal pay increase 2027,4,0,0.0,3.8
-gspaytables,federal pay raise 2023 effective date,1,0,0.0,87.0
+gspaytables,federal pay raise 2023 effective date,2,0,0.0,61.0
 gspaytables,federal pay raise 2027 chart with locality,1,0,0.0,9.0
 gspaytables,federal pay raise 2027 update,3,0,0.0,3.7
 gspaytables,federal pay raise for 2027,1,0,0.0,4.0
@@ -160,11 +161,11 @@ gspaytables,fers locality pay,2,0,0.0,48.0
 gspaytables,fg pay scale,2,0,0.0,18.5
 gspaytables,florida gs pay scale 2026,1,0,0.0,33.0
 gspaytables,florida pay scale,1,0,0.0,45.0
-gspaytables,fort worth salary,2,0,0.0,52.5
+gspaytables,fort worth salary,3,0,0.0,51.0
 gspaytables,fresno county salaries 2026,1,0,0.0,37.0
 gspaytables,fv vs gs pay scale,1,0,0.0,25.0
 gspaytables,g s pay scale,1,0,0.0,32.0
-gspaytables,g s scale,1,0,0.0,41.0
+gspaytables,g s scale,2,0,0.0,37.5
 gspaytables,g-12 pay scale,1,0,0.0,29.0
 gspaytables,g11 salary,1,0,0.0,51.0
 gspaytables,g12 pay scale,3,0,0.0,23.0
@@ -183,11 +184,11 @@ gspaytables,gaji eselon 3,1,0,0.0,62.0
 gspaytables,general schedule locality pay,1,0,0.0,38.0
 gspaytables,general schedule pay,2,0,0.0,19.0
 gspaytables,general schedule pay scale,2,0,0.0,23.0
-gspaytables,general schedule pay tables,2,0,0.0,33.5
+gspaytables,general schedule pay tables,3,0,0.0,28.7
 gspaytables,general schedule payscale,5,0,0.0,27.0
 gspaytables,general schedule rating,1,0,0.0,46.0
 gspaytables,general service pay scale,2,0,0.0,23.0
-gspaytables,georgia gs,3,0,0.0,8.7
+gspaytables,georgia gs,4,0,0.0,9.0
 gspaytables,gg 11,2,0,0.0,34.0
 gspaytables,gg 12 pay scale,1,0,0.0,22.0
 gspaytables,gg 14,1,0,0.0,29.0
@@ -206,7 +207,7 @@ gspaytables,gg9 pay scale,1,0,0.0,21.0
 gspaytables,gl 11 pay,2,0,0.0,20.0
 gspaytables,gl 6 pay scale,1,0,0.0,25.0
 gspaytables,gl 7,1,0,0.0,18.0
-gspaytables,gl-7,3,0,0.0,18.7
+gspaytables,gl-7,4,0,0.0,19.0
 gspaytables,gov gs pay scale,2,0,0.0,45.5
 gspaytables,government ad pay scale,1,0,0.0,29.0
 gspaytables,government grade scale,1,0,0.0,40.0
@@ -241,16 +242,15 @@ gspaytables,gs 06 pay,2,0,0.0,19.5
 gspaytables,gs 06 pay scale,1,0,0.0,30.0
 gspaytables,gs 07 pay,3,0,0.0,22.7
 gspaytables,gs 07 pay scale,1,0,0.0,23.0
-gspaytables,gs 09,5,0,0.0,26.8
+gspaytables,gs 09,6,0,0.0,25.0
 gspaytables,gs 09 pay,1,0,0.0,13.0
 gspaytables,gs 09 pay scale,1,0,0.0,29.0
 gspaytables,gs 10,4,0,0.0,12.8
-gspaytables,gs 10 pay,8,0,0.0,12.9
+gspaytables,gs 10 pay,9,0,0.0,12.6
 gspaytables,gs 10 pay scale,1,0,0.0,22.0
 gspaytables,gs 10 salary,3,0,0.0,18.0
 gspaytables,gs 10 step 4,1,0,0.0,30.0
 gspaytables,gs 11,4,0,0.0,28.8
-gspaytables,gs 11 dc,1,0,0.0,16.0
 mileagecurve,"flat_rcl_post_2010" github,2,0,0.0,3.0
 mileagecurve,08 jeep liberty problems,1,0,0.0,51.0
 mileagecurve,1991 ford explorer mpg,1,0,0.0,49.0
@@ -453,6 +453,7 @@ mileagecurve,are 2002 kia sportage reliable?,1,0,0.0,57.0
 mileagecurve,are 90s nissan pathfinders reliable?,1,0,0.0,36.0
 mileagecurve,are dodge vehicles reliable,3,0,0.0,61.3
 mileagecurve,are dodges reliable,3,0,0.0,57.7
+mileagecurve,are pontiac cars reliable,1,0,0.0,52.0
 mileagecurve,are pontiac reliable,2,0,0.0,61.5
 mileagecurve,are pontiacs reliable cars,1,0,0.0,58.0
 mileagecurve,are there any problems with the 2018 chevy equinox?,1,0,0.0,64.0
@@ -480,10 +481,12 @@ mileagecurve,honda crv 2007 recall,1,0,0.0,60.0
 mileagecurve,honda fit (2009–2013),1,0,0.0,55.0
 mileagecurve,honda pilot sales figures,3,0,0.0,72.3
 mileagecurve,how long can a 2003 honda pilot last?,2,0,0.0,36.5
+mileagecurve,how long do acura last,1,0,0.0,63.0
 mileagecurve,how long do acuras last,2,0,0.0,61.0
 mileagecurve,how long do toyota siennas last,10,0,0.0,25.6
 mileagecurve,how long does a 2007 chrysler town and country last?,6,0,0.0,27.7
 mileagecurve,how long does a acura last,1,0,0.0,56.0
+mileagecurve,how long does acura last,1,0,0.0,57.0
 mileagecurve,how long does an acura last,1,0,0.0,63.0
 mileagecurve,how long should a 2011 kia sorento last?,1,0,0.0,34.0
 mileagecurve,how long should a 2018 kia sorento last?,1,0,0.0,41.0
@@ -498,6 +501,3 @@ mileagecurve,how many miles can a 2012 honda cr-v last?,1,0,0.0,33.0
 mileagecurve,how many miles can a 2013 ford taurus last?,1,0,0.0,34.0
 mileagecurve,how many miles can a 2018 equinox last?,1,0,0.0,43.0
 mileagecurve,how many miles can a pontiac g6 last?,1,0,0.0,40.0
-mileagecurve,how many miles can a sienna last,1,0,0.0,23.0
-mileagecurve,how many miles can a toyota sienna last,11,0,0.0,22.2
-mileagecurve,how many miles can an infiniti i35 last?,2,0,0.0,42.5
