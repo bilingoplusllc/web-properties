@@ -125,20 +125,12 @@ BLOCKERS_MEASURE = {
         "(gates.py:598) краснеет на любом счётчике, пока /privacy/ говорит "
         "«runs no analytics». Порядок обязателен и необратим по смыслу: "
         "сначала политика, потом счётчик, потом ресурс GA4",
-        "служебному аккаунту board-fetch@bilingoplus-board.iam.gserviceaccount.com "
-        "доступ к ресурсу Search Console не выдан (нужен Full: на Restricted "
-        "отказывает URL Inspection)",
-        "www.batterycross.com не отвечает (проверено 16.09.2026); на сбор "
-        "чисел не влияет — ресурс доменный, — но половина ссылок извне "
-        "придёт именно туда",
     ],
     "keepsuntil": [
         "GA4 не подключён: счётчика на страницах нет, и гейт сайта "
         "(gates.py:2540) краснеет на любом счётчике, пока /privacy/ отрицает "
         "аналитику. Порядок обязателен: сначала политика, потом счётчик, "
         "потом ресурс GA4",
-        "служебному аккаунту board-fetch@bilingoplus-board.iam.gserviceaccount.com "
-        "доступ к ресурсу Search Console не выдан (нужен Full)",
     ],
 }
 
@@ -210,7 +202,7 @@ def snapshot():
             rec["measurable_from"] = date.fromordinal(
                 ld.toordinal() + SC_LAG_DAYS).isoformat()
             rec["days_live"] = (today - ld).days
-            rec["blockers"] = BLOCKERS_MEASURE.get(key, [])
+            rec["blockers"] = list(BLOCKERS_MEASURE.get(key, []))
         else:
             rec["blockers"] = BLOCKERS_LAUNCH
         root = _site_root(key)

@@ -83,6 +83,19 @@ SITEMAP = {
     "gspaytables": "https://gspaytables.com/sitemap.xml",
 }
 
+# Ресурсы Search Console, по которым доска СПРАШИВАЕТ у Google, кто мы в них,
+# вместо того чтобы объявлять доступ руками. Список ШИРЕ, чем GSC: сюда
+# входят и сайты, чисел у которых ещё нет, — ровно потому, что строка
+# «доступ не выдан» стояла на доске рукописной и соврала в тот же день,
+# когда доступ выдали. Ответ пишется в data/gsc_access.json, а доска
+# печатает его вместе с датой вопроса.
+WATCH = {
+    "mileagecurve": "sc-domain:mileagecurve.com",
+    "gspaytables": "sc-domain:gspaytables.com",
+    "batterycross": "sc-domain:batterycross.com",
+    "keepsuntil": "sc-domain:keepsuntil.com",
+}
+
 # Сколько адресов опрашиваем за прогон НА РЕСУРС.
 #
 # Ограничивает нас НЕ квота. Квота Google — 2000 в сутки и 600 в минуту на
@@ -663,6 +676,31 @@ def ga4_report(s, prop, dims, mets, since, until, limit=100):
     return r.json().get("rows", [])
 
 
+def gsc_access(s):
+    """Кто МЫ в каждом ресурсе Search Console — спрошено, а не объявлено.
+
+    Возвращает {ключ сайта: уровень}, где уровень — то слово, которым
+    отвечает сам API (`siteOwner`, `siteFullUser`, `siteRestrictedUser`),
+    либо None, если ресурса в ответе нет вовсе: служебный аккаунт его не
+    видит. Разница между «нет доступа» и «доступ урезан» существенна:
+    на Restricted метод URL Inspection отказывает, и перепись индексации
+    по такому ресурсу не снимется, хотя ряд показов снимется.
+    """
+    r = s.get("https://www.googleapis.com/webmasters/v3/sites", timeout=60)
+    if r.status_code != 200:
+        raise RuntimeError("sites.list ответил %s: %s"
+                           % (r.status_code, r.text[:200]))
+    seen = {}
+    for e in (r.json().get("siteEntry") or []):
+        seen[e.get("siteUrl", "")] = e.get("permissionLevel", "")
+    if not seen:
+        # Пустой список — это почти наверняка невыполненный запрос, а не
+        # «ни одного ресурса»: доска ежедневно читает два из них.
+        raise RuntimeError("sites.list вернул пустой список, хотя доска "
+                           "ежедневно читает %d ресурса" % len(GSC))
+    return dict((k, seen.get(p)) for k, p in sorted(WATCH.items()))
+
+
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
     until = date.today() - timedelta(days=1)   # вчера: сегодняшний день неполон
@@ -769,6 +807,25 @@ def main():
            "GA4 итог за 28 суток (порог рекламной сети месячный), окно "
            + win28 + ". Колонка pages_built НЕ из GA4: перенесена из "
            "прежнего снимка, её обновляет сборка сайта")
+    # Доступ служебного аккаунта к ресурсам Search Console — спрошен у Google
+    # и записан с датой вопроса. Отказ НЕ роняет прогон и НЕ переписывает
+    # прежний ответ: доска тогда напечатает прежний вместе с его датой, а
+    # «не спрашивали сегодня» и «доступа нет» — разные вещи.
+    try:
+        acc = gsc_access(s)
+        _p = os.path.join(DATA, "gsc_access.json")
+        _tmp = _p + ".tmp"
+        io.open(_tmp, "w", encoding="utf-8", newline="\n").write(
+            json.dumps({"checked": date.today().isoformat(),
+                        "properties": WATCH,
+                        "permission": acc},
+                       ensure_ascii=False, indent=1, sort_keys=True) + "\n")
+        os.replace(_tmp, _p)
+        print("  доступ Search Console:",
+              " ".join("%s=%s" % (k, v or "НЕТ") for k, v in sorted(acc.items())))
+    except (RuntimeError, OSError) as e:
+        print("ДОСТУП К SEARCH CONSOLE НЕ СПРОШЕН:", e)
+
     # Перепись индексации идёт ПОСЛЕДНЕЙ и своим отказом не роняет уже снятое:
     # поисковый ряд и GA4 к этому месту записаны. Отказ печатается словами, а
     # доска покажет прежнюю перепись с её прежней датой — как и всё остальное.

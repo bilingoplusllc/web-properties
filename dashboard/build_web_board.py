@@ -175,6 +175,58 @@ if _BOTH:
         % ", ".join(sorted(_BOTH)))
 
 
+# Доступ служебного аккаунта к Search Console НЕ объявляется руками. Его
+# спрашивает у Google загрузчик (fetch.py, метод sites.list) и кладёт ответ
+# в data/gsc_access.json вместе с датой вопроса. Рукописной строка «доступ
+# не выдан» соврала в тот же день, когда доступ выдали, — а «выдан»,
+# «выдан урезанным» и «не спрашивали» это ТРИ разных состояния.
+#
+# Выводится здесь, а не в снимке стадии: снимок снимается на машине с
+# исходниками сайтов, а ответ Google приходит в CI — там, где собирается
+# доска. Строка, посчитанная при снимке, была бы суточной давности.
+_ACCESS = os.path.join(_HERE, "data", "gsc_access.json")
+# Уровни, на которых доске доступно ВСЁ, включая URL Inspection. На
+# siteRestrictedUser этот метод отказывает — перепись индексации по такому
+# ресурсу не снимется, и это блокер, а не мелочь.
+_FULL = ("siteOwner", "siteFullUser")
+
+
+def _access_blocker(key):
+    """Строка про доступ к Search Console — или None, если доступ полный."""
+    try:
+        d = json.loads(io.open(_ACCESS, encoding="utf-8").read())
+    except (OSError, ValueError):
+        return ("доступ служебного аккаунта board-fetch@bilingoplus-board."
+                "iam.gserviceaccount.com к ресурсу Search Console НЕ "
+                "ПРОВЕРЯЛСЯ: бот ещё ни разу не снимал этот ответ. Это не "
+                "«доступа нет», это «не спрашивали»")
+    when = d.get("checked") or "без даты"
+    lvl = (d.get("permission") or {}).get(key)
+    if lvl in _FULL:
+        return None
+    if not lvl:
+        return ("служебный аккаунт board-fetch@bilingoplus-board."
+                "iam.gserviceaccount.com не видит ресурс Search Console "
+                "вовсе — доступ не выдан (спрошено у Google %s)" % when)
+    return ("служебному аккаунту board-fetch@bilingoplus-board."
+            "iam.gserviceaccount.com выдан уровень %s, а на нём отказывает "
+            "URL Inspection — нужен Full (спрошено у Google %s)"
+            % (lvl, when))
+
+
+# Свежая строка дописывается к объявленным блокерам каждого ЗАПУЩЕННОГО
+# сайта. Пустая выборка здесь означала бы, что запущенных нет вовсе, —
+# этого не бывает с 15.09.2026, и молчать об этом нельзя.
+_LAUNCHED = [s for s in STAGE.get("sites", []) if s.get("status") == "launched"]
+if not _LAUNCHED:
+    raise SystemExit(
+        "ГЕЙТ УПАЛ [запущенные сайты есть в снимке стадии] в снимке ни одного сайта со статусом launched, хотя batterycross и keepsuntil "
+        "выложены 15 и 16.09.2026. Скорее всего снимок снят старым pipeline.py")
+for _s in _LAUNCHED:
+    _ab = _access_blocker(_s["key"])
+    if _ab:
+        _s["blockers"] = list(_s.get("blockers") or []) + [_ab]
+
 # Метрики. Числа больше НЕ НАБИРАЮТСЯ ЗДЕСЬ РУКАМИ: окна считаются из
 # посуточного ряда в data/daily_search.csv, см. wp_data.py. Форма словаря
 # сохранена, потому что её читают idx_raw, idx_why и period_pane.
