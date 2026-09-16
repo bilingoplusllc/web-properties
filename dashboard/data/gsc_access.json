@@ -1,0 +1,15 @@
+{
+ "checked": "2026-09-16",
+ "permission": {
+  "batterycross": null,
+  "gspaytables": "siteFullUser",
+  "keepsuntil": "siteFullUser",
+  "mileagecurve": "siteFullUser"
+ },
+ "properties": {
+  "batterycross": "sc-domain:batterycross.com",
+  "gspaytables": "sc-domain:gspaytables.com",
+  "keepsuntil": "sc-domain:keepsuntil.com",
+  "mileagecurve": "sc-domain:mileagecurve.com"
+ }
+}
