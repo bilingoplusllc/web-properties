@@ -1,5 +1,5 @@
-# Разрез Search Console по query, окно 2026-06-17..2026-09-14. Показов в разрезе 1008 из 19235 в итоге (5%): остальное Google не отдаёт по анонимизации, и это не потеря данных, а её предел
-# Снято ботом 2026-09-15. Правки руками будут стёрты следующим прогоном.
+# Разрез Search Console по query, окно 2026-06-18..2026-09-15. Показов в разрезе 1010 из 19643 в итоге (5%): остальное Google не отдаёт по анонимизации, и это не потеря данных, а её предел
+# Снято ботом 2026-09-16. Правки руками будут стёрты следующим прогоном.
 site,query,impressions,clicks,ctr,position
 gspaytables,federal pay raise 2027,47,8,17.02,4.8
 gspaytables,2027 federal pay raise,30,5,16.67,8.4
@@ -46,6 +46,7 @@ gspaytables,2027 federal employee pay,1,0,0.0,4.0
 gspaytables,2027 pay increase,1,0,0.0,11.0
 gspaytables,3.1 percent pay raise,1,0,0.0,19.0
 gspaytables,6 pay,1,0,0.0,55.0
+gspaytables,accomac va,1,0,0.0,5.0
 gspaytables,ad government pay scale,1,0,0.0,32.0
 gspaytables,ad pay scale,1,0,0.0,37.0
 gspaytables,alaska gs pay scale 2026,3,0,0.0,9.7
@@ -172,7 +173,7 @@ gspaytables,fort worth salary,3,0,0.0,51.0
 gspaytables,fresno county salaries 2026,1,0,0.0,37.0
 gspaytables,fv vs gs pay scale,1,0,0.0,25.0
 gspaytables,g s pay scale,1,0,0.0,32.0
-gspaytables,g s scale,5,0,0.0,35.8
+gspaytables,g s scale,8,0,0.0,36.9
 gspaytables,g-12 pay scale,1,0,0.0,29.0
 gspaytables,g11 salary,1,0,0.0,51.0
 gspaytables,g12 pay scale,3,0,0.0,23.0
@@ -192,7 +193,7 @@ gspaytables,general schedule locality pay,1,0,0.0,38.0
 gspaytables,general schedule pay,2,0,0.0,19.0
 gspaytables,general schedule pay scale,2,0,0.0,23.0
 gspaytables,general schedule pay tables,8,0,0.0,26.5
-gspaytables,general schedule payscale,5,0,0.0,27.0
+gspaytables,general schedule payscale,6,0,0.0,26.5
 gspaytables,general schedule rating,1,0,0.0,46.0
 gspaytables,general service pay scale,2,0,0.0,23.0
 gspaytables,georgia gs,6,0,0.0,9.0
@@ -210,12 +211,13 @@ gspaytables,gg pay scale washington dc,3,0,0.0,39.0
 gspaytables,gg pay scale with locality,1,0,0.0,38.0
 gspaytables,gg scale,2,0,0.0,26.5
 gspaytables,gg-14,1,0,0.0,26.0
+gspaytables,gg-14 pay,1,0,0.0,9.0
 gspaytables,gg-15 pay scale,1,0,0.0,29.0
 gspaytables,gg9 pay scale,1,0,0.0,21.0
 gspaytables,gl 11 pay,2,0,0.0,20.0
 gspaytables,gl 6 pay scale,1,0,0.0,25.0
 gspaytables,gl 7,1,0,0.0,18.0
-gspaytables,gl-7,6,0,0.0,19.5
+gspaytables,gl-7,7,0,0.0,19.6
 gspaytables,gov gs pay scale,2,0,0.0,45.5
 gspaytables,government ad pay scale,1,0,0.0,29.0
 gspaytables,government grade scale,1,0,0.0,40.0
@@ -235,6 +237,7 @@ gspaytables,government pay scales,2,0,0.0,26.0
 gspaytables,government pay table,1,0,0.0,18.0
 gspaytables,government salary grade 11,1,0,0.0,43.0
 gspaytables,government salary grades,1,0,0.0,38.0
+gspaytables,government salary increase 2027,1,0,0.0,20.0
 gspaytables,government service pay scale,1,0,0.0,27.0
 gspaytables,govt salary grade,1,0,0.0,62.0
 gspaytables,grade 11 salary,1,0,0.0,31.0
@@ -248,10 +251,8 @@ gspaytables,grade pay scale,1,0,0.0,24.0
 gspaytables,grade scale 2026,19,0,0.0,9.7
 gspaytables,gs 04 pay,2,0,0.0,19.0
 gspaytables,gs 05,1,0,0.0,31.0
-gspaytables,gs 05 pay scale,2,0,0.0,16.0
-gspaytables,gs 06 pay,2,0,0.0,19.5
-gspaytables,gs 06 pay scale,1,0,0.0,30.0
 mileagecurve,"flat_rcl_post_2010" github,2,0,0.0,3.0
+mileagecurve,04 prius mpg,1,0,0.0,55.0
 mileagecurve,08 jeep liberty problems,1,0,0.0,51.0
 mileagecurve,1991 ford explorer mpg,1,0,0.0,49.0
 mileagecurve,1992 toyota camry value,1,0,0.0,60.0
@@ -324,6 +325,8 @@ mileagecurve,2004 chrysler pacifica reliability,1,0,0.0,72.0
 mileagecurve,2004 honda odyssey problems,2,0,0.0,44.0
 mileagecurve,2004 honda odyssey reliability,2,0,0.0,47.0
 mileagecurve,2004 honda odyssey transmission recall,1,0,0.0,60.0
+mileagecurve,2004 prius gas mileage,1,0,0.0,46.0
+mileagecurve,2004 prius mpg,1,0,0.0,56.0
 mileagecurve,2004-2009 toyota prius,1,0,0.0,53.0
 mileagecurve,2005 buick allure problems,1,0,0.0,43.0
 mileagecurve,2005 buick lacrosse problems,4,0,0.0,53.2
@@ -449,7 +452,7 @@ mileagecurve,acura mileage life,2,0,0.0,44.5
 mileagecurve,acura reliability,6,0,0.0,53.8
 mileagecurve,acura reliability ranking,1,0,0.0,75.0
 mileagecurve,acura reliability rating,1,0,0.0,57.0
-mileagecurve,acura reliability ratings,4,0,0.0,68.0
+mileagecurve,acura reliability ratings,5,0,0.0,67.2
 mileagecurve,acura years to avoid,1,0,0.0,63.0
 mileagecurve,acuras reliability,1,0,0.0,48.0
 mileagecurve,are 2002 kia sportage reliable?,1,0,0.0,57.0
@@ -466,6 +469,7 @@ mileagecurve,cadillac longevity,1,0,0.0,62.0
 mileagecurve,cadillac mileage life,1,0,0.0,50.0
 mileagecurve,cadillac reliability,5,0,0.0,51.4
 mileagecurve,cadillac reliability ratings,2,0,0.0,61.5
+mileagecurve,chevrolet cobalt recalls,1,0,0.0,83.0
 mileagecurve,chevy cobalt problems,1,0,0.0,50.0
 mileagecurve,chevy equinox 2018 problems,1,0,0.0,54.0
 mileagecurve,chevy equinox 2024 problems,1,0,0.0,61.0
@@ -497,7 +501,3 @@ mileagecurve,how long should a 2011 kia sorento last?,1,0,0.0,34.0
 mileagecurve,how long should a 2018 kia sorento last?,1,0,0.0,41.0
 mileagecurve,how long toyota sienna last,1,0,0.0,23.0
 mileagecurve,how long will a 2008 chrysler pacifica last?,4,0,0.0,31.8
-mileagecurve,how long will a 2010 4runner last?,1,0,0.0,37.0
-mileagecurve,how long will toyota sienna last,2,0,0.0,26.0
-mileagecurve,how many miles can a 1997 nissan last?,2,0,0.0,64.0
-mileagecurve,how many miles can a 2005 chrysler pacifica last?,1,0,0.0,64.0
