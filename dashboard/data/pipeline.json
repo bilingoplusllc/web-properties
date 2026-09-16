@@ -14,13 +14,11 @@
    "status": "launched",
    "measurable_from": "2026-09-18",
    "days_live": 1,
-   "blockers": [
-    "GA4 не подключён: счётчика на страницах нет, и гейт сайта (gates.py:598) краснеет на любом счётчике, пока /privacy/ говорит «runs no analytics». Порядок обязателен и необратим по смыслу: сначала политика, потом счётчик, потом ресурс GA4"
-   ],
+   "blockers": [],
    "missing": false,
    "pages": 153,
    "files": 321,
-   "gates": 93
+   "gates": 94
   },
   {
    "name": "KeepsUntil",
@@ -35,9 +33,7 @@
    "status": "launched",
    "measurable_from": "2026-09-19",
    "days_live": 0,
-   "blockers": [
-    "GA4 не подключён: счётчика на страницах нет, и гейт сайта (gates.py:2540) краснеет на любом счётчике, пока /privacy/ отрицает аналитику. Порядок обязателен: сначала политика, потом счётчик, потом ресурс GA4"
-   ],
+   "blockers": [],
    "missing": false,
    "pages": 326,
    "files": 327,
