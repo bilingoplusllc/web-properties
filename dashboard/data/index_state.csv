@@ -178,7 +178,7 @@ mileagecurve,https://mileagecurve.com/audi/,PASS,Submitted and indexed,SUCCESSFU
 mileagecurve,https://mileagecurve.com/bmw/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-07,2026-09-16
 mileagecurve,https://mileagecurve.com/buick/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-16
 mileagecurve,https://mileagecurve.com/cadillac/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-05,2026-09-16
-mileagecurve,https://mileagecurve.com/chevrolet/,NEUTRAL,URL is unknown to Google,PAGE_FETCH_STATE_UNSPECIFIED,ROBOTS_TXT_STATE_UNSPECIFIED,,2026-09-16
+mileagecurve,https://mileagecurve.com/chevrolet/,NEUTRAL,Discovered - currently not indexed,PAGE_FETCH_STATE_UNSPECIFIED,ROBOTS_TXT_STATE_UNSPECIFIED,,2026-09-16
 mileagecurve,https://mileagecurve.com/chrysler/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-04,2026-09-16
 mileagecurve,https://mileagecurve.com/dodge/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-09,2026-09-16
 mileagecurve,https://mileagecurve.com/ford/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-04,2026-09-16
@@ -333,7 +333,7 @@ mileagecurve,https://mileagecurve.com/hyundai-sonata-2006-2010/,PASS,Submitted a
 mileagecurve,https://mileagecurve.com/hyundai-sonata-2011-2014/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-16
 mileagecurve,https://mileagecurve.com/hyundai-sonata-2015-2019/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-13,2026-09-16
 mileagecurve,https://mileagecurve.com/hyundai-sonata-2020-2025/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-09-01,2026-09-16
-mileagecurve,https://mileagecurve.com/dodge-durango-1998-2003/,NEUTRAL,URL is unknown to Google,PAGE_FETCH_STATE_UNSPECIFIED,ROBOTS_TXT_STATE_UNSPECIFIED,,2026-09-16
+mileagecurve,https://mileagecurve.com/dodge-durango-1998-2003/,NEUTRAL,Discovered - currently not indexed,PAGE_FETCH_STATE_UNSPECIFIED,ROBOTS_TXT_STATE_UNSPECIFIED,,2026-09-16
 mileagecurve,https://mileagecurve.com/dodge-durango-2004-2009/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-31,2026-09-16
 mileagecurve,https://mileagecurve.com/dodge-durango-2011-2025/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-28,2026-09-16
 mileagecurve,https://mileagecurve.com/dodge-grand-caravan-1996-2000/,PASS,Submitted and indexed,SUCCESSFUL,ALLOWED,2026-08-27,2026-09-16
