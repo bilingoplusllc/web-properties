@@ -1,4 +1,4 @@
-# Разрез Search Console по query, окно 2026-06-18..2026-09-15. Показов в разрезе 1010 из 19643 в итоге (5%): остальное Google не отдаёт по анонимизации, и это не потеря данных, а её предел
+# Разрез Search Console по query, окно 2026-06-18..2026-09-15. Показов в разрезе 1010 из 19742 в итоге (5%): остальное Google не отдаёт по анонимизации, и это не потеря данных, а её предел
 # Снято ботом 2026-09-16. Правки руками будут стёрты следующим прогоном.
 site,query,impressions,clicks,ctr,position
 gspaytables,federal pay raise 2027,47,8,17.02,4.8
@@ -17,7 +17,7 @@ gspaytables,civilian pay raise 2027,2,1,50.0,2.0
 gspaytables,federal civilian pay raise 2027,3,1,33.33,4.0
 gspaytables,federal employees salary increase 2027,1,1,100.0,1.0
 gspaytables,federal pay 2027,3,1,33.33,3.0
-gspaytables,federal pay raise,4,1,25.0,2.5
+gspaytables,federal pay raise,5,1,20.0,21.2
 gspaytables,federal raise 2027,3,1,33.33,3.7
 gspaytables,federal worker pay raise 2027,4,1,25.0,2.8
 gspaytables,yes,3,1,33.33,4.3
@@ -57,6 +57,7 @@ gspaytables,alternative pay plan,2,0,0.0,14.5
 gspaytables,annual pay raise,1,0,0.0,39.0
 gspaytables,arizona gs,1,0,0.0,9.0
 gspaytables,arizona gs pay scale 2026,1,0,0.0,11.0
+gspaytables,astoria oregon,1,0,0.0,4.0
 gspaytables,average pay in colorado springs,1,0,0.0,59.0
 gspaytables,average salary norfolk,1,0,0.0,68.0
 gspaytables,az gs,2,0,0.0,9.0
@@ -172,6 +173,7 @@ gspaytables,florida pay scale,1,0,0.0,45.0
 gspaytables,fort worth salary,3,0,0.0,51.0
 gspaytables,fresno county salaries 2026,1,0,0.0,37.0
 gspaytables,fv vs gs pay scale,1,0,0.0,25.0
+gspaytables,g s 4,1,0,0.0,68.0
 gspaytables,g s pay scale,1,0,0.0,32.0
 gspaytables,g s scale,8,0,0.0,36.9
 gspaytables,g-12 pay scale,1,0,0.0,29.0
@@ -249,8 +251,6 @@ gspaytables,grade 7 salary,1,0,0.0,33.0
 gspaytables,grade pay band,1,0,0.0,66.0
 gspaytables,grade pay scale,1,0,0.0,24.0
 gspaytables,grade scale 2026,19,0,0.0,9.7
-gspaytables,gs 04 pay,2,0,0.0,19.0
-gspaytables,gs 05,1,0,0.0,31.0
 mileagecurve,"flat_rcl_post_2010" github,2,0,0.0,3.0
 mileagecurve,04 prius mpg,1,0,0.0,55.0
 mileagecurve,08 jeep liberty problems,1,0,0.0,51.0

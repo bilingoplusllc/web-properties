@@ -1,7 +1,7 @@
 {
  "checked": "2026-09-16",
  "permission": {
-  "batterycross": null,
+  "batterycross": "siteFullUser",
   "gspaytables": "siteFullUser",
   "keepsuntil": "siteFullUser",
   "mileagecurve": "siteFullUser"
