@@ -1,8 +1,8 @@
-# Разрез Search Console по query, окно 2026-06-19..2026-09-16. Показов в разрезе 1010 из 19742 в итоге (5%): остальное Google не отдаёт по анонимизации, и это не потеря данных, а её предел
-# Снято ботом 2026-09-17. Правки руками будут стёрты следующим прогоном.
+# Разрез Search Console по query, окно 2026-06-20..2026-09-17. Показов в разрезе 998 из 19790 в итоге (5%): остальное Google не отдаёт по анонимизации, и это не потеря данных, а её предел
+# Снято ботом 2026-09-18. Правки руками будут стёрты следующим прогоном.
 site,query,impressions,clicks,ctr,position
-gspaytables,federal pay raise 2027,47,8,17.02,4.8
-gspaytables,2027 federal pay raise,30,5,16.67,8.4
+gspaytables,federal pay raise 2027,49,8,16.33,7.8
+gspaytables,2027 federal pay raise,32,5,15.62,12.9
 gspaytables,federal employee pay raise 2027,23,5,21.74,3.7
 gspaytables,gs pay raise 2027,8,3,37.5,3.4
 gspaytables,alternative pay plan letter 2027,28,2,7.14,7.1
@@ -142,6 +142,7 @@ gspaytables,executive order 14368,7,0,0.0,10.4
 gspaytables,federal 2027 pay raise,1,0,0.0,4.0
 gspaytables,federal employee pay freeze 2027,1,0,0.0,35.0
 gspaytables,federal employee pay raise 2027 update,2,0,0.0,3.5
+gspaytables,federal employee raise,1,0,0.0,96.0
 gspaytables,federal general schedule pay scale,1,0,0.0,24.0
 gspaytables,federal government gs pay scale,1,0,0.0,39.0
 gspaytables,federal gs pay rates,1,0,0.0,25.0
@@ -151,13 +152,13 @@ gspaytables,federal gs payscale,1,0,0.0,37.0
 gspaytables,federal gs scale,1,0,0.0,26.0
 gspaytables,federal job grades,1,0,0.0,22.0
 gspaytables,federal job pay grades,1,0,0.0,22.0
-gspaytables,federal locality pay,1,0,0.0,48.0
+gspaytables,federal locality pay,2,0,0.0,58.0
 gspaytables,federal pay comparability act,1,0,0.0,35.0
 gspaytables,federal pay grade,3,0,0.0,30.0
 gspaytables,federal pay increase 2027,4,0,0.0,3.8
 gspaytables,federal pay raise 2023 effective date,2,0,0.0,61.0
 gspaytables,federal pay raise 2027 chart with locality,1,0,0.0,9.0
-gspaytables,federal pay raise 2027 update,3,0,0.0,3.7
+gspaytables,federal pay raise 2027 update,4,0,0.0,22.8
 gspaytables,federal pay raise for 2027,1,0,0.0,4.0
 gspaytables,federal pay scale 2026 dc,6,0,0.0,10.8
 gspaytables,federal pay scale 2026 washington dc,2,0,0.0,11.0
@@ -250,7 +251,6 @@ gspaytables,grade 5 pay,1,0,0.0,27.0
 gspaytables,grade 7 salary,1,0,0.0,33.0
 gspaytables,grade pay band,1,0,0.0,66.0
 gspaytables,grade pay scale,1,0,0.0,24.0
-gspaytables,grade scale 2026,19,0,0.0,9.7
 mileagecurve,"flat_rcl_post_2010" github,2,0,0.0,3.0
 mileagecurve,04 prius mpg,1,0,0.0,55.0
 mileagecurve,08 jeep liberty problems,1,0,0.0,51.0

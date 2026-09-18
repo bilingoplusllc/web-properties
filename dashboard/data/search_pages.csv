@@ -1,13 +1,13 @@
-# Разрез Search Console по page, окно 2026-06-19..2026-09-16. Показов в разрезе 20581 из 19742 в итоге (104%): остальное Google не отдаёт по анонимизации, и это не потеря данных, а её предел
-# Снято ботом 2026-09-17. Правки руками будут стёрты следующим прогоном.
+# Разрез Search Console по page, окно 2026-06-20..2026-09-17. Показов в разрезе 20629 из 19790 в итоге (104%): остальное Google не отдаёт по анонимизации, и это не потеря данных, а её предел
+# Снято ботом 2026-09-18. Правки руками будут стёрты следующим прогоном.
 site,page,impressions,clicks,ctr,position
-gspaytables,https://gspaytables.com/pay-raise/,656,59,8.99,10.0
+gspaytables,https://gspaytables.com/pay-raise/,663,59,8.9,10.8
 gspaytables,https://gspaytables.com/promotion/gs-13-to-gs-14/,453,8,1.77,10.0
-gspaytables,https://gspaytables.com/,190,4,2.11,19.2
+gspaytables,https://gspaytables.com/,195,4,2.05,20.1
 gspaytables,https://gspaytables.com/calculator/,140,4,2.86,24.5
 gspaytables,https://gspaytables.com/states/illinois/,40,4,10.0,13.4
 gspaytables,https://gspaytables.com/gs-3/,95,3,3.16,13.6
-gspaytables,https://gspaytables.com/gs-5/,424,3,0.71,11.4
+gspaytables,https://gspaytables.com/gs-5/,426,3,0.7,11.5
 gspaytables,https://gspaytables.com/promotion/gs-14-to-gs-15/,70,3,4.29,10.8
 gspaytables,https://gspaytables.com/states/georgia/,294,3,1.02,14.6
 gspaytables,https://gspaytables.com/states/maine/,137,3,2.19,6.5
@@ -24,7 +24,7 @@ gspaytables,https://gspaytables.com/states/west-virginia/,61,2,3.28,7.7
 gspaytables,https://gspaytables.com/compare/los-angeles-ca-vs-san-diego-ca/,52,1,1.92,41.4
 gspaytables,https://gspaytables.com/compare/washington-dc-vs-san-diego-ca/,2,1,50.0,24.5
 gspaytables,https://gspaytables.com/grades/,608,1,0.16,26.3
-gspaytables,https://gspaytables.com/gs-12/,327,1,0.31,14.1
+gspaytables,https://gspaytables.com/gs-12/,328,1,0.3,14.2
 gspaytables,https://gspaytables.com/gs-13/,306,1,0.33,12.2
 gspaytables,https://gspaytables.com/gs-14/,535,1,0.19,13.5
 gspaytables,https://gspaytables.com/gs-6/,276,1,0.36,11.9
@@ -32,20 +32,22 @@ gspaytables,https://gspaytables.com/gs-7/,221,1,0.45,12.0
 gspaytables,https://gspaytables.com/gs-9/,184,1,0.54,12.1
 gspaytables,https://gspaytables.com/locality/albuquerque-santa-fe-las-vegas-nm/,33,1,3.03,12.0
 gspaytables,https://gspaytables.com/locality/charlotte-concord-nc-sc/,31,1,3.23,14.2
-gspaytables,https://gspaytables.com/locality/cleveland-akron-canton-oh-pa/,63,1,1.59,11.2
-gspaytables,https://gspaytables.com/locality/colorado-springs-co/,220,1,0.45,11.2
-gspaytables,https://gspaytables.com/locality/dallas-fort-worth-tx-ok/,177,1,0.56,13.1
+gspaytables,https://gspaytables.com/locality/cleveland-akron-canton-oh-pa/,64,1,1.56,11.7
+gspaytables,https://gspaytables.com/locality/colorado-springs-co/,221,1,0.45,11.4
+gspaytables,https://gspaytables.com/locality/dallas-fort-worth-tx-ok/,178,1,0.56,13.1
 gspaytables,https://gspaytables.com/locality/detroit-warren-ann-arbor-mi/,81,1,1.23,9.6
 gspaytables,https://gspaytables.com/locality/fresno-madera-hanford-ca/,88,1,1.14,10.3
-gspaytables,https://gspaytables.com/locality/houston-the-woodlands-tx/,126,1,0.79,12.7
+gspaytables,https://gspaytables.com/locality/houston-the-woodlands-tx/,127,1,0.79,12.6
 gspaytables,https://gspaytables.com/locality/milwaukee-racine-waukesha-wi/,53,1,1.89,9.0
 gspaytables,https://gspaytables.com/locality/philadelphia-reading-camden-pa-nj-de-md/,83,1,1.2,11.5
 gspaytables,https://gspaytables.com/locality/portland-vancouver-salem-or-wa/,136,1,0.74,10.9
-gspaytables,https://gspaytables.com/locality/raleigh-durham-cary-nc/,234,1,0.43,8.8
-gspaytables,https://gspaytables.com/locality/seattle-tacoma-wa/,268,1,0.37,11.4
+gspaytables,https://gspaytables.com/locality/raleigh-durham-cary-nc/,236,1,0.42,8.8
+gspaytables,https://gspaytables.com/locality/rest-of-u-s/,75,1,1.33,15.6
+gspaytables,https://gspaytables.com/locality/san-diego-chula-vista-carlsbad-ca/,111,1,0.9,12.4
+gspaytables,https://gspaytables.com/locality/seattle-tacoma-wa/,269,1,0.37,11.4
 gspaytables,https://gspaytables.com/locality/state-of-alaska/,75,1,1.33,12.1
-gspaytables,https://gspaytables.com/locality/state-of-hawaii/,422,1,0.24,10.8
-gspaytables,https://gspaytables.com/locality/washington-baltimore-arlington-dc-md-va-wv-pa/,142,1,0.7,10.0
+gspaytables,https://gspaytables.com/locality/state-of-hawaii/,424,1,0.24,11.0
+gspaytables,https://gspaytables.com/locality/washington-baltimore-arlington-dc-md-va-wv-pa/,144,1,0.69,10.0
 gspaytables,https://gspaytables.com/promotion/gs-10-to-gs-11/,41,1,2.44,9.5
 gspaytables,https://gspaytables.com/promotion/gs-11-to-gs-12/,295,1,0.34,12.5
 gspaytables,https://gspaytables.com/states/alabama/,74,1,1.35,8.6
@@ -81,7 +83,7 @@ gspaytables,https://gspaytables.com/contact/,2,0,0.0,3.0
 gspaytables,https://gspaytables.com/gs-1/,40,0,0.0,18.4
 gspaytables,https://gspaytables.com/gs-10/,189,0,0.0,12.2
 gspaytables,https://gspaytables.com/gs-11/,612,0,0.0,13.6
-gspaytables,https://gspaytables.com/gs-15/,372,0,0.0,12.9
+gspaytables,https://gspaytables.com/gs-15/,375,0,0.0,13.1
 gspaytables,https://gspaytables.com/gs-2/,52,0,0.0,14.5
 gspaytables,https://gspaytables.com/gs-8/,214,0,0.0,8.6
 gspaytables,https://gspaytables.com/how-locality-pay-works/,45,0,0.0,30.4
@@ -89,9 +91,9 @@ gspaytables,https://gspaytables.com/locality/albany-schenectady-ny-ma/,94,0,0.0,
 gspaytables,https://gspaytables.com/locality/atlanta-athens-clarke-county-sandy-springs-ga-al/,31,0,0.0,13.2
 gspaytables,https://gspaytables.com/locality/austin-round-rock-georgetown-tx/,35,0,0.0,10.5
 gspaytables,https://gspaytables.com/locality/birmingham-hoover-talladega-al/,37,0,0.0,8.4
-gspaytables,https://gspaytables.com/locality/boston-worcester-providence-ma-ri-nh-ct-me-vt/,79,0,0.0,12.6
+gspaytables,https://gspaytables.com/locality/boston-worcester-providence-ma-ri-nh-ct-me-vt/,80,0,0.0,12.5
 gspaytables,https://gspaytables.com/locality/burlington-south-burlington-barre-vt/,44,0,0.0,11.2
-gspaytables,https://gspaytables.com/locality/chicago-naperville-il-in-wi/,66,0,0.0,10.7
+gspaytables,https://gspaytables.com/locality/chicago-naperville-il-in-wi/,67,0,0.0,10.6
 gspaytables,https://gspaytables.com/locality/cincinnati-wilmington-maysville-oh-ky-in/,27,0,0.0,13.6
 gspaytables,https://gspaytables.com/locality/columbus-marion-zanesville-oh/,21,0,0.0,7.6
 gspaytables,https://gspaytables.com/locality/corpus-christi-kingsville-alice-tx/,30,0,0.0,7.5
@@ -101,12 +103,12 @@ gspaytables,https://gspaytables.com/locality/denver-aurora-co/,161,0,0.0,13.4
 gspaytables,https://gspaytables.com/locality/des-moines-ames-west-des-moines-ia/,58,0,0.0,8.2
 gspaytables,https://gspaytables.com/locality/harrisburg-lebanon-pa/,39,0,0.0,9.1
 gspaytables,https://gspaytables.com/locality/hartford-east-hartford-ct-ma/,20,0,0.0,8.5
-gspaytables,https://gspaytables.com/locality/huntsville-decatur-al-tn/,174,0,0.0,10.4
+gspaytables,https://gspaytables.com/locality/huntsville-decatur-al-tn/,175,0,0.0,10.6
 gspaytables,https://gspaytables.com/locality/indianapolis-carmel-muncie-in/,27,0,0.0,10.0
 gspaytables,https://gspaytables.com/locality/kansas-city-overland-park-kansas-city-mo-ks/,72,0,0.0,9.6
 gspaytables,https://gspaytables.com/locality/laredo-tx/,93,0,0.0,9.3
 gspaytables,https://gspaytables.com/locality/las-vegas-henderson-nv-az/,53,0,0.0,10.3
-gspaytables,https://gspaytables.com/locality/los-angeles-long-beach-ca/,118,0,0.0,14.2
+gspaytables,https://gspaytables.com/locality/los-angeles-long-beach-ca/,119,0,0.0,14.1
 gspaytables,https://gspaytables.com/locality/miami-port-st-lucie-fort-lauderdale-fl/,36,0,0.0,10.2
 gspaytables,https://gspaytables.com/locality/minneapolis-st-paul-mn-wi/,47,0,0.0,10.3
 gspaytables,https://gspaytables.com/locality/new-york-newark-ny-nj-ct-pa/,52,0,0.0,11.1
@@ -115,12 +117,10 @@ gspaytables,https://gspaytables.com/locality/palm-bay-melbourne-titusville-fl/,2
 gspaytables,https://gspaytables.com/locality/phoenix-mesa-az/,87,0,0.0,10.4
 gspaytables,https://gspaytables.com/locality/pittsburgh-new-castle-weirton-pa-oh-wv/,64,0,0.0,9.0
 gspaytables,https://gspaytables.com/locality/reno-fernley-nv/,1,0,0.0,8.0
-gspaytables,https://gspaytables.com/locality/rest-of-u-s/,73,0,0.0,16.0
 gspaytables,https://gspaytables.com/locality/richmond-va/,157,0,0.0,9.8
 gspaytables,https://gspaytables.com/locality/rochester-batavia-seneca-falls-ny/,39,0,0.0,15.1
 gspaytables,https://gspaytables.com/locality/sacramento-roseville-ca-nv/,77,0,0.0,11.0
 gspaytables,https://gspaytables.com/locality/san-antonio-new-braunfels-pearsall-tx/,71,0,0.0,11.6
-gspaytables,https://gspaytables.com/locality/san-diego-chula-vista-carlsbad-ca/,110,0,0.0,12.5
 gspaytables,https://gspaytables.com/locality/san-jose-san-francisco-oakland-ca/,56,0,0.0,18.0
 gspaytables,https://gspaytables.com/locality/spokane-spokane-valley-coeur-d-alene-wa-id/,70,0,0.0,11.8
 gspaytables,https://gspaytables.com/locality/st-louis-st-charles-farmington-mo-il/,26,0,0.0,10.8
@@ -187,6 +187,7 @@ mileagecurve,https://mileagecurve.com/chevrolet-colorado-2004-2012/,9,0,0.0,7.3
 mileagecurve,https://mileagecurve.com/chevrolet-equinox-2010-2017/,6,0,0.0,6.2
 mileagecurve,https://mileagecurve.com/chevrolet-equinox-2018-2024/,36,0,0.0,41.2
 mileagecurve,https://mileagecurve.com/chevrolet-impala-2006-2013/,9,0,0.0,7.2
+mileagecurve,https://mileagecurve.com/chevrolet-malibu-2016-2025/,1,0,0.0,5.0
 mileagecurve,https://mileagecurve.com/chevrolet-silverado-1500-1999-2006/,1,0,0.0,9.0
 mileagecurve,https://mileagecurve.com/chevrolet-silverado-1500-2014-2018/,2,0,0.0,3.0
 mileagecurve,https://mileagecurve.com/chevrolet-suburban-2000-2006/,2,0,0.0,27.0
@@ -201,6 +202,7 @@ mileagecurve,https://mileagecurve.com/chevrolet-traverse-2009-2017/,2,0,0.0,10.0
 mileagecurve,https://mileagecurve.com/chrysler-200-2011-2014/,3,0,0.0,8.3
 mileagecurve,https://mileagecurve.com/chrysler-pacifica-2004-2008/,43,0,0.0,45.5
 mileagecurve,https://mileagecurve.com/chrysler-town-and-country-2001-2007/,35,0,0.0,47.4
+mileagecurve,https://mileagecurve.com/chrysler-town-and-country-2008-2016/,2,0,0.0,10.5
 mileagecurve,https://mileagecurve.com/chrysler/,4,0,0.0,35.0
 mileagecurve,https://mileagecurve.com/dodge-charger-2006-2010/,4,0,0.0,9.2
 mileagecurve,https://mileagecurve.com/dodge-durango-1998-2003/,27,0,0.0,21.3
@@ -208,15 +210,15 @@ mileagecurve,https://mileagecurve.com/dodge-grand-caravan-2001-2007/,50,0,0.0,48
 mileagecurve,https://mileagecurve.com/dodge-grand-caravan-2008-2020/,13,0,0.0,8.8
 mileagecurve,https://mileagecurve.com/dodge-journey-2009-2020/,2,0,0.0,7.5
 mileagecurve,https://mileagecurve.com/dodge-ram-1500-1994-2001/,1,0,0.0,11.0
-mileagecurve,https://mileagecurve.com/dodge-ram-1500-2002-2008/,14,0,0.0,44.8
+mileagecurve,https://mileagecurve.com/dodge-ram-1500-2002-2008/,15,0,0.0,42.1
 mileagecurve,https://mileagecurve.com/dodge/,43,0,0.0,50.2
 mileagecurve,https://mileagecurve.com/ford-escape-2001-2007/,3,0,0.0,15.7
 mileagecurve,https://mileagecurve.com/ford-expedition-2003-2006/,7,0,0.0,30.7
-mileagecurve,https://mileagecurve.com/ford-expedition-2018-2024/,5,0,0.0,6.2
+mileagecurve,https://mileagecurve.com/ford-expedition-2018-2024/,7,0,0.0,7.9
 mileagecurve,https://mileagecurve.com/ford-explorer-1991-1994/,14,0,0.0,25.4
 mileagecurve,https://mileagecurve.com/ford-explorer-2002-2005/,3,0,0.0,73.3
 mileagecurve,https://mileagecurve.com/ford-explorer-2006-2010/,22,0,0.0,34.1
-mileagecurve,https://mileagecurve.com/ford-explorer-2011-2019/,1,0,0.0,9.0
+mileagecurve,https://mileagecurve.com/ford-explorer-2011-2019/,3,0,0.0,10.3
 mileagecurve,https://mileagecurve.com/ford-explorer-2020-2025/,2,0,0.0,9.5
 mileagecurve,https://mileagecurve.com/ford-f-150-1997-2003/,15,0,0.0,41.9
 mileagecurve,https://mileagecurve.com/ford-f-150-2004-2008/,2,0,0.0,41.0
@@ -241,7 +243,7 @@ mileagecurve,https://mileagecurve.com/gmc/,3,0,0.0,5.0
 mileagecurve,https://mileagecurve.com/honda-accord-1994-1997/,18,0,0.0,19.4
 mileagecurve,https://mileagecurve.com/honda-accord-1998-2002/,1,0,0.0,7.0
 mileagecurve,https://mileagecurve.com/honda-accord-2003-2007/,11,0,0.0,9.0
-mileagecurve,https://mileagecurve.com/honda-accord-2013-2017/,4,0,0.0,15.2
+mileagecurve,https://mileagecurve.com/honda-accord-2013-2017/,5,0,0.0,14.2
 mileagecurve,https://mileagecurve.com/honda-accord-2018-2022/,4,0,0.0,7.0
 mileagecurve,https://mileagecurve.com/honda-civic-1996-2000/,25,0,0.0,47.8
 mileagecurve,https://mileagecurve.com/honda-civic-2006-2011/,5,0,0.0,9.4
@@ -303,13 +305,13 @@ mileagecurve,https://mileagecurve.com/nissan-murano-2015-2024/,2,0,0.0,9.0
 mileagecurve,https://mileagecurve.com/nissan-pathfinder-1987-1995/,10,0,0.0,19.8
 mileagecurve,https://mileagecurve.com/nissan-rogue-2021-2025/,1,0,0.0,11.0
 mileagecurve,https://mileagecurve.com/nissan-sentra-2020-2025/,2,0,0.0,18.0
-mileagecurve,https://mileagecurve.com/nissan/,44,0,0.0,34.6
+mileagecurve,https://mileagecurve.com/nissan/,45,0,0.0,35.4
 mileagecurve,https://mileagecurve.com/oldsmobile-alero-1999-2004/,1,0,0.0,2.0
 mileagecurve,https://mileagecurve.com/oldsmobile/,2,0,0.0,42.5
 mileagecurve,https://mileagecurve.com/pontiac-g6-2005-2010/,29,0,0.0,17.0
 mileagecurve,https://mileagecurve.com/pontiac/,32,0,0.0,52.8
 mileagecurve,https://mileagecurve.com/privacy/,5,0,0.0,4.6
-mileagecurve,https://mileagecurve.com/saturn-ion-2003-2007/,2,0,0.0,70.5
+mileagecurve,https://mileagecurve.com/saturn-ion-2003-2007/,3,0,0.0,49.7
 mileagecurve,https://mileagecurve.com/saturn/,1,0,0.0,7.0
 mileagecurve,https://mileagecurve.com/subaru-forester-1998-2002/,28,0,0.0,28.3
 mileagecurve,https://mileagecurve.com/subaru-forester-2003-2008/,10,0,0.0,25.9
@@ -338,7 +340,7 @@ mileagecurve,https://mileagecurve.com/toyota-rav4-2013-2018/,3,0,0.0,9.0
 mileagecurve,https://mileagecurve.com/toyota-sienna-1998-2003/,11,0,0.0,33.7
 mileagecurve,https://mileagecurve.com/toyota-sienna-2004-2010/,1,0,0.0,10.0
 mileagecurve,https://mileagecurve.com/toyota-sienna-2011-2020/,85,0,0.0,23.3
-mileagecurve,https://mileagecurve.com/toyota-tacoma-1995-2004/,2,0,0.0,26.5
+mileagecurve,https://mileagecurve.com/toyota-tacoma-1995-2004/,3,0,0.0,21.7
 mileagecurve,https://mileagecurve.com/toyota-tacoma-2005-2015/,24,0,0.0,38.7
 mileagecurve,https://mileagecurve.com/toyota-tundra-2000-2006/,15,0,0.0,33.1
 mileagecurve,https://mileagecurve.com/toyota-tundra-2007-2021/,39,0,0.0,32.5
